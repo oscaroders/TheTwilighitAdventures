@@ -2,11 +2,11 @@
 Game Production Project, YRGO - GP18
 
 
-START DAY: 9:00
+**START DAY:** 9:00
 
-SCRUM START: 9:05
+**STAND-UP MEETING START: 9:05
 
-END DAY : 16:00
+**END DAY :** 16:00
 
 **ROLES:**
 
