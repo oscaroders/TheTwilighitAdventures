@@ -1,7 +1,7 @@
 # TheTwilighitAdventures
 Game Production Project, YRGO - GP18
 
-**ROLES:**
+ROLES:
 
 Petter: Programmering- Göra om grejer
   - Vill lära sig. Ha utmaningar
@@ -16,5 +16,5 @@ Oscar: Projekt Ledare
   - Unity kalleser och kopplingar
   - Okej med artsy stuff
   
-Jesper:
-  - 
+Jesper: 
+  -  Las
