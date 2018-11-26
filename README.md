@@ -1,20 +1,20 @@
 # TheTwilighitAdventures
 Game Production Project, YRGO - GP18
 
-ROLES:
+**ROLES:**
 
-Petter: Programmering- Göra om grejer
+**Petter:** Programmering- Göra om grejer
   - Vill lära sig. Ha utmaningar
 
-Ulrik: Programmering - Scriptning
+**Ulrik:** Programmering - Scriptning
   - Vill skriva det själv
   
-Sebastian: Level Design
+**Sebastian:** Level Design
   - Har gjort det mesta inom programmering 
   
-Oscar: Projekt Ledare
+**Oscar:** Projekt Ledare
   - Unity kalleser och kopplingar
   - Okej med artsy stuff
   
-Jesper: 
+**Jesper:** 
   -  Las
