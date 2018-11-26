@@ -4,7 +4,7 @@ Game Production Project, YRGO - GP18
 
 **START DAY:** 9:00
 
-**STAND-UP MEETING START: 9:05
+**STAND-UP MEETING START:** 9:05
 
 **END DAY :** 16:00
 
