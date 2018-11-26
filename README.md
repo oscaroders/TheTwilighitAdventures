@@ -1,6 +1,13 @@
 # TheTwilighitAdventures
 Game Production Project, YRGO - GP18
 
+
+START DAY: 9:00
+
+SCUM START: 9:05
+
+END DAY : 16:00
+
 **ROLES:**
 
 **Petter:** Programmering- Göra om grejer
