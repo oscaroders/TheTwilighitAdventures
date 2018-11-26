@@ -19,7 +19,7 @@ END DAY : 16:00
 **Sebastian:** Level Design
   - Har gjort det mesta inom programmering 
   
-**Oscar:** Projekt Ledare
+**Oscar:** Projektledare
   - Unity kalleser och kopplingar
   - Okej med artsy stuff
   
