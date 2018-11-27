@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Jump : MonoBehaviour
 {
-	public float jumpMaxTime;
-	public float jumpSpeed = 1;
+	public float jumpMaxTime = 0.3f;
+	public float jumpSpeed = 1f;
 	float jumpTime;
 	float jumpMaxTimer;
 	public bool isJumping;
