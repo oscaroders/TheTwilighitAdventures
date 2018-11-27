@@ -20,16 +20,16 @@ public class Jump : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update ()
+	public void Jumping (float jumpValue)
 	{
-		if (Input.GetButtonDown("Jump") && !isJumping)
+		if (jumpValue > 0 && !isJumping)
 		{
 			isJumping = true;
 			jumpMaxTimer = Time.time + jumpMaxTime;
 			jumpTime = 0;
 		}
 
-		if (Input.GetButton("Jump") && Time.time < jumpMaxTimer && isJumping)
+		if (jumpValue > 0 && Time.time < jumpMaxTimer && isJumping)
 		{
 			jumpTime += Time.deltaTime;
 
@@ -46,20 +46,17 @@ public class Jump : MonoBehaviour
 			{
 				jumpSpeed *= 0.8f;
 			}
-			Debug.Log("Hoppa");
 		}
 
-		if (Input.GetButtonUp("Jump"))
+		if (jumpValue <= 0)
 		{
 			jumpMaxTimer = 0;
 			jumpSpeed = 1f;
-			Debug.Log("Hoppas");
 		}
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		isJumping = false;
-		Debug.Log("Hoppat");
 	}
 }
