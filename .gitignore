@@ -36,4 +36,8 @@ sysinfo.txt
 *.unitypackage
 
 # Files that starts with:
-Test*
+TestJesper.*
+TestPetter.*
+TestUlrik.*
+TestOscar.*
+TestSebastian.*
