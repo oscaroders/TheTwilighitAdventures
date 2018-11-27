@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 108639058}
   - component: {fileID: 108639059}
   m_Layer: 0
-  m_Name: Temporary_0 (1)
+  m_Name: BasicPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 144090428}
   - component: {fileID: 144090429}
   m_Layer: 0
-  m_Name: Temporary_0 (4)
+  m_Name: BasicPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -273,7 +273,7 @@ GameObject:
   - component: {fileID: 261400679}
   - component: {fileID: 261400680}
   m_Layer: 0
-  m_Name: Temporary_0 (8)
+  m_Name: BasicPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -347,8 +347,9 @@ GameObject:
   m_Component:
   - component: {fileID: 493250006}
   - component: {fileID: 493250007}
+  - component: {fileID: 493250008}
   m_Layer: 0
-  m_Name: Temporary_3 (7)
+  m_Name: BasicPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -413,6 +414,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &493250008
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 493250005}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.5, y: 0.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &585887384
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,7 +449,7 @@ GameObject:
   - component: {fileID: 585887385}
   - component: {fileID: 585887386}
   m_Layer: 0
-  m_Name: Temporary_0 (5)
+  m_Name: BasicPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -498,7 +524,7 @@ GameObject:
   - component: {fileID: 741211045}
   - component: {fileID: 741211046}
   m_Layer: 0
-  m_Name: Temporary_0 (17)
+  m_Name: BasicPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -573,7 +599,7 @@ GameObject:
   - component: {fileID: 787126772}
   - component: {fileID: 787126773}
   m_Layer: 0
-  m_Name: Temporary_0 (7)
+  m_Name: BasicPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -648,7 +674,7 @@ GameObject:
   - component: {fileID: 825953490}
   - component: {fileID: 825953491}
   m_Layer: 0
-  m_Name: Temporary_0 (14)
+  m_Name: BasicPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -723,7 +749,7 @@ GameObject:
   - component: {fileID: 843768569}
   - component: {fileID: 843768570}
   m_Layer: 0
-  m_Name: Temporary_1
+  m_Name: BasicPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -797,8 +823,9 @@ GameObject:
   m_Component:
   - component: {fileID: 998724400}
   - component: {fileID: 998724401}
+  - component: {fileID: 998724402}
   m_Layer: 0
-  m_Name: Temporary_3 (2)
+  m_Name: BasicPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -863,6 +890,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &998724402
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 998724399}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.5, y: 0.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1006334424
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,7 +925,7 @@ GameObject:
   - component: {fileID: 1006334425}
   - component: {fileID: 1006334426}
   m_Layer: 0
-  m_Name: Temporary_0
+  m_Name: BasicPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -948,7 +1000,7 @@ GameObject:
   - component: {fileID: 1017360265}
   - component: {fileID: 1017360266}
   m_Layer: 0
-  m_Name: Temporary_0 (11)
+  m_Name: BasicPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1023,7 +1075,7 @@ GameObject:
   - component: {fileID: 1075394639}
   - component: {fileID: 1075394640}
   m_Layer: 0
-  m_Name: Temporary_0 (6)
+  m_Name: BasicPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1175,7 +1227,7 @@ GameObject:
   - component: {fileID: 1115187781}
   - component: {fileID: 1115187782}
   m_Layer: 0
-  m_Name: Temporary_0 (16)
+  m_Name: BasicPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1249,8 +1301,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1292529252}
   - component: {fileID: 1292529253}
+  - component: {fileID: 1292529254}
   m_Layer: 0
-  m_Name: Temporary_3
+  m_Name: BasicPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1315,6 +1368,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1292529254
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1292529251}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.5, y: 0.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1323063159
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,8 +1402,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1323063160}
   - component: {fileID: 1323063161}
+  - component: {fileID: 1323063162}
   m_Layer: 0
-  m_Name: Temporary_3 (3)
+  m_Name: BasicPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1390,6 +1469,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1323063162
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1323063159}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.5, y: 0.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1417902491
 GameObject:
   m_ObjectHideFlags: 0
@@ -1400,7 +1504,7 @@ GameObject:
   - component: {fileID: 1417902492}
   - component: {fileID: 1417902493}
   m_Layer: 0
-  m_Name: Temporary_0 (15)
+  m_Name: BasicPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1475,7 +1579,7 @@ GameObject:
   - component: {fileID: 1435984202}
   - component: {fileID: 1435984203}
   m_Layer: 0
-  m_Name: Temporary_0 (10)
+  m_Name: BasicPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1549,7 +1653,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1490746202}
   m_Layer: 0
-  m_Name: TilesFloatingPlattform
+  m_Name: TilesFloatingPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1585,8 +1689,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1622859385}
   - component: {fileID: 1622859386}
+  - component: {fileID: 1622859387}
   m_Layer: 0
-  m_Name: Temporary_3 (4)
+  m_Name: BasicPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1651,6 +1756,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1622859387
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1622859384}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.5, y: 0.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1625212518
 GameObject:
   m_ObjectHideFlags: 0
@@ -1660,8 +1790,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1625212519}
   - component: {fileID: 1625212520}
+  - component: {fileID: 1625212521}
   m_Layer: 0
-  m_Name: Temporary_2
+  m_Name: BasicPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1726,6 +1857,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1625212521
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1625212518}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 10, y: 0.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 20, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1640099674
 GameObject:
   m_ObjectHideFlags: 0
@@ -1735,7 +1891,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1640099675}
   m_Layer: 0
-  m_Name: TilesPlattform
+  m_Name: TilesPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1784,7 +1940,7 @@ GameObject:
   - component: {fileID: 1713407500}
   - component: {fileID: 1713407501}
   m_Layer: 0
-  m_Name: Temporary_0 (9)
+  m_Name: BasicPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1858,8 +2014,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1815290785}
   - component: {fileID: 1815290786}
+  - component: {fileID: 1815290787}
   m_Layer: 0
-  m_Name: Temporary_3 (6)
+  m_Name: BasicPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1924,6 +2081,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1815290787
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1815290784}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.5, y: 0.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1874190564
 GameObject:
   m_ObjectHideFlags: 0
@@ -1933,8 +2115,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1874190565}
   - component: {fileID: 1874190566}
+  - component: {fileID: 1874190567}
   m_Layer: 0
-  m_Name: Temporary_3 (5)
+  m_Name: BasicPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1999,6 +2182,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1874190567
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1874190564}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.5, y: 0.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1913139593
 GameObject:
   m_ObjectHideFlags: 0
@@ -2009,7 +2217,7 @@ GameObject:
   - component: {fileID: 1913139594}
   - component: {fileID: 1913139595}
   m_Layer: 0
-  m_Name: Temporary_0 (13)
+  m_Name: BasicPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2084,7 +2292,7 @@ GameObject:
   - component: {fileID: 1917423836}
   - component: {fileID: 1917423837}
   m_Layer: 0
-  m_Name: Temporary_0 (3)
+  m_Name: BasicPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2159,7 +2367,7 @@ GameObject:
   - component: {fileID: 1940086727}
   - component: {fileID: 1940086728}
   m_Layer: 0
-  m_Name: Temporary_0 (12)
+  m_Name: BasicPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2234,7 +2442,7 @@ GameObject:
   - component: {fileID: 2073759125}
   - component: {fileID: 2073759126}
   m_Layer: 0
-  m_Name: Temporary_0 (2)
+  m_Name: BasicPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2308,8 +2516,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2079663740}
   - component: {fileID: 2079663741}
+  - component: {fileID: 2079663742}
   m_Layer: 0
-  m_Name: Temporary_3 (1)
+  m_Name: BasicPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2374,3 +2583,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &2079663742
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2079663739}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.5, y: 0.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
