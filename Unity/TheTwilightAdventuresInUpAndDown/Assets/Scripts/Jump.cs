@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Jump : MonoBehaviour
 {
+    public bool invertedJump;
 	public float jumpMaxTime = 0.3f;
 	public float jumpSpeed = 1f;
 	float jumpTime;
@@ -16,7 +17,6 @@ public class Jump : MonoBehaviour
 	void Start ()
 	{
 		rb2D = GetComponent<Rigidbody2D>();
-		rb2D.gravityScale = 3;
 	}
 	
 	// Update is called once per frame
@@ -33,7 +33,15 @@ public class Jump : MonoBehaviour
 		{
 			jumpTime += Time.deltaTime;
 
-			rb2D.velocity = new Vector2(rb2D.velocity.x, jumpSpeed);
+            if(invertedJump)
+            {
+                rb2D.velocity = new Vector2(rb2D.velocity.x, -jumpSpeed);
+            }
+            else
+            {
+                rb2D.velocity = new Vector2(rb2D.velocity.x, jumpSpeed);
+            }
+			
 
 			if (jumpTime < 0.45f)
 			{
