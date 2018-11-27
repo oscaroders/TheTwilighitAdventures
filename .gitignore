@@ -35,5 +35,5 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
-# Special Files
+# Files that starts with:
 Test*
