@@ -5,11 +5,11 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour {
 
     public PlayerMovement move;
-    //jump variable?
+    public Jump jump;
 	
 	// Update is called once per frame
 	void Update () {
         move.Movement(Input.GetAxisRaw("Horizontal"));
-        //jump input + script HERE
+        jump.Jumping(Input.GetAxisRaw("Jump"));
 	}
 }
