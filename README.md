@@ -27,3 +27,6 @@ Game Production Project, YRGO - GP18
   - Vill att alla i gruppen lär sig så mycket det kan
   - Förbättra ledar kunskaper.
   - Ha roligt med de andra
+
+**Grupp:**
+- Alla har gjort minst en level design
