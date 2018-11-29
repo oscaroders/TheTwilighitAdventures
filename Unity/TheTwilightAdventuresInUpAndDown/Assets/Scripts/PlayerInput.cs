@@ -10,6 +10,8 @@ public class PlayerInput : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         move.Movement(Input.GetAxisRaw("Horizontal"));
-        jump.Jumping(Input.GetAxisRaw("Jump"));
+        jump.Jumping(Input.GetButtonDown("Jump"));
+        jump.SetButtonRelease(Input.GetButtonUp("Jump"));
+        
 	}
 }

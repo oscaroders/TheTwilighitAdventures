@@ -10,7 +10,7 @@ public class Jump : MonoBehaviour
 	float jumpTime;
 	float jumpMaxTimer;
 	public bool isJumping;
-
+    bool holdingButton;
 	Rigidbody2D rb2D;
 
 	// Use this for initialization
@@ -20,16 +20,23 @@ public class Jump : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	public void Jumping (float jumpValue)
+	public void Jumping (bool jumpValue)
 	{
-		if (jumpValue > 0 && !isJumping)
+
+        if (jumpValue)
+        {
+            holdingButton = true;
+        }
+        
+        if (holdingButton && !isJumping)
 		{
 			isJumping = true;
+            
 			jumpMaxTimer = Time.time + jumpMaxTime;
 			jumpTime = 0;
 		}
 
-		if (jumpValue > 0 && Time.time < jumpMaxTimer && isJumping)
+		if (holdingButton && Time.time < jumpMaxTimer && isJumping)
 		{
 			jumpTime += Time.deltaTime;
 
@@ -56,15 +63,23 @@ public class Jump : MonoBehaviour
 			}
 		}
 
-		if (jumpValue <= 0)
+		if (!holdingButton)
 		{
 			jumpMaxTimer = 0;
 			jumpSpeed = 1f;
 		}
 	}
-
+    public void SetButtonRelease(bool isUp)
+    {
+        if(isUp)
+        {
+            holdingButton = false;
+        }
+    }
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		isJumping = false;
-	}
+        holdingButton = false;
+
+    }
 }
