@@ -10,16 +10,17 @@ Game Production Project, YRGO - GP18
 
 **ROLES:**
 
-**Petter:** Programmering- Göra om grejer
+**Petter:** Programmerare - Level Design
   - Vill lära sig. Ha utmaningar
 
-**Ulrik:** Programmering - Scriptning
+**Ulrik:** Programmerare - Level Design
   - Vill skriva det själv
+  - Lära sig mer om scriptning
   
-**Sebastian:** Level Design
+**Sebastian:** Programmerare - Level Design
   - Har gjort det mesta inom programmering 
   
-**Oscar:** Projektledare - Director - Protagonist
+**Oscar:** Projektledare - Director - Protagonist - Testare
   - Unity kalleser och kopplingar
   - Okej med artsy stuff
   
