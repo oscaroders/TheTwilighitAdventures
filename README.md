@@ -24,7 +24,7 @@ Game Production Project, YRGO - GP18
   - Unity kalleser och kopplingar
   - Okej med artsy stuff
   
-**Jesper:** Projektledare - Git Guru - Lead Programmer. 
+**Jesper:** Projektledare - Git Guru - Lead Programmer - Scrum Master. 
   - Vill att alla i gruppen lär sig så mycket det kan
   - Förbättra ledar kunskaper.
   - Ha roligt med de andra
