@@ -5,21 +5,27 @@ using UnityEngine.UI;
 
 public class CameraScreenSpace : MonoBehaviour {
 
+    public Camera mainCamera;
     public Camera eveCamera;
     public Camera dodoCamera;
     public Slider slider;
 
+    public float defaultValueOfOrthographicSize;
+
+    private void Start()
+    {
+        defaultValueOfOrthographicSize = mainCamera.orthographicSize;
+    }
     float eveCameraProcent = 0.5f;
     float dodoCameraProcent = 0.5f;
-    // Update is called once per frame
-    void LateUpdate () {
 
+    void LateUpdate () {
 
         eveCameraProcent = slider.value;
         dodoCameraProcent = 1 - slider.value;
 
-        eveCamera.orthographicSize = 5 * eveCameraProcent;
-        dodoCamera.orthographicSize = 5 * dodoCameraProcent;
+        eveCamera.orthographicSize = defaultValueOfOrthographicSize * eveCameraProcent;
+        dodoCamera.orthographicSize = defaultValueOfOrthographicSize * dodoCameraProcent;
 
         Rect temp = eveCamera.rect;
         temp.y = -eveCameraProcent + 1;
