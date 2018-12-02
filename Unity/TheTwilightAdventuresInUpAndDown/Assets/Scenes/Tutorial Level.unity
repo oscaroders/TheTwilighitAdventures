@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 125463061}
   - component: {fileID: 125463060}
   m_Layer: 0
-  m_Name: Dodo Camera
+  m_Name: Down Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -741,6 +741,7 @@ GameObject:
   - component: {fileID: 288240438}
   - component: {fileID: 288240437}
   - component: {fileID: 288240436}
+  - component: {fileID: 288240440}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -821,6 +822,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &288240440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 288240435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d61d4021b0aacde4e9c230791cc22960, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 288240438}
+  eveCamera: {fileID: 2123148558}
+  dodoCamera: {fileID: 125463062}
+  slider: {fileID: 844143465}
+  defaultValueOfOrthographicSize: 0
 --- !u!1001 &289463158
 Prefab:
   m_ObjectHideFlags: 0
@@ -1959,7 +1976,6 @@ GameObject:
   m_Component:
   - component: {fileID: 844143463}
   - component: {fileID: 844143465}
-  - component: {fileID: 844143464}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -1988,22 +2004,6 @@ RectTransform:
   m_AnchoredPosition: {x: 446, y: 0}
   m_SizeDelta: {x: 20, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &844143464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 844143462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d61d4021b0aacde4e9c230791cc22960, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainCamera: {fileID: 288240438}
-  eveCamera: {fileID: 2123148558}
-  dodoCamera: {fileID: 125463062}
-  slider: {fileID: 844143465}
-  defaultValueOfOrthographicSize: 0
 --- !u!114 &844143465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5175,7 +5175,7 @@ GameObject:
   - component: {fileID: 2123148557}
   - component: {fileID: 2123148560}
   m_Layer: 0
-  m_Name: Eve Camera
+  m_Name: Up Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

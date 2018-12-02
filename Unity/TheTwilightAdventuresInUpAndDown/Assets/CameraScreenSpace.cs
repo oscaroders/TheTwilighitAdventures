@@ -20,6 +20,7 @@ public class CameraScreenSpace : MonoBehaviour {
     float dodoCameraProcent = 0.5f;
 
     void LateUpdate () {
+        mainCamera.orthographicSize = defaultValueOfOrthographicSize;
 
         eveCameraProcent = slider.value;
         dodoCameraProcent = 1 - slider.value;
@@ -31,10 +32,12 @@ public class CameraScreenSpace : MonoBehaviour {
         temp.y = -eveCameraProcent + 1;
         eveCamera.rect = temp;
 
-
         temp = dodoCamera.rect;
         temp.y = dodoCameraProcent - 1;
         dodoCamera.rect = temp;
 
+        //Vector3 t = dodoCamera.transform.position;
+        //t.x = eveCamera.transform.position.x;
+        //dodoCamera.transform.position = t;
     }
 }
