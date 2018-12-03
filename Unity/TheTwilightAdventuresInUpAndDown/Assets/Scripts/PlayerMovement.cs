@@ -37,6 +37,5 @@ public class PlayerMovement : MonoBehaviour {
         velocity.x = Mathf.Clamp(velocity.x, -playerController.v_Max, playerController.v_Max);
 
         rigidBody2D.velocity = new Vector2(velocity.x, velocity.y);
-        Debug.Log("vel: " + velocity.x);
     }
 }
