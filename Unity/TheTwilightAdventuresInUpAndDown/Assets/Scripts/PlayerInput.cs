@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour {
 
-    public PlayerMovement move;
-    public Jump jump;
-	
-	// Update is called once per frame
-	void Update () {
-        move.Movement(Input.GetAxisRaw("Horizontal"));
-        jump.Jumping(Input.GetButtonDown("Jump"));
-        jump.SetButtonRelease(Input.GetButtonUp("Jump"));
-        
-	}
+    private PlayerMovement playerMovement;
+    private PlayerJump playerJump;
+
+    private void Start() {
+        playerMovement = GetComponent<PlayerMovement>();
+        playerJump = GetComponent<PlayerJump>();
+    }
+
+    void Update() {
+        playerMovement.Move(Input.GetAxisRaw("Horizontal"), Input.GetButton("Submit"));
+        playerJump.Jump(Input.GetButtonDown("Jump"));
+    }
 }

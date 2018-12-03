@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114750469434326520}
   - component: {fileID: 114932413181779328}
   - component: {fileID: 114940530183288434}
+  - component: {fileID: 114586906029062478}
   m_Layer: 0
   m_Name: Eve
   m_TagString: Untagged
@@ -34,6 +35,34 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1943899795284888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4138467197625930}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4138467197625930
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1943899795284888}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.249, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4471556931967858}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4471556931967858
 Transform:
   m_ObjectHideFlags: 1
@@ -41,9 +70,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1856534640873990}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.89, y: 4.12, z: 0}
+  m_LocalPosition: {x: 13.279953, y: 0.3880595, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4138467197625930}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -128,10 +158,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 713730b32cb8c5b41b34b2207ab585fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  invertedJump: 0
-  jumpMaxTime: 0.2
-  jumpSpeed: 1
-  isJumping: 0
+--- !u!114 &114586906029062478
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1856534640873990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62543cab052be3c49aeb6daebd25c7b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  v_Max: 15
+  dragGround: 5
+  dragAir: 1
+  accelerationGround: 30
+  accelerationAir: 6
+  sprintMultiplier: 2
+  jumpSpeed: 10
+  fallMultiplier: 5.5
+  lowJumpMultiplier: 5
+  airControl: 0
+  grounded: 0
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  groundCheck: {fileID: 4138467197625930}
 --- !u!114 &114750469434326520
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -143,8 +195,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f56e7b2d433bcaa4ba3632677443e128, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  rigidbody2D: {fileID: 50157820465548128}
 --- !u!114 &114932413181779328
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -156,8 +206,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174a3d6ddbd5ab749aed8804b0d8e216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: {fileID: 114750469434326520}
-  jump: {fileID: 114318404024462770}
 --- !u!114 &114940530183288434
 MonoBehaviour:
   m_ObjectHideFlags: 1
