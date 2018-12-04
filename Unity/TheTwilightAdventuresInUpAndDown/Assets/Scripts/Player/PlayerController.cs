@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour {
     [Range(0, 20)] [SerializeField] internal float jumpSpeed = 10f;
     [Range(0, 10)] [SerializeField] private float fallMultiplier = 5.5f;
     [Range(0, 10)] [SerializeField] private float lowJumpMultiplier = 5f;
-    const float groundedRadius = .1f;
+    const float groundedRadius = .15f;
     [Space]
 
     [SerializeField] private bool airControl = false;
