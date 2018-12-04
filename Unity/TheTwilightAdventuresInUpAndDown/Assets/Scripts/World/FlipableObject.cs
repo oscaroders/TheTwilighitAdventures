@@ -21,9 +21,12 @@ public class FlipableObject : MonoBehaviour {
     }
     public void SetEndPosition(Vector3 position, Quaternion rotation)
     {
-        endPosition = position;
+
+        endPosition = startPosition;
+        endPosition.y = position.y;
         endRotation = rotation;
     }
+
     public void SetStartPosition(Vector3 position, Quaternion rotation)
     {
         startPosition = position;
@@ -39,4 +42,5 @@ public class FlipableObject : MonoBehaviour {
         transform.position = endPosition;
         transform.rotation = endRotation;
     }
+    
 }

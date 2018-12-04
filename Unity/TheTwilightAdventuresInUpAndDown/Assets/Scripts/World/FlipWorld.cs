@@ -23,6 +23,7 @@ public class FlipWorld : MonoBehaviour {
                 childrenTransform[i].SetEndPosition(GetRelativePosition(transform, childrenTransform[i].startPosition), rotation);
             }
         }
+        StartCoroutine(UpdateFlipPosition());
     }
     void FlipTheWorld()
     {
@@ -57,11 +58,38 @@ public class FlipWorld : MonoBehaviour {
         return relativePosition;
     }
 
+    IEnumerator UpdateFlipPosition()
+    {
+        Quaternion rotation;
+        while(gameObject){
+            childrenTransform = GetComponentsInChildren<FlipableObject>();
+            for (int i = 0; i < childrenTransform.Length; i++)
+            {
+                if (childrenTransform[i].isFlippable)
+                {
+                    if ((childrenTransform[i].transform.position != childrenTransform[i].startPosition && childrenTransform[i].transform.position != childrenTransform[i].endPosition) ||
+                        (childrenTransform[i].transform.rotation != childrenTransform[i].startRotation && childrenTransform[i].transform.rotation != childrenTransform[i].endRotation))
+                    {
+                        // Save its position
+                        childrenTransform[i].SetStartPosition(childrenTransform[i].transform.position, childrenTransform[i].transform.rotation);
 
+                        // Calculate and save its flipt position
+                        rotation = childrenTransform[i].transform.rotation;
+                        rotation.y = -rotation.y;
+                        childrenTransform[i].SetEndPosition(GetRelativePosition(transform, childrenTransform[i].startPosition), rotation);
+                    }
+
+                }
+            }
+            Debug.Log("Doing a Courtione");
+            yield return new WaitForSeconds(0.5f);
+        }
+           
+    }
 
     // Update is called once per frame
     void Update () {
-		if(Input.GetButton("Cancel") && timer > 0.1f)
+		if(Input.GetButton("Cancel") && timer > 1f)
         {
             FlipTheWorld();
             timer = 0;
