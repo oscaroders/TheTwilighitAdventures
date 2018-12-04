@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4471556931967858}
   - component: {fileID: 212995475356201816}
   - component: {fileID: 61752102591596870}
-  - component: {fileID: 61935819388581762}
   - component: {fileID: 50157820465548128}
   - component: {fileID: 114318404024462770}
   - component: {fileID: 114750469434326520}
@@ -29,6 +28,7 @@ GameObject:
   - component: {fileID: 114940530183288434}
   - component: {fileID: 114586906029062478}
   - component: {fileID: 114632564744136688}
+  - component: {fileID: 58032909043262986}
   m_Layer: 0
   m_Name: Eve
   m_TagString: Untagged
@@ -71,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1856534640873990}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 40.11, y: 1.46, z: 0}
+  m_LocalPosition: {x: 40.11, y: 18.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4138467197625930}
@@ -98,6 +98,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!58 &58032909043262986
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1856534640873990}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.25, y: 0.20167923}
+  serializedVersion: 2
+  m_Radius: 0.20167923
 --- !u!61 &61752102591596870
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -110,7 +125,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.25, y: 0.5}
+  m_Offset: {x: 0.25, y: 0.6007471}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -121,32 +136,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 1}
-  m_EdgeRadius: 0
---- !u!61 &61935819388581762
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1856534640873990}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.23741734, y: 0.000022023916}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0.5, y: 1}
-    newSize: {x: 1, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.2662475, y: 0.08738756}
+  m_Size: {x: 0.40192413, y: 0.7985058}
   m_EdgeRadius: 0
 --- !u!114 &114318404024462770
 MonoBehaviour:
