@@ -71,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1856534640873990}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 40.11, y: 18.2, z: 0}
+  m_LocalPosition: {x: 73.81, y: 3.82, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4138467197625930}
@@ -110,9 +110,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.25, y: 0.20167923}
+  m_Offset: {x: 0.25, y: 0.19721794}
   serializedVersion: 2
-  m_Radius: 0.20167923
+  m_Radius: 0.19721794
 --- !u!61 &61752102591596870
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -125,7 +125,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.25, y: 0.6007471}
+  m_Offset: {x: 0.25, y: 0.59925985}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -136,7 +136,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.40192413, y: 0.7985058}
+  m_Size: {x: 0.3907013, y: 0.8014803}
   m_EdgeRadius: 0
 --- !u!114 &114318404024462770
 MonoBehaviour:
@@ -161,12 +161,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v_Max: 15
-  dragGround: 5
+  dragGround: 3
   dragAir: 1
   accelerationGround: 30
   accelerationAir: 6
   sprintMultiplier: 2
-  jumpSpeed: 10
+  jumpSpeed: 12.5
   fallMultiplier: 5.5
   lowJumpMultiplier: 5
   airControl: 0
@@ -209,6 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174a3d6ddbd5ab749aed8804b0d8e216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rooms: []
 --- !u!114 &114940530183288434
 MonoBehaviour:
   m_ObjectHideFlags: 1
