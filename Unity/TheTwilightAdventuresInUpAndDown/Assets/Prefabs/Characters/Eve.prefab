@@ -27,6 +27,8 @@ GameObject:
   - component: {fileID: 114750469434326520}
   - component: {fileID: 114932413181779328}
   - component: {fileID: 114940530183288434}
+  - component: {fileID: 114586906029062478}
+  - component: {fileID: 114632564744136688}
   m_Layer: 0
   m_Name: Eve
   m_TagString: Untagged
@@ -34,6 +36,34 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1943899795284888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4138467197625930}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4138467197625930
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1943899795284888}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.249, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4471556931967858}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4471556931967858
 Transform:
   m_ObjectHideFlags: 1
@@ -41,9 +71,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1856534640873990}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.090376616, y: -3.67, z: 0}
+  m_LocalPosition: {x: 3.01, y: 2.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4138467197625930}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -62,10 +93,10 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
-  m_Material: {fileID: 6200000, guid: 495db950695a08047b10feefbb166ef9, type: 2}
+  m_Material: {fileID: 6200000, guid: 84e235f9d0e7a2d4aa113e1e68eddd5b, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &61752102591596870
 BoxCollider2D:
@@ -104,7 +135,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.25402024, y: 0.000022023916}
+  m_Offset: {x: 0.23741734, y: 0.000022023916}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -115,7 +146,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.43227643, y: 0.08738756}
+  m_Size: {x: 0.2662475, y: 0.08738756}
   m_EdgeRadius: 0
 --- !u!114 &114318404024462770
 MonoBehaviour:
@@ -128,10 +159,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 713730b32cb8c5b41b34b2207ab585fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  invertedJump: 0
-  jumpMaxTime: 0.3
-  jumpSpeed: 1
-  isJumping: 0
+--- !u!114 &114586906029062478
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1856534640873990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62543cab052be3c49aeb6daebd25c7b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  v_Max: 15
+  dragGround: 5
+  dragAir: 1
+  accelerationGround: 30
+  accelerationAir: 6
+  sprintMultiplier: 2
+  jumpSpeed: 10
+  fallMultiplier: 5.5
+  lowJumpMultiplier: 5
+  airControl: 0
+  grounded: 0
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  groundCheck: {fileID: 4138467197625930}
+--- !u!114 &114632564744136688
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1856534640873990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96ef1496d69a2d54abebfd4c7d56843a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxVelocity: 50.4
 --- !u!114 &114750469434326520
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -143,8 +208,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f56e7b2d433bcaa4ba3632677443e128, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
-  rigidbody2D: {fileID: 50157820465548128}
 --- !u!114 &114932413181779328
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -156,8 +219,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174a3d6ddbd5ab749aed8804b0d8e216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: {fileID: 114750469434326520}
-  jump: {fileID: 114318404024462770}
 --- !u!114 &114940530183288434
 MonoBehaviour:
   m_ObjectHideFlags: 1
