@@ -25,25 +25,26 @@ public class FlipWorld : MonoBehaviour {
         }
         StartCoroutine(UpdateFlipPosition());
     }
-    void FlipTheWorld()
+    public void FlipTheWorld(bool state)
     {
-        for (int i = 0; i < childrenTransform.Length; i++)
+        if(state)
         {
-            if (childrenTransform[i].isFlippable)
+            for (int i = 0; i < childrenTransform.Length; i++)
             {
-                
-                if (childrenTransform[i].transform.position == childrenTransform[i].startPosition)
+                if (childrenTransform[i].isFlippable)
                 {
-                    childrenTransform[i].GoToEnd();
-                }
-                else
-                {
-                    childrenTransform[i].GoToStart();
+
+                    if (childrenTransform[i].transform.position == childrenTransform[i].startPosition)
+                    {
+                        childrenTransform[i].GoToEnd();
+                    }
+                    else
+                    {
+                        childrenTransform[i].GoToStart();
+                    }
                 }
             }
-            
-            
-        }   
+        }       
 
     }
     public static Vector3 GetRelativePosition(Transform origin, Vector3 position)
@@ -81,20 +82,9 @@ public class FlipWorld : MonoBehaviour {
 
                 }
             }
-            Debug.Log("Doing a Courtione");
+            
             yield return new WaitForSeconds(0.5f);
         }
            
     }
-
-    // Update is called once per frame
-    void Update () {
-		if(Input.GetButton("Cancel") && timer > 1f)
-        {
-            FlipTheWorld();
-            timer = 0;
-            Debug.Log("Flip World");
-        }
-        timer += Time.deltaTime;
-	}
 }
