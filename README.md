@@ -20,7 +20,7 @@ Game Production Project, YRGO - GP18
 **Sebastian:** Programmerare - Level Design
   - Har gjort det mesta inom programmering 
   
-**Oscar:** Projektledare - Director - Protagonist - Testare
+**Oscar:** Producer/Designer - Projektledare - Protagonist - Testare
   - Unity kalleser och kopplingar
   - Okej med artsy stuff
   
