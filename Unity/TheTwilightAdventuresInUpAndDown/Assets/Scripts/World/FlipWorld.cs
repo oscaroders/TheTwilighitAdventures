@@ -6,38 +6,38 @@ public class FlipWorld : MonoBehaviour {
 
     FlipableObject[] childrenTransform;
     float timer;
-    // Use this for initialization
     void Start()
     {
+        Quaternion rotation;
         childrenTransform = GetComponentsInChildren<FlipableObject>();
         for (int i = 0; i < childrenTransform.Length; i++)
         {
             if (childrenTransform[i].isFlippable)
             {
+                // Save its position
                 childrenTransform[i].SetStartPosition(childrenTransform[i].transform.position, childrenTransform[i].transform.rotation);
-                childrenTransform[i].SetEndPosition(GetRelativePosition(transform, childrenTransform[i].startPosition), new Quaternion(childrenTransform[i].transform.rotation.x, childrenTransform[i].transform.rotation.y, -childrenTransform[i].transform.rotation.z, childrenTransform[i].transform.rotation.w));
+
+                // Calculate and save its flipt position
+                rotation = childrenTransform[i].transform.rotation;
+                rotation.y = -rotation.y;
+                childrenTransform[i].SetEndPosition(GetRelativePosition(transform, childrenTransform[i].startPosition), rotation);
             }
         }
     }
-    //Blocken behöver ha Center som pivo punkt
-    //Borde ha någon koll som kontrollerar att det är C
     void FlipTheWorld()
     {
         for (int i = 0; i < childrenTransform.Length; i++)
         {
             if (childrenTransform[i].isFlippable)
             {
-                //Inverts the rotation of the object
-                childrenTransform[i].transform.rotation = new Quaternion(childrenTransform[i].transform.rotation.x, childrenTransform[i].transform.rotation.y, -childrenTransform[i].transform.rotation.z, childrenTransform[i].transform.rotation.w);
-
-
-                if (childrenTransform[i].startPosition == childrenTransform[i].transform.position)
+                
+                if (childrenTransform[i].transform.position == childrenTransform[i].startPosition)
                 {
-                    childrenTransform[i].SetPosition(childrenTransform[i].endPosition);
+                    childrenTransform[i].GoToEnd();
                 }
                 else
                 {
-                    childrenTransform[i].SetPosition(childrenTransform[i].startPosition);
+                    childrenTransform[i].GoToStart();
                 }
             }
             
@@ -53,6 +53,7 @@ public class FlipWorld : MonoBehaviour {
         relativePosition.y = Vector3.Dot(distance, origin.up.normalized);
         relativePosition.z = Vector3.Dot(distance, origin.forward.normalized);
 
+        relativePosition.y = -relativePosition.y + origin.position.y;
         return relativePosition;
     }
 
@@ -60,7 +61,7 @@ public class FlipWorld : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-		if(Input.GetButton("Cancel") && timer > 1)
+		if(Input.GetButton("Cancel") && timer > 0.1f)
         {
             FlipTheWorld();
             timer = 0;

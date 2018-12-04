@@ -29,5 +29,14 @@ public class FlipableObject : MonoBehaviour {
         startPosition = position;
         startRotation = rotation;
     }
-
+    public void GoToStart()
+    {
+        transform.position = startPosition;
+        transform.rotation = startRotation;
+    }
+    public void GoToEnd()
+    {
+        transform.position = endPosition;
+        transform.rotation = endRotation;
+    }
 }
