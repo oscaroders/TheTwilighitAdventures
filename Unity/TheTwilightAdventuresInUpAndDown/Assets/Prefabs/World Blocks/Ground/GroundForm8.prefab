@@ -20,8 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4167079741459600}
   - component: {fileID: 212475868623558646}
-  - component: {fileID: 61104189960807588}
-  - component: {fileID: 68343889091005938}
+  - component: {fileID: 60261326354065022}
   m_Layer: 0
   m_Name: GroundForm8
   m_TagString: Untagged
@@ -36,39 +35,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1058870904215324}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.046307, y: 0.9804778, z: 0}
+  m_LocalPosition: {x: -8.93, y: 3.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61104189960807588
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1058870904215324}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -12.919034, y: -0.043155193}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 36.5, y: 2}
-    newSize: {x: 36.5, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 10.661932, y: 1.9136896}
-  m_EdgeRadius: 0
---- !u!68 &68343889091005938
-EdgeCollider2D:
+--- !u!60 &60261326354065022
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -80,18 +54,41 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 36.5, y: 2}
+    newSize: {x: 36.5, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   m_Points:
-  - {x: -0.32263184, y: -0.9125593}
-  - {x: -0.3273964, y: -0.9649695}
-  - {x: -0.32291794, y: -0.5559224}
-  - {x: 1.7848873, y: -0.55958325}
-  - {x: 1.7904072, y: -0.09160018}
-  - {x: 3.8428469, y: -0.10778642}
-  - {x: 3.869935, y: 0.27283955}
-  - {x: 6.590008, y: 0.28748024}
-  - {x: 6.5939054, y: 0.93802726}
-  - {x: 18.2274, y: 0.87008417}
+    m_Paths:
+    - - {x: -18.213306, y: 0.981653}
+      - {x: -18.25, y: -1}
+      - {x: -7.518836, y: -1}
+      - {x: -7.528009, y: 0.9541342}
+    - - {x: 9.485178, y: 0.9246614}
+      - {x: 8.952408, y: 0.93189406}
+      - {x: 7.50046, y: 0.9381716}
+      - {x: 7.245096, y: 0.99555707}
+      - {x: 6.540875, y: 0.9968507}
+      - {x: 6.542777, y: 0.30422115}
+      - {x: 3.8526115, y: 0.30387545}
+      - {x: 3.8517385, y: -0.08530688}
+      - {x: 1.7829313, y: -0.09041929}
+      - {x: 1.7804861, y: -0.53612185}
+      - {x: -0.33191776, y: -0.5358932}
+      - {x: -0.3297844, y: -0.96351767}
+      - {x: 0.14285755, y: -0.96274924}
+      - {x: 18.25, y: -1}
+      - {x: 18.248293, y: 0.9088695}
+      - {x: 16.7981, y: 0.89803815}
+      - {x: 16.41685, y: 0.9105356}
+      - {x: 12.962595, y: 0.9079521}
+      - {x: 12.656913, y: 0.92638755}
+      - {x: 10.312394, y: 0.91977334}
 --- !u!212 &212475868623558646
 SpriteRenderer:
   m_ObjectHideFlags: 1
