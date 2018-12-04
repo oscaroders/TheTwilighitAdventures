@@ -18,12 +18,12 @@ public class Open : PuzzleAction
         if (activated)
         {
             colliderBox.enabled = false;
-            animata.Play("Open");
+            animata.Play("DoorOpen");
         }
         else
         {
             colliderBox.enabled = true;
-            animata.Play("Close");
+            animata.Play("DoorClose");
         }
     }
 }
