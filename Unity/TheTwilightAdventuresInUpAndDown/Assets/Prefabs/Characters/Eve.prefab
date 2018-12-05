@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4471556931967858}
   - component: {fileID: 212995475356201816}
   - component: {fileID: 61752102591596870}
+  - component: {fileID: 58032909043262986}
   - component: {fileID: 50157820465548128}
   - component: {fileID: 114318404024462770}
   - component: {fileID: 114750469434326520}
@@ -28,7 +29,6 @@ GameObject:
   - component: {fileID: 114940530183288434}
   - component: {fileID: 114586906029062478}
   - component: {fileID: 114632564744136688}
-  - component: {fileID: 58032909043262986}
   m_Layer: 0
   m_Name: Eve
   m_TagString: Untagged
