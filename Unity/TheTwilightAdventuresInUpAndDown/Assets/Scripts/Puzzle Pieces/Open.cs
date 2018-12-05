@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(Animator))]
-public class Open : PuzzleAction
+public class Open : ActionObject
 {
     private Collider2D colliderBox;
     private Animator animata;

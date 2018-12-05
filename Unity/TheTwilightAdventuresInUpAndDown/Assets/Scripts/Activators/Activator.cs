@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Activator : MonoBehaviour
 {
-    public PuzzleAction[] puzzlePieces;
+    public ActionObject[] objects;
     public bool stateOfActivator;
     public void Activate(bool state)
     {
         stateOfActivator = state;
-        foreach (PuzzleAction puzzlePiece in puzzlePieces)
+        foreach (ActionObject action in objects)
         {
-            puzzlePiece.OnActivation(state);
+            action.OnActivation(state);
         }
     }
 }
