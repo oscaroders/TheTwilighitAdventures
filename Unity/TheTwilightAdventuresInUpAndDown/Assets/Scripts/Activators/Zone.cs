@@ -14,14 +14,14 @@ public class Zone : MonoBehaviour
     {
         if (collision.tag == targetTag)
         {
-            activator.Activate(true);
+            activator.stateOfActivator = true;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == targetTag)
         {
-            activator.Activate(false);
+            activator.stateOfActivator = false;
         }
     }
 }

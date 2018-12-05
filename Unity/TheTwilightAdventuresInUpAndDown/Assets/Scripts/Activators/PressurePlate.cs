@@ -16,7 +16,7 @@ public class PressurePlate : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        activator.Activate(true);
+        activator.stateOfActivator = true;
         off = false;
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -27,7 +27,7 @@ public class PressurePlate : MonoBehaviour
     private void Update()
     {
         if (off && (!timerOn || currentTime > timer))
-            activator.Activate(false);
+            activator.stateOfActivator = false;
         if(timerOn)
             currentTime += Time.deltaTime;
     }
