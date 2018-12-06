@@ -336,7 +336,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: -3
-  m_Material: {fileID: 6200000, guid: 84e235f9d0e7a2d4aa113e1e68eddd5b, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -356,7 +356,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
-  m_Material: {fileID: 6200000, guid: 84e235f9d0e7a2d4aa113e1e68eddd5b, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -507,12 +507,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v_Max: 15
-  dragGround: 3
+  dragGround: 8
   dragAir: 1
-  accelerationGround: 30
+  accelerationGround: 50
   accelerationAir: 6
   sprintMultiplier: 2
-  jumpSpeed: 12.5
+  jumpSpeed: 15
   fallMultiplier: 5.5
   lowJumpMultiplier: 5
   airControl: 0
@@ -673,7 +673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v_Max: 15
-  dragGround: 3
+  dragGround: 10
   dragAir: 1
   accelerationGround: 30
   accelerationAir: 6
