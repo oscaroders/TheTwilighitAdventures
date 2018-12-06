@@ -23,7 +23,7 @@ GameObject:
   m_Layer: 0
   m_Name: EndOfRoom
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -75,7 +75,7 @@ GameObject:
   m_Layer: 0
   m_Name: EveCheck
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -102,7 +102,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1155269624417584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.6, y: -0.03, z: 0}
+  m_LocalPosition: {x: 27.43, y: -0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4139748038230948}
@@ -285,6 +285,7 @@ MonoBehaviour:
   - {fileID: 4477855471252364}
   nextRoomLeft: {fileID: 0}
   nextRoomRight: {fileID: 0}
+  panningSpeed: 10
 --- !u!114 &114298586537595656
 MonoBehaviour:
   m_ObjectHideFlags: 1

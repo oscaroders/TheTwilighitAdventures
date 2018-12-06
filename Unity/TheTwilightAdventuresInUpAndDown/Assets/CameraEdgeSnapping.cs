@@ -43,4 +43,9 @@ public class CameraEdgeSnapping : MonoBehaviour {
         rightBound = right;
 
     }
+
+    public float CalculateMinX(float xPos)
+    {
+        return xPos + camera.orthographicSize * camera.aspect;
+    }
 }

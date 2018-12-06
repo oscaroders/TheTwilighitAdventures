@@ -11,11 +11,19 @@ public class EndOfRoom : ActionObject
     private CameraEdgeSnapping upEdgeSnapping;
     private CameraEdgeSnapping downEdgeSnapping;
 
+    private CameraFollowTarget upCameraFollow;
+    private CameraFollowTarget downCameraFollow;
+
+
     public Transform[] blockers;
 
     public Transform nextRoomLeft;
     public Transform nextRoomRight;
 
+    private bool rightBoundSet = false;
+    float leftBoundPositionX;
+
+    [Range(0f,20f)]public float panningSpeed = 1f;
     private void Start()
     {
         CameraEdgeSnapping[] allEdgeSnapping = FindObjectsOfType<CameraEdgeSnapping>();
@@ -30,8 +38,10 @@ public class EndOfRoom : ActionObject
                 downEdgeSnapping = item;
             }
         }
-        
+        leftBoundPositionX = nextRoomLeft.position.x;
 
+        upCameraFollow = upEdgeSnapping.gameObject.GetComponent<CameraFollowTarget>();
+        downCameraFollow = downEdgeSnapping.gameObject.GetComponent<CameraFollowTarget>();
     }
 
     public override void OnActivation(bool activated)
@@ -44,19 +54,60 @@ public class EndOfRoom : ActionObject
             }
             else
             {
-                upEdgeSnapping.leftBound = nextRoomLeft;
-                upEdgeSnapping.rightBound = nextRoomRight;
-
-                downEdgeSnapping.leftBound = nextRoomLeft;
-                downEdgeSnapping.rightBound = nextRoomRight;
-                //Pan the camera to the next room
-                foreach (Transform item in blockers)
+                
+                if(rightBoundSet)
                 {
-                    Vector3 tempPos = item.position;
-                    tempPos.x -= 1f;
-                    item.position = tempPos;
+                    // Set the new rightbounds for CameraEdgeSnapping
+                    upEdgeSnapping.rightBound = nextRoomRight;
+                    downEdgeSnapping.rightBound = nextRoomRight;
+
+                    rightBoundSet = true;
                 }
-                this.enabled = false;
+                
+                //Save the cameras position for easy manipulation
+                Vector3 upCameraPosition = upEdgeSnapping.gameObject.transform.position;
+                Vector3 downCameraPosition = downEdgeSnapping.gameObject.transform.position;
+
+                //Disable CameraFollowTarget script so it does not disturb panning 
+                if(upCameraFollow.enabled || downCameraFollow.enabled)
+                {
+                    upCameraFollow.enabled = false;
+                    downCameraFollow.enabled = false;
+                } 
+
+                if (upCameraPosition.x >= upEdgeSnapping.CalculateMinX(leftBoundPositionX) && downCameraPosition.x >= downEdgeSnapping.CalculateMinX(leftBoundPositionX))
+                {
+                    //Move the Blockers;
+                    foreach (Transform item in blockers)
+                    {
+                        Vector3 tempPos = item.position;
+                        tempPos.x -= 1f;
+                        item.position = tempPos;
+                    }
+
+                    // Set the new leftbounds for CameraEdgeSnapping
+                    upEdgeSnapping.leftBound = nextRoomLeft;
+                    downEdgeSnapping.leftBound = nextRoomLeft;
+
+                    //Enable CameraFollowTarget script
+                    upCameraFollow.enabled = true;
+                    downCameraFollow.enabled = true;
+                    //Disable this script so it does not reapeat its self;
+                    enabled = false;
+                }
+                else
+                {
+                    float distance = panningSpeed * Time.deltaTime;
+                    
+                    // Move the cameras to the right
+                    upCameraPosition.x += distance;
+                    downCameraPosition.x += distance;
+                  
+                    // Update Cameras position
+                    upEdgeSnapping.gameObject.transform.position = upCameraPosition;
+                    downEdgeSnapping.gameObject.transform.position = downCameraPosition;
+                }
+                
             }
         }
     }
