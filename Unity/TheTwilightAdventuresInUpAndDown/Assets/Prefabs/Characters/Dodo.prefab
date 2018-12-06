@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114425800424441352}
   - component: {fileID: 114044823041012236}
   - component: {fileID: 114399662362221530}
+  - component: {fileID: 70788041169910592}
   m_Layer: 0
   m_Name: Dodo
   m_TagString: Player
@@ -40,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1174620016662190}
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 0.090376616, y: -5.43, z: 0}
+  m_LocalPosition: {x: -7.53, y: -1.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -61,7 +62,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: -3
-  m_Material: {fileID: 6200000, guid: 495db950695a08047b10feefbb166ef9, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -78,7 +79,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.25, y: 0.5}
+  m_Offset: {x: 0.25, y: 0.5162777}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -89,7 +90,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 1}
+  m_Size: {x: 0.5, y: 0.96744466}
   m_EdgeRadius: 0
 --- !u!61 &61784041998106996
 BoxCollider2D:
@@ -97,7 +98,7 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1174620016662190}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -116,6 +117,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.43227643, y: 0.08738756}
   m_EdgeRadius: 0
+--- !u!70 &70788041169910592
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1174620016662190}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.24999672, y: 0.031047108}
+  m_Size: {x: 0.5070274, y: 0.06210422}
+  m_Direction: 1
 --- !u!114 &114044823041012236
 MonoBehaviour:
   m_ObjectHideFlags: 1
