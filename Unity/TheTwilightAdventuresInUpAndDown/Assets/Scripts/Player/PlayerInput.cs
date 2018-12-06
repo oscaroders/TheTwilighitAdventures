@@ -17,6 +17,7 @@ public class PlayerInput : MonoBehaviour {
 
         characterSwitch.GetPlayerMovement().Move(Input.GetAxisRaw("Horizontal"), Input.GetButton("Sprint"));
         characterSwitch.GetPlayerJump().Jump(Input.GetButtonDown("Jump"));
+        characterSwitch.GetInteract().InteractObject(Input.GetButtonDown("Submit"));
                
         for (int i = 0; i < rooms.Length; i++)
         {

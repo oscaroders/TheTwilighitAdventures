@@ -6,8 +6,10 @@ public class CharacterSwitch : MonoBehaviour
 {
     public PlayerMovement eveMovement;
     public PlayerJump eveJump;
+    public Interact eveInteract;
     public PlayerMovement dodoMovement;
     public PlayerJump dodoJump;
+    public Interact dodoInteract;
     public bool isEve = true;
 
     public PlayerMovement GetPlayerMovement()
@@ -32,6 +34,17 @@ public class CharacterSwitch : MonoBehaviour
         else
         {
             return dodoJump;
+        }
+    }
+    public Interact GetInteract()
+    {
+        if(isEve)
+        {
+            return eveInteract;
+        }
+        else
+        {
+            return dodoInteract;
         }
     }
 
