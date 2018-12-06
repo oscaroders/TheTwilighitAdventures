@@ -4,15 +4,44 @@ using UnityEngine;
 
 public class CharacterSwitch : MonoBehaviour
 {
-    public PlayerInput eve, dodo;
-    void Update ()
+    public PlayerMovement eveMovement;
+    public PlayerJump eveJump;
+    public PlayerMovement dodoMovement;
+    public PlayerJump dodoJump;
+    public bool isEve = true;
+
+    public PlayerMovement GetPlayerMovement()
     {
-		if(Input.GetKeyDown(KeyCode.K))
+
+        if(isEve)
         {
-            //eve.move.Movement(0);
-            //eve.enabled = !eve.enabled;
-            //dodo.move.Movement(0);
-            //dodo.enabled = !dodo.enabled;
+            return eveMovement;
         }
-	}
+        else
+        {
+            return dodoMovement;
+        }
+        
+    }
+    public PlayerJump GetPlayerJump()
+    {
+        if(isEve)
+        {
+            return eveJump;
+        }
+        else
+        {
+            return dodoJump;
+        }
+    }
+
+    public void ChangeCharacter(bool state)
+    {
+        if(state)
+        {
+            isEve = !isEve;
+            
+        }
+    }
+
 }

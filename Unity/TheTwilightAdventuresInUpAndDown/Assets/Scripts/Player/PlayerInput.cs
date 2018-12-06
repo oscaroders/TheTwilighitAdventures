@@ -4,24 +4,25 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour {
 
-    private PlayerMovement playerMovement;
-    private PlayerJump playerJump;
+   
+    private CharacterSwitch characterSwitch;
     public FlipWorld[] rooms;
 
     private void Start() {
-        playerMovement = GetComponent<PlayerMovement>();
-        playerJump = GetComponent<PlayerJump>();
         rooms = FindObjectsOfType<FlipWorld>();
-        
+        characterSwitch = GetComponent<CharacterSwitch>();
     }
 
     void Update() {
-        playerMovement.Move(Input.GetAxisRaw("Horizontal"), Input.GetButton("Submit"));
-        playerJump.Jump(Input.GetButtonDown("Jump"));
+
+        characterSwitch.GetPlayerMovement().Move(Input.GetAxisRaw("Horizontal"), Input.GetButton("Sprint"));
+        characterSwitch.GetPlayerJump().Jump(Input.GetButtonDown("Jump"));
+               
         for (int i = 0; i < rooms.Length; i++)
         {
             rooms[i].FlipTheWorld(Input.GetButtonDown("FlipWorld"));
         }
+        characterSwitch.ChangeCharacter(Input.GetButtonDown("CharacterSwitch"));
 
         
     }
