@@ -142,7 +142,6 @@ GameObject:
   - component: {fileID: 4367794735031784}
   - component: {fileID: 212769318659818084}
   - component: {fileID: 61684031993905104}
-  - component: {fileID: 58595473160423440}
   - component: {fileID: 50908449677137260}
   - component: {fileID: 114260544929378160}
   - component: {fileID: 114528307807382576}
@@ -209,7 +208,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1605414250833908}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.09, y: -0.21253538, z: -10.157455}
+  m_LocalPosition: {x: 54, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4849045991909158}
@@ -224,7 +223,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1930489841917500}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.43, z: 10.157455}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4821226820202476}
@@ -279,7 +278,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1822796322692490}
   m_LocalRotation: {x: 1, y: -0, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: -1.13, z: 10.157455}
+  m_LocalPosition: {x: 0, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4061295227322722}
@@ -421,21 +420,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!58 &58595473160423440
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1930489841917500}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 84e235f9d0e7a2d4aa113e1e68eddd5b, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.25, y: 0.19721794}
-  serializedVersion: 2
-  m_Radius: 0.19721794
 --- !u!61 &61677039355581946
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -444,7 +428,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1822796322692490}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 84e235f9d0e7a2d4aa113e1e68eddd5b, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
