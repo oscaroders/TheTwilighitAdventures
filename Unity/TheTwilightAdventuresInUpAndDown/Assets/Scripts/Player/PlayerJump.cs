@@ -16,6 +16,6 @@ public class PlayerJump : MonoBehaviour {
 
     internal void Jump(bool jump) {
         if (jump && playerController.grounded)
-            rigidBody2D.velocity = new Vector2(rigidBody2D.velocity.x, Mathf.Clamp(rigidBody2D.gravityScale, -1,1) * playerController.jumpSpeed);
+            rigidBody2D.velocity = new Vector2(rigidBody2D.velocity.x, Mathf.Sign(rigidBody2D.gravityScale) * playerController.jumpSpeed);
     }
 }
