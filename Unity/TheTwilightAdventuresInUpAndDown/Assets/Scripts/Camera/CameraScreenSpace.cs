@@ -8,22 +8,32 @@ public class CameraScreenSpace : MonoBehaviour {
     public Camera mainCamera;
     public Camera eveCamera;
     public Camera dodoCamera;
-    public Slider slider;
+    [Range(0,1)]public float focusProcentage = 0.7f;
 
     public float defaultValueOfOrthographicSize;
+
+    private CharacterSwitch characterSwitch;
+
+    float eveCameraProcent;
+    float dodoCameraProcent;
 
     private void Start()
     {
         defaultValueOfOrthographicSize = mainCamera.orthographicSize;
+        characterSwitch = GetComponent<CharacterSwitch>();
+        Focus("Eve");
     }
-    float eveCameraProcent = 0.5f;
-    float dodoCameraProcent = 0.5f;
-
     void LateUpdate () {
-        mainCamera.orthographicSize = defaultValueOfOrthographicSize;
 
-        eveCameraProcent = slider.value;
-        dodoCameraProcent = 1 - slider.value;
+        if(characterSwitch.isEve)
+        {
+            Focus("Eve");
+        } else
+        {
+            Focus("Dodo");
+        }
+
+        mainCamera.orthographicSize = defaultValueOfOrthographicSize;
 
         eveCamera.orthographicSize = defaultValueOfOrthographicSize * eveCameraProcent;
         dodoCamera.orthographicSize = defaultValueOfOrthographicSize * dodoCameraProcent;
@@ -35,9 +45,22 @@ public class CameraScreenSpace : MonoBehaviour {
         temp = dodoCamera.rect;
         temp.y = dodoCameraProcent - 1;
         dodoCamera.rect = temp;
-
-        //Vector3 t = dodoCamera.transform.position;
-        //t.x = eveCamera.transform.position.x;
-        //dodoCamera.transform.position = t;
     }
+
+    void Focus(string name)
+    {
+        if(name == "Eve")
+        {
+            eveCameraProcent = focusProcentage;
+            dodoCameraProcent = 1 - focusProcentage;
+        }
+        else if(name == "Dodo")
+        {
+            dodoCameraProcent = focusProcentage;
+            eveCameraProcent = 1 - focusProcentage;
+        }
+
+    }
+        
+
 }

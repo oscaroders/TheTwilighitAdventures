@@ -11,6 +11,7 @@ public class PlayerInput : MonoBehaviour {
     private void Start() {
         rooms = FindObjectsOfType<FlipWorld>();
         characterSwitch = GetComponent<CharacterSwitch>();
+        
     }
 
     void Update() {
@@ -24,7 +25,6 @@ public class PlayerInput : MonoBehaviour {
             rooms[i].FlipTheWorld(Input.GetButtonDown("FlipWorld"));
         }
         characterSwitch.ChangeCharacter(Input.GetButtonDown("CharacterSwitch"));
-
         
     }
 }

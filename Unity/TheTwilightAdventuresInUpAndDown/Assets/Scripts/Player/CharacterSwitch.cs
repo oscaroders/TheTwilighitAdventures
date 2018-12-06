@@ -12,6 +12,16 @@ public class CharacterSwitch : MonoBehaviour
     public Interact dodoInteract;
     public bool isEve = true;
 
+    public void ChangeCharacter(bool state)
+    {
+        if (state)
+        {
+            isEve = !isEve;
+
+        }
+    }
+
+
     public PlayerMovement GetPlayerMovement()
     {
 
@@ -48,13 +58,6 @@ public class CharacterSwitch : MonoBehaviour
         }
     }
 
-    public void ChangeCharacter(bool state)
-    {
-        if(state)
-        {
-            isEve = !isEve;
-            
-        }
-    }
+   
 
 }
