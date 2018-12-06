@@ -101,6 +101,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFlippable: 0
   startPosition: {x: 0, y: 0, z: 0}
+  startRotation: {x: 0, y: 0, z: 0, w: 0}
+  endPosition: {x: 0, y: 0, z: 0}
+  endRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &114619478443018982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,6 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b3a3d5659110b740b87ec01312cb382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activators: []
   activate: 0
 --- !u!114 &114704430540663960
 MonoBehaviour:
@@ -126,6 +130,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFlippable: 0
   startPosition: {x: 0, y: 0, z: 0}
+  startRotation: {x: 0, y: 0, z: 0, w: 0}
+  endPosition: {x: 0, y: 0, z: 0}
+  endRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!212 &212927435138123406
 SpriteRenderer:
   m_ObjectHideFlags: 1

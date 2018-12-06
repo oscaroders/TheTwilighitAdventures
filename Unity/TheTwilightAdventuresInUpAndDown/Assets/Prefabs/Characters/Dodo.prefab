@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 114399662362221530}
   m_Layer: 0
   m_Name: Dodo
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,8 +127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f56e7b2d433bcaa4ba3632677443e128, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
-  rigidbody2D: {fileID: 50848884545779182}
 --- !u!114 &114399662362221530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -140,8 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174a3d6ddbd5ab749aed8804b0d8e216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: {fileID: 114044823041012236}
-  jump: {fileID: 114425800424441352}
+  rooms: []
 --- !u!114 &114425800424441352
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -153,10 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 713730b32cb8c5b41b34b2207ab585fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  invertedJump: 1
-  jumpMaxTime: 0.3
-  jumpSpeed: 1
-  isJumping: 0
 --- !u!212 &212852588040334654
 SpriteRenderer:
   m_ObjectHideFlags: 1
