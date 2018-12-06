@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 114940530183288434}
   - component: {fileID: 114586906029062478}
   - component: {fileID: 114632564744136688}
+  - component: {fileID: 70077218831462170}
   m_Layer: 0
   m_Name: Eve
   m_TagString: Player
@@ -71,7 +72,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1856534640873990}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7, y: 1.26, z: 0}
+  m_LocalPosition: {x: 76.4, y: 2.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4138467197625930}
@@ -104,9 +105,9 @@ CircleCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1856534640873990}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 84e235f9d0e7a2d4aa113e1e68eddd5b, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -121,11 +122,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 1856534640873990}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 84e235f9d0e7a2d4aa113e1e68eddd5b, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.25, y: 0.59925985}
+  m_Offset: {x: 0.25438833, y: 0.51910055}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -136,8 +137,23 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3907013, y: 0.8014803}
+  m_Size: {x: 0.38192463, y: 0.9617989}
   m_EdgeRadius: 0
+--- !u!70 &70077218831462170
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1856534640873990}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.25239274, y: 0.037039157}
+  m_Size: {x: 0.38993078, y: 0.074079774}
+  m_Direction: 1
 --- !u!114 &114318404024462770
 MonoBehaviour:
   m_ObjectHideFlags: 1

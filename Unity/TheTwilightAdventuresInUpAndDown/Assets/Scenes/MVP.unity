@@ -564,26 +564,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4744118352100726, guid: 7fbe2ed9162b5024b98140e2b816b2db,
     type: 2}
   m_PrefabInternal: {fileID: 389209690}
---- !u!1 &407057963 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1856534640873990, guid: 0ec849c1ab4bb2e4d81da7bee8948bef,
-    type: 2}
-  m_PrefabInternal: {fileID: 793167495}
---- !u!70 &407057974
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 407057963}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.25239274, y: 0.037039157}
-  m_Size: {x: 0.38993078, y: 0.074079774}
-  m_Direction: 1
 --- !u!1001 &408312667
 Prefab:
   m_ObjectHideFlags: 0
@@ -1324,41 +1304,6 @@ Prefab:
     - target: {fileID: 4471556931967858, guid: 0ec849c1ab4bb2e4d81da7bee8948bef, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 61752102591596870, guid: 0ec849c1ab4bb2e4d81da7bee8948bef,
-        type: 2}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 84e235f9d0e7a2d4aa113e1e68eddd5b, type: 2}
-    - target: {fileID: 58032909043262986, guid: 0ec849c1ab4bb2e4d81da7bee8948bef,
-        type: 2}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 84e235f9d0e7a2d4aa113e1e68eddd5b, type: 2}
-    - target: {fileID: 58032909043262986, guid: 0ec849c1ab4bb2e4d81da7bee8948bef,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 61752102591596870, guid: 0ec849c1ab4bb2e4d81da7bee8948bef,
-        type: 2}
-      propertyPath: m_Offset.y
-      value: 0.51910055
-      objectReference: {fileID: 0}
-    - target: {fileID: 61752102591596870, guid: 0ec849c1ab4bb2e4d81da7bee8948bef,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 0.9617989
-      objectReference: {fileID: 0}
-    - target: {fileID: 61752102591596870, guid: 0ec849c1ab4bb2e4d81da7bee8948bef,
-        type: 2}
-      propertyPath: m_Offset.x
-      value: 0.25438833
-      objectReference: {fileID: 0}
-    - target: {fileID: 61752102591596870, guid: 0ec849c1ab4bb2e4d81da7bee8948bef,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 0.38192463
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ec849c1ab4bb2e4d81da7bee8948bef, type: 2}
