@@ -38,7 +38,11 @@ public class EndOfRoom : ActionObject
                 downEdgeSnapping = item;
             }
         }
-        leftBoundPositionX = nextRoomLeft.position.x;
+        if(nextRoomLeft != null)
+        {
+            leftBoundPositionX = nextRoomLeft.position.x;
+        }
+       
 
         upCameraFollow = upEdgeSnapping.gameObject.GetComponent<CameraFollowTarget>();
         downCameraFollow = downEdgeSnapping.gameObject.GetComponent<CameraFollowTarget>();
@@ -55,7 +59,7 @@ public class EndOfRoom : ActionObject
             else
             {
                 
-                if(rightBoundSet)
+                if(!rightBoundSet)
                 {
                     // Set the new rightbounds for CameraEdgeSnapping
                     upEdgeSnapping.rightBound = nextRoomRight;
