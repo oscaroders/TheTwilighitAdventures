@@ -9,8 +9,9 @@ public class Lever : ActiveInteractableObject
     {
         activator = GetComponent<Activator>();
 	}
-	public override void Interact()
+	public override void Interact(bool interacting)
     {
-        activator.stateOfActivator = !activator.stateOfActivator; 
+        if(interacting)
+            activator.stateOfActivator = !activator.stateOfActivator; 
 	}
 }

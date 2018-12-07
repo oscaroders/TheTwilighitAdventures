@@ -15,10 +15,7 @@ public class Interact : MonoBehaviour
         {
             if (collider.gameObject != this.gameObject)
             {
-                if (interacting)
-                {
-                    collider.gameObject.GetComponent<ActiveInteractableObject>().Interact();
-                }
+                collider.gameObject.GetComponent<ActiveInteractableObject>().Interact(interacting);
             }
         }
     }

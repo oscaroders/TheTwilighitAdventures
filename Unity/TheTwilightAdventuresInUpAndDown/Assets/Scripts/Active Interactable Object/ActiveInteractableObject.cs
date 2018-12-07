@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class ActiveInteractableObject : MonoBehaviour
 {
-    public virtual void Interact()
+    public virtual void Interact(bool interacting)
     {
 
     }
