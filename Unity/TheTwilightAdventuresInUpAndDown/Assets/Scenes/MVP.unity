@@ -4394,6 +4394,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114692783300362558, guid: 6713b179a0f2b874492049deb6b744e6,
+        type: 2}
+      propertyPath: leftBound
+      value: 
+      objectReference: {fileID: 179164555}
+    - target: {fileID: 114692783300362558, guid: 6713b179a0f2b874492049deb6b744e6,
+        type: 2}
+      propertyPath: rightBound
+      value: 
+      objectReference: {fileID: 1071112701}
+    - target: {fileID: 114692783300362558, guid: 6713b179a0f2b874492049deb6b744e6,
+        type: 2}
+      propertyPath: topBound
+      value: 
+      objectReference: {fileID: 2080568106}
+    - target: {fileID: 114692783300362558, guid: 6713b179a0f2b874492049deb6b744e6,
+        type: 2}
+      propertyPath: bottomBound
+      value: 
+      objectReference: {fileID: 382828659}
     - target: {fileID: 114245868234037404, guid: 6713b179a0f2b874492049deb6b744e6,
         type: 2}
       propertyPath: mainCamera
@@ -4419,36 +4439,6 @@ Prefab:
       propertyPath: bottomBound
       value: 
       objectReference: {fileID: 2080568106}
-    - target: {fileID: 114692783300362558, guid: 6713b179a0f2b874492049deb6b744e6,
-        type: 2}
-      propertyPath: leftBound
-      value: 
-      objectReference: {fileID: 179164555}
-    - target: {fileID: 114692783300362558, guid: 6713b179a0f2b874492049deb6b744e6,
-        type: 2}
-      propertyPath: rightBound
-      value: 
-      objectReference: {fileID: 1071112701}
-    - target: {fileID: 114692783300362558, guid: 6713b179a0f2b874492049deb6b744e6,
-        type: 2}
-      propertyPath: topBound
-      value: 
-      objectReference: {fileID: 2080568106}
-    - target: {fileID: 114692783300362558, guid: 6713b179a0f2b874492049deb6b744e6,
-        type: 2}
-      propertyPath: bottomBound
-      value: 
-      objectReference: {fileID: 382828659}
-    - target: {fileID: 20462251269812644, guid: 6713b179a0f2b874492049deb6b744e6,
-        type: 2}
-      propertyPath: m_TargetDisplay
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 20671468756317832, guid: 6713b179a0f2b874492049deb6b744e6,
-        type: 2}
-      propertyPath: m_TargetDisplay
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6713b179a0f2b874492049deb6b744e6, type: 2}
   m_IsPrefabAsset: 0
