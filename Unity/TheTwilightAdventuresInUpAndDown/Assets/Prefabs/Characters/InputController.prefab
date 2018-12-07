@@ -527,9 +527,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   v_Max: 15
   dragGround: 6
-  dragAir: 1
+  dragAir: 2.74
   accelerationGround: 40
-  accelerationAir: 6
+  accelerationAir: 20
   sprintMultiplier: 2
   jumpSpeed: 7
   fallMultiplier: 4
@@ -741,9 +741,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   v_Max: 15
   dragGround: 6
-  dragAir: 1
+  dragAir: 2.74
   accelerationGround: 40
-  accelerationAir: 6
+  accelerationAir: 20
   sprintMultiplier: 2
   jumpSpeed: 7
   fallMultiplier: 4
