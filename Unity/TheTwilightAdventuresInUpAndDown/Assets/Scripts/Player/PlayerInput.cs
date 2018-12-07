@@ -16,7 +16,7 @@ public class PlayerInput : MonoBehaviour {
 
     void Update() {
 
-        characterSwitch.GetPlayerMovement().Move(Input.GetAxisRaw("Horizontal"), Input.GetButton("Sprint"));
+        characterSwitch.GetPlayerMovement().Move(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Sprint") > 0);
         characterSwitch.GetPlayerJump().Jump(Input.GetButtonDown("Jump"));
         characterSwitch.GetInteract().InteractObject(Input.GetButtonDown("Submit"));
                
