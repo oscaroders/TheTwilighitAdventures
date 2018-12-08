@@ -7,7 +7,7 @@ public class PlayerInput : MonoBehaviour {
    
     private CharacterSwitch characterSwitch;
     public FlipWorld[] rooms;
-
+    public bool canFlip = true;
     private void Start() {
         rooms = FindObjectsOfType<FlipWorld>();
         characterSwitch = GetComponent<CharacterSwitch>();
@@ -19,12 +19,16 @@ public class PlayerInput : MonoBehaviour {
         characterSwitch.GetPlayerMovement().Move(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Sprint") > 0);
         characterSwitch.GetPlayerJump().Jump(Input.GetButtonDown("Jump"));
         characterSwitch.GetInteract().InteractObject(Input.GetButtonDown("Submit"));
-               
-        for (int i = 0; i < rooms.Length; i++)
+        if (canFlip)
         {
-            rooms[i].FlipTheWorld(Input.GetButtonDown("FlipWorld"));
+            for (int i = 0; i < rooms.Length; i++)
+            {
+                rooms[i].FlipTheWorld(Input.GetButtonDown("FlipWorld"));
+            }
         }
         characterSwitch.ChangeCharacter(Input.GetButtonDown("CharacterSwitch"));
+        
+        
         
     }
 }
