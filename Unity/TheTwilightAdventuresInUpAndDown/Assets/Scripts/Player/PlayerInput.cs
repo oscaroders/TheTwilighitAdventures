@@ -8,6 +8,7 @@ public class PlayerInput : MonoBehaviour {
     private CharacterSwitch characterSwitch;
     public FlipWorld[] rooms;
     public bool canFlip = true;
+    public string characterInside = "";
     private void Start() {
         rooms = FindObjectsOfType<FlipWorld>();
         characterSwitch = GetComponent<CharacterSwitch>();

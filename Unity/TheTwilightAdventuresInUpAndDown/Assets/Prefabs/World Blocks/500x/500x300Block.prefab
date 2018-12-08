@@ -78,8 +78,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d90326300d379c40a5219e496f98ce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useParticlePresets: 0
   isFlippable: 0
-  startPosition: {x: 0, y: 0, z: 0}
+  particleColor: {r: 1, g: 0, b: 1, a: 1}
+  flipWorldTriggerDisable:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  flipWorldTriggerEnable:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!212 &212585860453090982
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -112,8 +123,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 525778683
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1533c193261752b488d3eeac81a855f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
