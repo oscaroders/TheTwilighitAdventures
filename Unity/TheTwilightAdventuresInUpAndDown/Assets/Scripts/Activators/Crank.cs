@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(Activator))]
 
-public class Crank : MonoBehaviour
+public class Crank : ActiveInteractableObject
 {
 	private Activator activator;
-	private int timesPressed;
+	public int timesPressed;
 	public int requiredPressed;
+    //public float timer;
+    //private float currentTime;
+    //public bool timerOn;
+    private float timeSinceLastInteract;
+    private float completionTime;
+    public float limitTime;
 
 	// Use this for initialization
 	void Start ()
@@ -18,14 +24,31 @@ public class Crank : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (Input.GetButtonDown("Interact"))
-		{
-			timesPressed++;
-		}
-
-		if (timesPressed == requiredPressed)
-		{
-			activator.stateOfActivator = true;
-		}
+        
 	}
+
+    public override void Interact(bool interacting)
+    {
+        if (timeSinceLastInteract == 0)
+        {
+            timeSinceLastInteract = Time.time;
+        }
+        float previousTime = timeSinceLastInteract;
+        float deltaBetweenInteract;
+        timesPressed++;
+        timeSinceLastInteract = Time.time;
+        deltaBetweenInteract = timeSinceLastInteract - previousTime;
+        completionTime += deltaBetweenInteract;
+
+        if (timesPressed == requiredPressed && completionTime < limitTime)
+        {
+            activator.stateOfActivator = true;
+        }
+        if (completionTime > limitTime)
+        {
+            timesPressed = 0;
+            completionTime = 0;
+            timeSinceLastInteract = 0;
+        }
+    }
 }
