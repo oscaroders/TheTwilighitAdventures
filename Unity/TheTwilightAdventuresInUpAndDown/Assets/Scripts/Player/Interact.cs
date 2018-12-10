@@ -7,16 +7,24 @@ public class Interact : MonoBehaviour
     [SerializeField] private Transform playerCenter;
     [SerializeField] private float interactRadius;
     [SerializeField] private LayerMask whatIsInteractable;
+    private ActiveInteractableObject interactiveObject;
 
-    public void InteractObject(bool interacting)
+    public void InteractObject(bool interacting, float direction)
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(playerCenter.position, interactRadius, whatIsInteractable);
-        foreach (Collider2D collider in colliders)
+        if (interacting)
         {
-            if (collider.gameObject != this.gameObject)
+            Debug.Log(direction);
+            RaycastHit2D hit = Physics2D.Raycast(new Vector2(playerCenter.position.x, playerCenter.position.y), new Vector2(direction, 0), interactRadius, whatIsInteractable);
+            if (hit)
             {
-                collider.gameObject.GetComponent<ActiveInteractableObject>().Interact(interacting);
+                interactiveObject = hit.collider.gameObject.GetComponent<ActiveInteractableObject>();
+                interactiveObject.Interact(interacting);
             }
+        }
+        else if (interactiveObject != null)
+        {
+            interactiveObject.Interact(interacting);
+            interactiveObject = null;
         }
     }
 }
