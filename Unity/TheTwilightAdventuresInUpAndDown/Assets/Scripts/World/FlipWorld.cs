@@ -6,23 +6,9 @@ public class FlipWorld : MonoBehaviour {
 
     FlipableObject[] childrenTransform;
     float timer;
-    void Start()
+    void Awake()
     {
-        Quaternion rotation;
         childrenTransform = GetComponentsInChildren<FlipableObject>();
-        for (int i = 0; i < childrenTransform.Length; i++)
-        {
-            if (childrenTransform[i].isFlippable)
-            {
-                // Save its position
-                childrenTransform[i].SetStartPosition(childrenTransform[i].transform.position, childrenTransform[i].transform.rotation);
-
-                // Calculate and save its flipt position
-                rotation = childrenTransform[i].transform.rotation;
-                rotation.y = -rotation.y;
-                childrenTransform[i].SetEndPosition(GetRelativePosition(transform, childrenTransform[i].startPosition), rotation);
-            }
-        }
         StartCoroutine(UpdateFlipPosition());
     }
     public void FlipTheWorld(bool state)
@@ -62,7 +48,9 @@ public class FlipWorld : MonoBehaviour {
     IEnumerator UpdateFlipPosition()
     {
         Quaternion rotation;
-        while(gameObject){
+        
+        while (gameObject){
+
             childrenTransform = GetComponentsInChildren<FlipableObject>();
             for (int i = 0; i < childrenTransform.Length; i++)
             {
@@ -75,9 +63,7 @@ public class FlipWorld : MonoBehaviour {
                         childrenTransform[i].SetStartPosition(childrenTransform[i].transform.position, childrenTransform[i].transform.rotation);
 
                         // Calculate and save its flipt position
-                        rotation = childrenTransform[i].transform.rotation;
-                        rotation.y = -rotation.y;
-                        childrenTransform[i].SetEndPosition(GetRelativePosition(transform, childrenTransform[i].startPosition), rotation);
+                        childrenTransform[i].SetEndPosition(GetRelativePosition(transform, childrenTransform[i].startPosition), Quaternion.Inverse(childrenTransform[i].transform.rotation));
                     }
 
                 }
