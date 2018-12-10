@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[RequireComponent(typeof(ParticleSystem))]
 public class FlipableObject : MonoBehaviour {
 
     public bool useParticlePresets;
@@ -14,44 +13,26 @@ public class FlipableObject : MonoBehaviour {
     internal Quaternion endRotation;
 
     internal FlipWorld axis;
+    private GameObject collider;
 
-    ParticleSystem flipParticles;
-    SpriteRenderer spriteRenderer;
+    public GameObject particlePrefab;
     private GameObject particle;
-    public Color particleColor = Color.magenta;
-
-
-
-    public UnityEngine.Events.UnityEvent flipWorldTriggerDisable;
-    public UnityEngine.Events.UnityEvent flipWorldTriggerEnable;
 
     private PlayerInput input;
     
     private void Start()
     {
         axis = GetComponentInParent<FlipWorld>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        flipParticles = GetComponent<ParticleSystem>();
-        input = FindObjectOfType<PlayerInput>();
-
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
        
-        flipWorldTriggerDisable.AddListener(DisableFlipingForPlayer);
-        flipWorldTriggerEnable.AddListener(EnableFlipingForPlayer);
-        
+        input = FindObjectOfType<PlayerInput>();  
 
-        if (flipParticles != null)
+        if (gameObject.name.Contains("Remnent"))
         {
-            if(useParticlePresets)
-                ParticlePreset();
-
-            if (gameObject.name.Contains("Remnent"))
-            {
-                original = false;
-                spriteRenderer.enabled = false;
-                BoxCollider2D collider2D = GetComponent<BoxCollider2D>();
-                collider2D.isTrigger = true;
-                
-            }
+            original = false;
+            spriteRenderer.enabled = false;
+            BoxCollider2D collider2D = GetComponent<BoxCollider2D>();
+            collider2D.isTrigger = true;
         }
 
         SetStartPosition(transform.position, transform.rotation);
@@ -60,32 +41,19 @@ public class FlipableObject : MonoBehaviour {
         {
             SetEndPosition(FlipWorld.GetRelativePosition(axis.transform, startPosition), Quaternion.Inverse( transform.rotation));
         }
+
         if (isFlippable && original)
         {
-            particle = Instantiate(this.gameObject,endPosition,endRotation,transform.parent);
-            particle.name = "Remnent of" + name;
+            collider = Instantiate(gameObject,endPosition,endRotation,transform.parent);
+            collider.name = "Remnent of" + name;
+        }
+        if (isFlippable && particle == null)
+        {
+            particle = Instantiate(particlePrefab, transform);
+
         }
     }
-    void ParticlePreset()
-    {
-        var m = flipParticles.main;
-        m.maxParticles = 20;
-        m.startColor = particleColor;
-
-        var em = flipParticles.emission;
-        em.rateOverTime = 5;
-
-        var sh = flipParticles.shape;
-        sh.shapeType = ParticleSystemShapeType.SpriteRenderer;
-        sh.spriteRenderer = spriteRenderer;
-
-        var noise = flipParticles.noise;
-        noise.enabled = true;
-        noise.strength = 0.21f;
-        noise.frequency = 0.21f; 
-
-
-    }
+   
     public void SetEndPosition(Vector3 position, Quaternion rotation)
     {
         if(original)
@@ -141,10 +109,9 @@ public class FlipableObject : MonoBehaviour {
             if(input.characterInside == "")
             {
                 input.characterInside = collision.name;
-                flipWorldTriggerDisable.Invoke();
+                DisableFlipingForPlayer();
             }
-           
-            // Send Message so player cannot flipworld
+
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -154,10 +121,9 @@ public class FlipableObject : MonoBehaviour {
             if(input.characterInside == collision.name)
             {
                 input.characterInside = "";
-                flipWorldTriggerEnable.Invoke();
+                EnableFlipingForPlayer();
             }
-            
-            // Send Message so player can flipworld
+
         }
     }
     public void DisableFlipingForPlayer()
