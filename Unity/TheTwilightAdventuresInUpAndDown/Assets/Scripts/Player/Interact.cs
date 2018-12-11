@@ -13,7 +13,6 @@ public class Interact : MonoBehaviour
     {
         if (interacting)
         {
-            Debug.Log(direction);
             RaycastHit2D hit = Physics2D.Raycast(new Vector2(playerCenter.position.x, playerCenter.position.y), new Vector2(direction, 0), interactRadius, whatIsInteractable);
             if (hit)
             {

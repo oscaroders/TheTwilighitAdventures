@@ -39,8 +39,7 @@ public class MovableBox : ActiveInteractableObject
         if (moving)
         {
             input.notInteracting = false;
-            Debug.Log("Index: " + characterSwitch.isEve.GetHashCode());
-            box.connectedBody = playerRigidbody2D[characterSwitch.isEve.GetHashCode()].GetComponent<Rigidbody2D>();
+            box.connectedBody = playerRigidbody2D[characterSwitch.isEve.GetHashCode()];
             xPos = transform.position.x;
             gameObject.layer = 8;
             boxRB.mass = boxMassMoving;
@@ -53,10 +52,5 @@ public class MovableBox : ActiveInteractableObject
             boxRB.mass = boxMassStop;
         }
         box.enabled = moving;
-        BeingPushed(moving);
-    }
-    private void BeingPushed(bool beingPushed)
-    {
-        
     }
 }
