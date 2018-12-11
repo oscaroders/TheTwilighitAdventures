@@ -15,6 +15,7 @@ public class CameraFollowTarget : MonoBehaviour {
     public float cameraYPositioning;
 
     FocusArea focusArea;
+    bool isUp;
 
     float currentLookAheadX;
     float targetLookAheadX;
@@ -25,7 +26,8 @@ public class CameraFollowTarget : MonoBehaviour {
     bool lookAheadStopped;
 
     private void Start() {
-        focusArea = new FocusArea(collider.bounds, focusAreaSize);
+        isUp = GetComponent<CameraEdgeSnapping>().isUp;
+        focusArea = new FocusArea(collider.bounds, focusAreaSize, isUp);  
     }
 
     private void LateUpdate() {
@@ -65,11 +67,19 @@ public class CameraFollowTarget : MonoBehaviour {
         float left, right;
         float top, bottom;
 
-        public FocusArea(Bounds targetBounds, Vector2 size) {
+        public FocusArea(Bounds targetBounds, Vector2 size, bool isUp) {
             left = targetBounds.center.x - size.x / 2;
             right = targetBounds.center.x + size.x / 2;
-            bottom = targetBounds.min.y;
-            top = targetBounds.min.y + size.y;
+            if (isUp) {
+                bottom = targetBounds.min.y;
+                top = targetBounds.min.y + size.y;
+            } else if(!isUp) {
+                bottom = targetBounds.max.y - size.y;
+                top = targetBounds.max.y;
+            } else {
+                bottom = targetBounds.min.y;
+                top = targetBounds.min.y + size.y;
+            }
 
             velocity = Vector2.zero;
             centre = new Vector2((left + right) / 2, (top + bottom) / 2);
