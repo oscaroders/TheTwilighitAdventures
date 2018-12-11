@@ -6,6 +6,7 @@ using UnityEngine;
 public class PressurePlate : MonoBehaviour
 {
     private Activator activator;
+    private int counter;
     public bool timerOn;
     public float timer;
     private float currentTime;
@@ -17,12 +18,15 @@ public class PressurePlate : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         activator.stateOfActivator = true;
+        counter++;
         off = false;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         currentTime = 0;
-        off = true;
+        counter--;
+        if(counter == 0)
+            off = true;
     }
     private void Update()
     {
