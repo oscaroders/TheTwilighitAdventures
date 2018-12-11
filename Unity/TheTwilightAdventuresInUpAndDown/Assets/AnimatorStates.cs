@@ -74,8 +74,11 @@ public class AnimatorStates : MonoBehaviour {
     }
 
     public void ContinueLoad() {
-        //string scene = Get secne and room
-        //SceneManager.LoadScene();
+        SaveManager.data = Save.LoadGame(Save.dataPath);
+        if (SaveManager.data.scene != null)
+        {
+            SceneManager.LoadScene(SaveManager.data.scene);
+        }
     }
 
     public void Quit() {
