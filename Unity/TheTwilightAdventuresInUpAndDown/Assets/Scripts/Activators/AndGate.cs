@@ -6,23 +6,22 @@ using UnityEngine;
 public class AndGate : Activator
 {
 	public Activator[] activators;
-	private bool allActive = false;
-
-	public virtual void OnActivation(bool activated)
-	{
-
-	}
 
 	public void AndGates()
 	{
-		allActive = true;
+		stateOfActivator = true;
 		for (int i = 0; i < activators.Length; i++)
 		{
 			if (!activators[i].stateOfActivator)
 			{
-				allActive = false;
+				stateOfActivator = false;
+                break;
 			}
 		}
-		OnActivation(allActive);
 	}
+
+    private void FixedUpdate()
+    {
+        AndGates();
+    }
 }
