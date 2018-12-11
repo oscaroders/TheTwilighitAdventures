@@ -18,10 +18,8 @@ public class GameManager : MonoBehaviour {
         Cinematic,
     }
 
-    
-
-// Use this for initialization
-void Start () {
+    // Use this for initialization
+    void Start () {
         if (instance == null)
                 instance = this;
         
