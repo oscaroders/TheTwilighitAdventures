@@ -58,11 +58,16 @@ public class PlayerController : MonoBehaviour {
                     OnLandEvent.Invoke();
             }
         }
-
-        if ((rigidBody2D.gravityScale > 0 && rigidBody2D.velocity.y < 0) || (rigidBody2D.gravityScale < 0 && rigidBody2D.velocity.y > 0)) {
-            rigidBody2D.velocity += Vector2.up * Mathf.Clamp(rigidBody2D.gravityScale, -1, 1) * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
-        } else if (((rigidBody2D.gravityScale > 0 && rigidBody2D.velocity.y > 0) || (rigidBody2D.gravityScale < 0 && rigidBody2D.velocity.y < 0)) && !Input.GetButton("Jump")) {
-            rigidBody2D.velocity += Vector2.up * Mathf.Clamp(rigidBody2D.gravityScale, -1, 1) * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+        if (!grounded)
+        {
+            if ((rigidBody2D.gravityScale > 0 && rigidBody2D.velocity.y < 0) || (rigidBody2D.gravityScale < 0 && rigidBody2D.velocity.y > 0))
+            {
+                rigidBody2D.velocity += Vector2.up * Mathf.Clamp(rigidBody2D.gravityScale, -1, 1) * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            }
+            else if (((rigidBody2D.gravityScale > 0 && rigidBody2D.velocity.y > 0) || (rigidBody2D.gravityScale < 0 && rigidBody2D.velocity.y < 0)) && !Input.GetButton("Jump"))
+            {
+                rigidBody2D.velocity += Vector2.up * Mathf.Clamp(rigidBody2D.gravityScale, -1, 1) * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+            }
         }
     }
 }

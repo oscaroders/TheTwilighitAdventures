@@ -261,6 +261,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 148273621}
+  - component: {fileID: 148273622}
   m_Layer: 0
   m_Name: FirstMVPRoom
   m_TagString: Untagged
@@ -287,6 +288,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &148273622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 148273620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ff904e6abfe3940bd0266ab843f401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  topPosition: {fileID: 530283320}
+  middlePosition: {fileID: 515591734}
+  leftPosition: {fileID: 179164555}
+  rightPosition: {fileID: 1071112701}
+  bottomPosition: {fileID: 970072877}
+  evePosition: {fileID: 0}
+  dodoPosition: {fileID: 0}
 --- !u!1001 &167945840
 Prefab:
   m_ObjectHideFlags: 0
@@ -1591,6 +1610,11 @@ Prefab:
       propertyPath: sceneName
       value: MVP
       objectReference: {fileID: 0}
+    - target: {fileID: 114011737689747342, guid: 6d97ea673cb1141408579256f92bdd53,
+        type: 2}
+      propertyPath: nextRoom
+      value: 
+      objectReference: {fileID: 1553234998}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d97ea673cb1141408579256f92bdd53, type: 2}
   m_IsPrefabAsset: 0
@@ -1893,6 +1917,26 @@ Prefab:
       propertyPath: m_Color.b
       value: 0.5754717
       objectReference: {fileID: 0}
+    - target: {fileID: 114026600245941172, guid: dd5afe7d6b650ea4ba282ad8e6da5f2b,
+        type: 2}
+      propertyPath: particleColor.a
+      value: 0.59607846
+      objectReference: {fileID: 0}
+    - target: {fileID: 114026600245941172, guid: dd5afe7d6b650ea4ba282ad8e6da5f2b,
+        type: 2}
+      propertyPath: particleColor.r
+      value: 0.6886792
+      objectReference: {fileID: 0}
+    - target: {fileID: 114026600245941172, guid: dd5afe7d6b650ea4ba282ad8e6da5f2b,
+        type: 2}
+      propertyPath: particleColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114026600245941172, guid: dd5afe7d6b650ea4ba282ad8e6da5f2b,
+        type: 2}
+      propertyPath: particleColor.b
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd5afe7d6b650ea4ba282ad8e6da5f2b, type: 2}
   m_IsPrefabAsset: 0
@@ -1966,9 +2010,34 @@ Prefab:
       propertyPath: m_Color.b
       value: 0.501513
       objectReference: {fileID: 0}
+    - target: {fileID: 114026600245941172, guid: dd5afe7d6b650ea4ba282ad8e6da5f2b,
+        type: 2}
+      propertyPath: particleColor.a
+      value: 0.4745098
+      objectReference: {fileID: 0}
+    - target: {fileID: 114026600245941172, guid: dd5afe7d6b650ea4ba282ad8e6da5f2b,
+        type: 2}
+      propertyPath: particleColor.r
+      value: 0.2880918
+      objectReference: {fileID: 0}
+    - target: {fileID: 114026600245941172, guid: dd5afe7d6b650ea4ba282ad8e6da5f2b,
+        type: 2}
+      propertyPath: particleColor.g
+      value: 0.39546645
+      objectReference: {fileID: 0}
+    - target: {fileID: 114026600245941172, guid: dd5afe7d6b650ea4ba282ad8e6da5f2b,
+        type: 2}
+      propertyPath: particleColor.b
+      value: 0.735849
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd5afe7d6b650ea4ba282ad8e6da5f2b, type: 2}
   m_IsPrefabAsset: 0
+--- !u!4 &914133462 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4687458874307332, guid: b533efd6c26197847856f6d9f183b7cd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1899736648}
 --- !u!4 &930674104 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4431279726469714, guid: dd5afe7d6b650ea4ba282ad8e6da5f2b,
@@ -2411,6 +2480,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1160358763}
+  - component: {fileID: 1160358764}
   m_Layer: 0
   m_Name: ThirdMVPRoom
   m_TagString: Untagged
@@ -2435,6 +2505,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1160358764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1160358762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ff904e6abfe3940bd0266ab843f401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  topPosition: {fileID: 1319404497}
+  middlePosition: {fileID: 914133462}
+  leftPosition: {fileID: 1601578098}
+  rightPosition: {fileID: 854533833}
+  bottomPosition: {fileID: 1975026762}
+  evePosition: {fileID: 0}
+  dodoPosition: {fileID: 0}
 --- !u!4 &1188235390 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4730770887257498, guid: 0ebc3fbbee0d6c5489d4ee7f14e682aa,
@@ -3250,6 +3338,11 @@ Prefab:
       propertyPath: nextRoomRight
       value: 
       objectReference: {fileID: 854533833}
+    - target: {fileID: 114011737689747342, guid: 6d97ea673cb1141408579256f92bdd53,
+        type: 2}
+      propertyPath: nextRoom
+      value: 
+      objectReference: {fileID: 1160358764}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d97ea673cb1141408579256f92bdd53, type: 2}
   m_IsPrefabAsset: 0
@@ -3278,6 +3371,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1553234996}
   - component: {fileID: 1553234997}
+  - component: {fileID: 1553234998}
   m_Layer: 0
   m_Name: SecondMVPRoom
   m_TagString: Untagged
@@ -3313,6 +3407,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e5f091d2aae6b41b45fbe88a9445ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1553234998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1553234995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ff904e6abfe3940bd0266ab843f401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  topPosition: {fileID: 1554505069}
+  middlePosition: {fileID: 914133462}
+  leftPosition: {fileID: 2142840342}
+  rightPosition: {fileID: 1601578098}
+  bottomPosition: {fileID: 1380590495}
+  evePosition: {fileID: 0}
+  dodoPosition: {fileID: 0}
 --- !u!4 &1554505069 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4431279726469714, guid: dd5afe7d6b650ea4ba282ad8e6da5f2b,
@@ -3860,6 +3972,11 @@ Prefab:
       propertyPath: nextRoomRight
       value: 
       objectReference: {fileID: 1601578098}
+    - target: {fileID: 114011737689747342, guid: 6d97ea673cb1141408579256f92bdd53,
+        type: 2}
+      propertyPath: nextRoom
+      value: 
+      objectReference: {fileID: 1553234998}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d97ea673cb1141408579256f92bdd53, type: 2}
   m_IsPrefabAsset: 0
@@ -3953,6 +4070,16 @@ Prefab:
       value: 
       objectReference: {fileID: 1905432783436940, guid: d6662a3293f4fbf4fb170819e5b4795b,
         type: 2}
+    - target: {fileID: 114236463814112602, guid: fd10f331527eaba459e96100ddfbf349,
+        type: 2}
+      propertyPath: particleColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114236463814112602, guid: fd10f331527eaba459e96100ddfbf349,
+        type: 2}
+      propertyPath: particleColor.a
+      value: 0.6431373
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd10f331527eaba459e96100ddfbf349, type: 2}
   m_IsPrefabAsset: 0
@@ -4360,6 +4487,21 @@ Prefab:
       value: 
       objectReference: {fileID: 1905432783436940, guid: d6662a3293f4fbf4fb170819e5b4795b,
         type: 2}
+    - target: {fileID: 114215242801375598, guid: 3b290a27f9358af4cba3bd2b67849302,
+        type: 2}
+      propertyPath: particleColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114215242801375598, guid: 3b290a27f9358af4cba3bd2b67849302,
+        type: 2}
+      propertyPath: particleColor.g
+      value: 0.17614937
+      objectReference: {fileID: 0}
+    - target: {fileID: 114215242801375598, guid: 3b290a27f9358af4cba3bd2b67849302,
+        type: 2}
+      propertyPath: particleColor.a
+      value: 0.67058825
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b290a27f9358af4cba3bd2b67849302, type: 2}
   m_IsPrefabAsset: 0
@@ -4382,7 +4524,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4319585023887672, guid: 6713b179a0f2b874492049deb6b744e6, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 26.56
+      value: -4.64
       objectReference: {fileID: 0}
     - target: {fileID: 4319585023887672, guid: 6713b179a0f2b874492049deb6b744e6, type: 2}
       propertyPath: m_LocalPosition.y
@@ -4452,6 +4594,46 @@ Prefab:
       propertyPath: bottomBound
       value: 
       objectReference: {fileID: 970072877}
+    - target: {fileID: 50908449677137260, guid: 6713b179a0f2b874492049deb6b744e6,
+        type: 2}
+      propertyPath: m_GravityScale
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 50311397212885958, guid: 6713b179a0f2b874492049deb6b744e6,
+        type: 2}
+      propertyPath: m_GravityScale
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 50908449677137260, guid: 6713b179a0f2b874492049deb6b744e6,
+        type: 2}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114109369715352358, guid: 6713b179a0f2b874492049deb6b744e6,
+        type: 2}
+      propertyPath: lowJumpMultiplier
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114109369715352358, guid: 6713b179a0f2b874492049deb6b744e6,
+        type: 2}
+      propertyPath: jumpSpeed
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 114109369715352358, guid: 6713b179a0f2b874492049deb6b744e6,
+        type: 2}
+      propertyPath: dragAir
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114109369715352358, guid: 6713b179a0f2b874492049deb6b744e6,
+        type: 2}
+      propertyPath: sprintMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114109369715352358, guid: 6713b179a0f2b874492049deb6b744e6,
+        type: 2}
+      propertyPath: v_Max
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6713b179a0f2b874492049deb6b744e6, type: 2}
   m_IsPrefabAsset: 0

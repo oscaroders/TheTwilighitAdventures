@@ -17,8 +17,7 @@ public class EndOfRoom : ActionObject
 
     public Transform[] blockers;
 
-    public Transform nextRoomLeft;
-    public Transform nextRoomRight;
+    public Room nextRoom;
 
     private bool rightBoundSet = false;
     float leftBoundPositionX;
@@ -38,9 +37,9 @@ public class EndOfRoom : ActionObject
                 downEdgeSnapping = item;
             }
         }
-        if(nextRoomLeft != null)
+        if(nextRoom.leftPosition != null)
         {
-            leftBoundPositionX = nextRoomLeft.position.x;
+            leftBoundPositionX = nextRoom.leftPosition.position.x;
         }
        
 
@@ -62,8 +61,8 @@ public class EndOfRoom : ActionObject
                 if(!rightBoundSet)
                 {
                     // Set the new rightbounds for CameraEdgeSnapping
-                    upEdgeSnapping.rightBound = nextRoomRight;
-                    downEdgeSnapping.rightBound = nextRoomRight;
+                    upEdgeSnapping.rightBound = nextRoom.rightPosition;
+                    downEdgeSnapping.rightBound = nextRoom.rightPosition;
 
                     rightBoundSet = true;
                 }
@@ -90,8 +89,8 @@ public class EndOfRoom : ActionObject
                     }
 
                     // Set the new leftbounds for CameraEdgeSnapping
-                    upEdgeSnapping.leftBound = nextRoomLeft;
-                    downEdgeSnapping.leftBound = nextRoomLeft;
+                    upEdgeSnapping.leftBound = nextRoom.leftPosition;
+                    downEdgeSnapping.leftBound = nextRoom.leftPosition;
 
                     //Enable CameraFollowTarget script
                     upCameraFollow.enabled = true;
