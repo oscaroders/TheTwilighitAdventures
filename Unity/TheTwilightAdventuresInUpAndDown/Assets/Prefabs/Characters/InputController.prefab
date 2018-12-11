@@ -644,7 +644,7 @@ MonoBehaviour:
   mainCamera: {fileID: 20812563765982612}
   eveCamera: {fileID: 20671468756317832}
   dodoCamera: {fileID: 20462251269812644}
-  focusProcentage: 0.8
+  focusProcentage: 0.75
   defaultValueOfOrthographicSize: 5
 --- !u!114 &114260544929378160
 MonoBehaviour:
@@ -685,6 +685,7 @@ MonoBehaviour:
   lookAheadDstX: 4
   lookSmoothTimeX: 0.5
   verticalSmoothTime: 0.2
+  cameraYPositioning: 0
 --- !u!114 &114463372213360800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -724,6 +725,7 @@ MonoBehaviour:
   lookAheadDstX: 4
   lookSmoothTimeX: 0.5
   verticalSmoothTime: 0.2
+  cameraYPositioning: 10
 --- !u!114 &114588406078898404
 MonoBehaviour:
   m_ObjectHideFlags: 1

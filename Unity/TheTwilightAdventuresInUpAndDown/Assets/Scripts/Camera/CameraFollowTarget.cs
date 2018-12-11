@@ -12,6 +12,7 @@ public class CameraFollowTarget : MonoBehaviour {
     public float lookAheadDstX;
     public float lookSmoothTimeX;
     public float verticalSmoothTime;
+    public float cameraYPositioning;
 
     FocusArea focusArea;
 
@@ -50,6 +51,7 @@ public class CameraFollowTarget : MonoBehaviour {
         focusPosition.y = Mathf.SmoothDamp(transform.position.y, focusPosition.y, ref smoothVelocityY, verticalSmoothTime);
         focusPosition += Vector2.right * currentLookAheadX;
         transform.position = (Vector3)focusPosition + Vector3.forward * -10;
+        transform.position = new Vector3(transform.position.x, transform.position.y - cameraYPositioning, transform.position.z);
     }
 
     private void OnDrawGizmos() {
