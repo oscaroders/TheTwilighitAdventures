@@ -15,8 +15,10 @@ public class FlipableObject : MonoBehaviour {
     internal FlipWorld axis;
     private GameObject collider;
 
+    [Header("Flippable Particles")]
     public GameObject particlePrefab;
     private GameObject particle;
+    public Color particleColor;
 
     private PlayerInput input;
     
@@ -50,6 +52,8 @@ public class FlipableObject : MonoBehaviour {
         if (isFlippable && particle == null)
         {
             particle = Instantiate(particlePrefab, transform);
+            FlipObjectParticle temp = particle.GetComponent<FlipObjectParticle>();
+           
 
         }
     }

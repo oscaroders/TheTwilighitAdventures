@@ -7,6 +7,7 @@ public class PlayerJump : MonoBehaviour {
 
     private Rigidbody2D rigidBody2D;
     private PlayerController playerController;
+    public float maxHeight;
 
     // Use this for initialization
     void Start() {
