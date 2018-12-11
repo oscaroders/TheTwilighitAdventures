@@ -9,6 +9,7 @@ public class PlayerInput : MonoBehaviour {
     public FlipWorld[] rooms;
     public bool canFlip = true;
     public string characterInside = "";
+    public bool notInteracting = true;
 
     private float direction = 0;
 
@@ -21,7 +22,12 @@ public class PlayerInput : MonoBehaviour {
     void Update() {
 
         characterSwitch.GetPlayerMovement().Move(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Sprint") > 0);
-        characterSwitch.GetPlayerJump().Jump(Input.GetButtonDown("Jump"));
+
+        if (notInteracting)
+        {
+            characterSwitch.GetPlayerJump().Jump(Input.GetButtonDown("Jump"));
+            characterSwitch.ChangeCharacter(Input.GetButtonDown("CharacterSwitch"));
+        }
 
         if (Input.GetAxisRaw("Horizontal") != 0)
             direction = Mathf.Sign(Input.GetAxisRaw("Horizontal"));
@@ -37,7 +43,6 @@ public class PlayerInput : MonoBehaviour {
                 rooms[i].FlipTheWorld(Input.GetButtonDown("FlipWorld"));
             }
         }
-        characterSwitch.ChangeCharacter(Input.GetButtonDown("CharacterSwitch"));
         
         
         

@@ -208,7 +208,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1605414250833908}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.98, y: -0.21253538, z: -10.157455}
+  m_LocalPosition: {x: -7.4, y: -0.21253538, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4849045991909158}
@@ -223,7 +223,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1930489841917500}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 1.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4821226820202476}
@@ -278,7 +278,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1822796322692490}
   m_LocalRotation: {x: 1, y: -0, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: -3, z: 0}
+  m_LocalPosition: {x: 0, y: -0.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4061295227322722}
@@ -538,7 +538,7 @@ MonoBehaviour:
   grounded: 1
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 567
   groundCheck: {fileID: 4821226820202476}
 --- !u!114 &114127770176773666
 MonoBehaviour:
@@ -650,6 +650,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rooms: []
+  canFlip: 1
+  characterInside: 
+  notInteracting: 1
 --- !u!114 &114661828096561502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -694,7 +697,7 @@ MonoBehaviour:
   interactRadius: 0.5
   whatIsInteractable:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 768
 --- !u!114 &114750600708221868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -710,7 +713,7 @@ MonoBehaviour:
   interactRadius: 0.5
   whatIsInteractable:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 768
 --- !u!114 &114754968528198064
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -752,7 +755,7 @@ MonoBehaviour:
   grounded: 1
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 567
   groundCheck: {fileID: 4061295227322722}
 --- !u!114 &114915280272956428
 MonoBehaviour:
@@ -804,8 +807,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 286711151
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a1e2419a4d9ec874d8c307445979c807, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -850,8 +853,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 286711151
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 36014431078db0a4b97144f177407dae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
