@@ -762,6 +762,8 @@ MonoBehaviour:
   jumpSpeed: 14
   fallMultiplier: 4
   lowJumpMultiplier: 3.5
+  groundGravityScale: 3
+  airGravityScale: 3
   airControl: 0
   grounded: 1
   whatIsGround:
@@ -835,8 +837,10 @@ MonoBehaviour:
   collider: {fileID: 61677039355581946}
   verticalOffset: 1
   lookAheadDstX: 4
+  lookAheadDstUp: 0
+  lookAheadDstDown: 0
   lookSmoothTimeX: 0.5
-  verticalSmoothTime: 0.2
+  lookSmoothTimeY: 0
   cameraYPositioning: -1
 --- !u!114 &114463372213360800
 MonoBehaviour:
@@ -875,8 +879,10 @@ MonoBehaviour:
   collider: {fileID: 61684031993905104}
   verticalOffset: 1
   lookAheadDstX: 4
+  lookAheadDstUp: 0
+  lookAheadDstDown: 0
   lookSmoothTimeX: 0.5
-  verticalSmoothTime: 0.2
+  lookSmoothTimeY: 0
   cameraYPositioning: 1
 --- !u!114 &114588406078898404
 MonoBehaviour:
@@ -893,6 +899,7 @@ MonoBehaviour:
   canFlip: 1
   characterInside: 
   notInteracting: 1
+  currentRoomId: 0
 --- !u!114 &114661828096561502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -991,6 +998,8 @@ MonoBehaviour:
   jumpSpeed: 14
   fallMultiplier: 4
   lowJumpMultiplier: 3.5
+  groundGravityScale: 3
+  airGravityScale: 3
   airControl: 0
   grounded: 1
   whatIsGround:
