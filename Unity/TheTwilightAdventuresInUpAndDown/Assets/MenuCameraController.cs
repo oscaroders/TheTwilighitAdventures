@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.Audio;
 
 public class MenuCameraController : MonoBehaviour {
 
@@ -15,9 +16,9 @@ public class MenuCameraController : MonoBehaviour {
     public GameObject languageButton;
     public GameObject audioButton;
 
-    Button[] mainButtons;
-
     public EventSystem eventSystem;
+
+    public AudioMixer audioMixer;
 
 	// Use this for initialization
 	void Start () {
@@ -57,4 +58,16 @@ public class MenuCameraController : MonoBehaviour {
             }
         }
 	}
+
+    public void SetMusicVolume(float volume) {
+        audioMixer.SetFloat("musicVolume", volume);
+    }
+
+    public void SetDialougeVolume(float volume) {
+        audioMixer.SetFloat("dialougeVolume", volume);
+    }
+
+    public void SetEffectsVolume(float volume) {
+        audioMixer.SetFloat("effectsVolume", volume);
+    }
 }
