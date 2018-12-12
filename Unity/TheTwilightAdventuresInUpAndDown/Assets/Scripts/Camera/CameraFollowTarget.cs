@@ -10,8 +10,11 @@ public class CameraFollowTarget : MonoBehaviour {
 
     public float verticalOffset;
     public float lookAheadDstX;
+    public float lookAheadDstUp;
+    public float lookAheadDstDown;
     public float lookSmoothTimeX;
-    public float verticalSmoothTime;
+    public float lookSmoothTimeY;
+    //public float verticalSmoothTime;
     public float cameraYPositioning;
 
     FocusArea focusArea;
@@ -21,13 +24,19 @@ public class CameraFollowTarget : MonoBehaviour {
     float targetLookAheadX;
     float lookAheadDirX;
     float smoothLookVelocityX;
+
+    float currentLookAheadY;
+    float targetLookAheadY;
+    float lookAheadDirY;
+    float smoothLookVelocityY;
+
     float smoothVelocityY;
 
     bool lookAheadStopped;
 
     private void Start() {
         isUp = GetComponent<CameraEdgeSnapping>().isUp;
-        focusArea = new FocusArea(collider.bounds, focusAreaSize, isUp);  
+        focusArea = new FocusArea(collider.bounds, focusAreaSize, isUp);
     }
 
     private void LateUpdate() {
@@ -50,10 +59,29 @@ public class CameraFollowTarget : MonoBehaviour {
 
         currentLookAheadX = Mathf.SmoothDamp(currentLookAheadX, targetLookAheadX, ref smoothLookVelocityX, lookSmoothTimeX);
 
-       //focusPosition.y = Mathf.SmoothDamp(transform.position.y, focusPosition.y, ref smoothVelocityY, verticalSmoothTime);
-        focusPosition += Vector2.right * currentLookAheadX;
+        // -------------------------------------------
+        if(focusArea.velocity.y != 0) {
+            if (focusArea.velocity.y > 0) {
+                lookAheadDirY = 1;
+                targetLookAheadY = lookAheadDirY * lookAheadDstUp;
+            } else if (focusArea.velocity.y < 0) {
+                lookAheadDirY = -1;
+                targetLookAheadY = lookAheadDirY * lookAheadDstDown;
+            }
+        }
+
+        currentLookAheadY = Mathf.SmoothDamp(currentLookAheadY, targetLookAheadY, ref smoothLookVelocityY, lookSmoothTimeY);
+
+        //focusPosition.y = Mathf.SmoothDamp(transform.position.y, focusPosition.y, ref smoothVelocityY, verticalSmoothTime);
+        //focusPosition += Vector2.up * currentLookAheadY;
+
+
+        //focusPosition.y = Mathf.SmoothDamp(transform.position.y, focusPosition.y, ref smoothVelocityY, verticalSmoothTime);
+        //focusPosition += Vector2.right * currentLookAheadX;
+        focusPosition += new Vector2(currentLookAheadX, currentLookAheadY);
         transform.position = (Vector3)focusPosition + Vector3.forward * -10;
-        transform.position = new Vector3(transform.position.x, transform.position.y - cameraYPositioning, transform.position.z);
+
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
     }
 
     private void OnDrawGizmos() {
