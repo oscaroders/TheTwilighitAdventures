@@ -762,7 +762,7 @@ MonoBehaviour:
   jumpSpeed: 14
   fallMultiplier: 4
   lowJumpMultiplier: 3.5
-  groundGravityScale: 3
+  groundGravityScale: 1
   airGravityScale: 3
   airControl: 0
   grounded: 1
@@ -998,7 +998,7 @@ MonoBehaviour:
   jumpSpeed: 14
   fallMultiplier: 4
   lowJumpMultiplier: 3.5
-  groundGravityScale: 3
+  groundGravityScale: 1
   airGravityScale: 3
   airControl: 0
   grounded: 1
