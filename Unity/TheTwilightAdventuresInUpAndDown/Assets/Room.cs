@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Room : MonoBehaviour {
 
-    internal int roomId;
+    public int roomId;
     [Header("Room Edges Positions")]
     public Transform topPosition;
     public Transform middlePosition;
@@ -16,12 +16,20 @@ public class Room : MonoBehaviour {
     public Transform evePosition;
     public Transform dodoPosition;
 
-
+    private FlipWorld flipWorld;
 	// Use this for initialization
 	void Start () {
-		
+        flipWorld = GetComponent<FlipWorld>();
 	}
 	
+    public void FlipThisRoomsFlippableObjects(int room, bool button)
+    {
+        if(room == roomId && flipWorld != null)
+        {
+            flipWorld.FlipTheWorld(button);
+        }
+    }
+
 	// Update is called once per frame
 	void Update () {
 		

@@ -22,6 +22,8 @@ public class EndOfRoom : ActionObject
     private bool rightBoundSet = false;
     float leftBoundPositionX;
 
+    private PlayerInput playerInput;
+
     [Range(0f,20f)]public float panningSpeed = 1f;
     private void Start()
     {
@@ -45,6 +47,7 @@ public class EndOfRoom : ActionObject
 
         upCameraFollow = upEdgeSnapping.gameObject.GetComponent<CameraFollowTarget>();
         downCameraFollow = downEdgeSnapping.gameObject.GetComponent<CameraFollowTarget>();
+        playerInput = FindObjectOfType<PlayerInput>();
     }
 
     public override void OnActivation(bool activated)
@@ -63,7 +66,7 @@ public class EndOfRoom : ActionObject
                     // Set the new rightbounds for CameraEdgeSnapping
                     upEdgeSnapping.rightBound = nextRoom.rightPosition;
                     downEdgeSnapping.rightBound = nextRoom.rightPosition;
-
+                    playerInput.currentRoomId = nextRoom.roomId;
                     rightBoundSet = true;
                 }
                 

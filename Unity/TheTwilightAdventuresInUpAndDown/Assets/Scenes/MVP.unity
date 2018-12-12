@@ -262,6 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 148273621}
   - component: {fileID: 148273622}
+  - component: {fileID: 148273623}
   m_Layer: 0
   m_Name: FirstMVPRoom
   m_TagString: Untagged
@@ -299,6 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ff904e6abfe3940bd0266ab843f401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomId: 1
   topPosition: {fileID: 530283320}
   middlePosition: {fileID: 515591734}
   leftPosition: {fileID: 179164555}
@@ -306,6 +308,17 @@ MonoBehaviour:
   bottomPosition: {fileID: 970072877}
   evePosition: {fileID: 0}
   dodoPosition: {fileID: 0}
+--- !u!114 &148273623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 148273620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3e5f091d2aae6b41b45fbe88a9445ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &167945840
 Prefab:
   m_ObjectHideFlags: 0
@@ -1268,6 +1281,16 @@ Prefab:
       propertyPath: m_Color.b
       value: 0.501513
       objectReference: {fileID: 0}
+    - target: {fileID: 114503385181109340, guid: a9dc50f534fcffd44b9dd0fe692e4e47,
+        type: 2}
+      propertyPath: isFlippable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114503385181109340, guid: a9dc50f534fcffd44b9dd0fe692e4e47,
+        type: 2}
+      propertyPath: particlePrefab
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9dc50f534fcffd44b9dd0fe692e4e47, type: 2}
   m_IsPrefabAsset: 0
@@ -1970,6 +1993,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 69.65832
       objectReference: {fileID: 0}
+    - target: {fileID: 1799785468062864, guid: d21784ea3e208d345a98340278fea394, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d21784ea3e208d345a98340278fea394, type: 2}
   m_IsPrefabAsset: 0
@@ -2642,6 +2669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ff904e6abfe3940bd0266ab843f401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomId: 3
   topPosition: {fileID: 1319404497}
   middlePosition: {fileID: 914133462}
   leftPosition: {fileID: 1601578098}
@@ -3544,6 +3572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ff904e6abfe3940bd0266ab843f401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomId: 2
   topPosition: {fileID: 1554505069}
   middlePosition: {fileID: 914133462}
   leftPosition: {fileID: 2142840342}
@@ -4771,6 +4800,16 @@ Prefab:
     - target: {fileID: 4849045991909158, guid: 6713b179a0f2b874492049deb6b744e6, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114920564735716536, guid: 6713b179a0f2b874492049deb6b744e6,
+        type: 2}
+      propertyPath: hasEveLantern
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114588406078898404, guid: 6713b179a0f2b874492049deb6b744e6,
+        type: 2}
+      propertyPath: currentRoomId
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6713b179a0f2b874492049deb6b744e6, type: 2}

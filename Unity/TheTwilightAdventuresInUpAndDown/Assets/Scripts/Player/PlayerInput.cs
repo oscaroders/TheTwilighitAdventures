@@ -6,15 +6,16 @@ public class PlayerInput : MonoBehaviour {
 
    
     private CharacterSwitch characterSwitch;
-    public FlipWorld[] rooms;
+    public Room[] rooms;
     public bool canFlip = true;
     public string characterInside = "";
     public bool notInteracting = true;
+    public int currentRoomId;
 
     private float direction = 0;
 
     private void Start() {
-        rooms = FindObjectsOfType<FlipWorld>();
+        rooms = FindObjectsOfType<Room>();
         characterSwitch = GetComponent<CharacterSwitch>();
         
     }
@@ -40,7 +41,7 @@ public class PlayerInput : MonoBehaviour {
         {
             for (int i = 0; i < rooms.Length; i++)
             {
-                rooms[i].FlipTheWorld(Input.GetButtonDown("FlipWorld"));
+                rooms[i].FlipThisRoomsFlippableObjects(currentRoomId,Input.GetButtonDown("FlipWorld"));
             }
         }
         
