@@ -5,44 +5,45 @@ using UnityEngine;
 public class PuzzleMovement : ActionObject {
 
     private Vector3 startPos;
-    public Transform target;
-    public float speed;
-    private bool moveSideways;
+    public Transform targetPos;
+    public float platformMovingSpeed;
+    private bool movingToTarget;
     public bool shallMove;
-    private bool state;
+    private bool activated;
 
 	void Start ()
     {
         startPos = transform.position;
-        moveSideways = true;
+        movingToTarget = true;
 	}
 	
 	void Update ()
     {
-        float step = speed * Time.deltaTime;
-        Vector3 offset = target.position - transform.position;
+        float step = platformMovingSpeed * Time.deltaTime;
+        Vector3 offset = targetPos.position - transform.position;
 
         if (offset.magnitude < 1)
         {
-            moveSideways = false;
+            movingToTarget = false;
         }
         else if (transform.position == startPos)
         {
-            moveSideways = true;
+            movingToTarget = true;
         }
 
-        if (moveSideways == false && (shallMove || !state))
+        if (movingToTarget == false && (shallMove || !activated))
         {
             transform.position = Vector3.MoveTowards(transform.position, startPos, step);
         }
-        else if (moveSideways && state)
+        else if (movingToTarget && activated)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+            transform.position = Vector3.MoveTowards(transform.position, targetPos.position, step);
         }
 	}
 
     public override void OnActivation(bool activated)
     {
-        state = activated;
+        this.activated = activated;
+        movingToTarget = activated;
     }
 }
