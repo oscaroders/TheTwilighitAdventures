@@ -5,21 +5,44 @@ using UnityEngine;
 public class PuzzleMovement : ActionObject {
 
     private Vector3 startPos;
+    private Vector3 upStart;
+    private Vector3 downStart;
     public Transform targetPos;
     public float platformMovingSpeed;
     private bool movingToTarget;
     public bool shallMove;
     private bool activated;
+    private FlipableObject flipableObject;
 
 	void Start ()
     {
         startPos = transform.position;
+        flipableObject = GetComponent<FlipableObject>();
+        upStart = flipableObject.startPosition;
+        downStart = flipableObject.endPosition;
+
         movingToTarget = true;
-	}
+        if (gameObject.name.Contains("Remnent"))
+        {
+            GameObject g = GameObject.Find("Remnent of " + targetPos.name);
+            Debug.Log(g);
+            targetPos = g.transform;
+            upStart = flipableObject.endPosition;
+            downStart = flipableObject.startPosition;
+        }
+    }
 	
 	void Update ()
     {
         float step = platformMovingSpeed * Time.deltaTime;
+        if (flipableObject.isInDown)
+        {
+            startPos = downStart;
+        } else
+        {
+            startPos = upStart;
+        }
+
         Vector3 offset = targetPos.position - transform.position;
 
         if (offset.magnitude < 1)
@@ -30,7 +53,7 @@ public class PuzzleMovement : ActionObject {
         {
             movingToTarget = true;
         }
-
+        // Update is on End or Start;
         if (movingToTarget == false && (shallMove || !activated))
         {
             transform.position = Vector3.MoveTowards(transform.position, startPos, step);

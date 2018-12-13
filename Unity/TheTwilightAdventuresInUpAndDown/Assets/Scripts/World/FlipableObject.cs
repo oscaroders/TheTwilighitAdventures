@@ -16,12 +16,15 @@ public class FlipableObject : MonoBehaviour {
     private GameObject collider;
 
     [Header("Flippable Particles")]
+    public bool wantParticles = true;
     public GameObject particlePrefab;
     private GameObject particle;
     public Color particleColor;
 
     private PlayerInput input;
-    
+    internal PuzzleMovement puzzleMovement;
+    public bool isInDown;
+
     private void Start()
     {
         axis = GetComponentInParent<FlipWorld>();
@@ -32,9 +35,18 @@ public class FlipableObject : MonoBehaviour {
         if (gameObject.name.Contains("Remnent"))
         {
             original = false;
-            spriteRenderer.enabled = false;
+            if(spriteRenderer != null)
+            {
+                spriteRenderer.enabled = false;
+            }
+            
             BoxCollider2D collider2D = GetComponent<BoxCollider2D>();
-            collider2D.isTrigger = true;
+            if(collider2D != null)
+            {
+                collider2D.isTrigger = true;
+            }
+            
+            
         }
 
         SetStartPosition(transform.position, transform.rotation);
@@ -47,17 +59,30 @@ public class FlipableObject : MonoBehaviour {
         if (isFlippable && original)
         {
             collider = Instantiate(gameObject,endPosition,endRotation,transform.parent);
-            collider.name = "Remnent of" + name;
+            collider.name = "Remnent of " + name;
         }
-        if (isFlippable && particle == null)
+        if (isFlippable && wantParticles &&particle == null )
         {
             particle = Instantiate(particlePrefab, transform);
             FlipObjectParticle temp = particle.GetComponent<FlipObjectParticle>();
-           
-
+            temp.ChangeColor(particleColor);
         }
     }
-   
+    private void Update()
+    {
+        if(axis != null)
+        {
+            if (transform.position.y > axis.transform.position.y)
+            {
+                isInDown = false;
+            }
+            else
+            {
+                isInDown = true;
+            }
+        }
+       
+    }
     public void SetEndPosition(Vector3 position, Quaternion rotation)
     {
         if(original)
@@ -140,6 +165,5 @@ public class FlipableObject : MonoBehaviour {
         input.canFlip = true;
         Debug.Log("Enable Flip for player");
     }
-
 
 }

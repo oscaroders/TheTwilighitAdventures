@@ -16,8 +16,7 @@ public class FlipObjectParticle : MonoBehaviour {
 	
     public void ChangeColor(Color c)
     {
-        var m = flipParticles.main;
-        m.startColor = c;
+        particleColor = c;
     }
 
 

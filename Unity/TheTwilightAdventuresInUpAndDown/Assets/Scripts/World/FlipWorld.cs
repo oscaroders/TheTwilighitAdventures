@@ -6,7 +6,7 @@ public class FlipWorld : MonoBehaviour {
 
     FlipableObject[] childrenTransform;
     float timer;
-    void Awake()
+    void Start()
     {
         childrenTransform = GetComponentsInChildren<FlipableObject>();
         StartCoroutine(UpdateFlipPosition());
@@ -47,7 +47,6 @@ public class FlipWorld : MonoBehaviour {
 
     IEnumerator UpdateFlipPosition()
     {
-        Quaternion rotation;
         
         while (gameObject){
 
@@ -56,20 +55,16 @@ public class FlipWorld : MonoBehaviour {
             {
                 if (childrenTransform[i].isFlippable)
                 {
-                    if ((childrenTransform[i].transform.position != childrenTransform[i].startPosition && childrenTransform[i].transform.position != childrenTransform[i].endPosition) ||
-                        (childrenTransform[i].transform.rotation != childrenTransform[i].startRotation && childrenTransform[i].transform.rotation != childrenTransform[i].endRotation))
-                    {
                         // Save its position
                         childrenTransform[i].SetStartPosition(childrenTransform[i].transform.position, childrenTransform[i].transform.rotation);
 
                         // Calculate and save its flipt position
                         childrenTransform[i].SetEndPosition(GetRelativePosition(transform, childrenTransform[i].startPosition), Quaternion.Inverse(childrenTransform[i].transform.rotation));
-                    }
 
                 }
             }
             
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForEndOfFrame();
         }
            
     }
