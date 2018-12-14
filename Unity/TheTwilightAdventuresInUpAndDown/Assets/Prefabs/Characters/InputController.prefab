@@ -689,7 +689,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.38192463, y: 0.9617989}
+  m_Size: {x: 0.52, y: 0.95}
   m_EdgeRadius: 0
 --- !u!70 &70709883057607816
 CapsuleCollider2D:
@@ -719,7 +719,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.25239274, y: 0.037039157}
-  m_Size: {x: 0.38993078, y: 0.074079774}
+  m_Size: {x: 0.52, y: 0.074079774}
   m_Direction: 1
 --- !u!81 &81024960419983562
 AudioListener:
@@ -759,6 +759,7 @@ MonoBehaviour:
   accelerationGround: 40
   accelerationAir: 20
   sprintMultiplier: 1
+  jumpHeight: 0
   jumpSpeed: 14
   fallMultiplier: 4
   lowJumpMultiplier: 3.5
@@ -770,6 +771,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   groundCheck: {fileID: 4821226820202476}
+  timeToFallDown: 0
 --- !u!114 &114127770176773666
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -996,6 +998,7 @@ MonoBehaviour:
   accelerationGround: 40
   accelerationAir: 20
   sprintMultiplier: 2
+  jumpHeight: 0
   jumpSpeed: 14
   fallMultiplier: 4
   lowJumpMultiplier: 3.5
@@ -1007,6 +1010,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   groundCheck: {fileID: 4061295227322722}
+  timeToFallDown: 0
 --- !u!114 &114915280272956428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1037,6 +1041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lanterLight: {fileID: 1172901418571526}
+  amountOfLanternFuel: 0
   hasEveLantern: 0
 --- !u!212 &212650765320488820
 SpriteRenderer:
