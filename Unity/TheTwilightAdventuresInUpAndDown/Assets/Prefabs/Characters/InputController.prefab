@@ -335,12 +335,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1605414250833908}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.64, y: -0.21253538, z: 0}
+  m_LocalPosition: {x: 26.36, y: -0.21253538, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4367794735031784}
   - {fileID: 4606640945772254}
   - {fileID: 4849045991909158}
-  - {fileID: 4367794735031784}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -358,7 +358,7 @@ Transform:
   - {fileID: 4710449795830862}
   - {fileID: 4921049806282946}
   m_Father: {fileID: 4319585023887672}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4402512510008498
 Transform:
@@ -384,7 +384,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4319585023887672}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4619633456765204
 Transform:
@@ -453,7 +453,7 @@ Transform:
   - {fileID: 4303507459757510}
   - {fileID: 4019205578393970}
   m_Father: {fileID: 4319585023887672}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!4 &4913129564573454
 Transform:
@@ -798,6 +798,7 @@ MonoBehaviour:
   dodoCamera: {fileID: 20462251269812644}
   focusProcentage: 0.75
   defaultValueOfOrthographicSize: 5
+  procentSpeed: 0.009
 --- !u!114 &114260544929378160
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -833,15 +834,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8842063a715e0494f8cc4f41730b5b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  focusAreaSize: {x: 3, y: 5}
+  focusAreaSize: {x: 3, y: 2}
   collider: {fileID: 61677039355581946}
   verticalOffset: 1
   lookAheadDstX: 4
-  lookAheadDstUp: 0
-  lookAheadDstDown: 0
+  lookAheadDstUp: -0.5
+  lookAheadDstDown: 0.5
   lookSmoothTimeX: 0.5
-  lookSmoothTimeY: 0
-  cameraYPositioning: -1
+  lookSmoothTimeY: 0.5
+  cameraYPositioning: 0
 --- !u!114 &114463372213360800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -875,15 +876,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8842063a715e0494f8cc4f41730b5b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  focusAreaSize: {x: 3, y: 5}
+  focusAreaSize: {x: 3, y: 2}
   collider: {fileID: 61684031993905104}
   verticalOffset: 1
   lookAheadDstX: 4
-  lookAheadDstUp: 0
-  lookAheadDstDown: 0
+  lookAheadDstUp: -0.5
+  lookAheadDstDown: 0.5
   lookSmoothTimeX: 0.5
-  lookSmoothTimeY: 0
-  cameraYPositioning: 1
+  lookSmoothTimeY: 0.5
+  cameraYPositioning: 0
 --- !u!114 &114588406078898404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -899,7 +900,7 @@ MonoBehaviour:
   canFlip: 1
   characterInside: 
   notInteracting: 1
-  currentRoomId: 0
+  currentRoomId: 1
 --- !u!114 &114661828096561502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1036,7 +1037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lanterLight: {fileID: 1172901418571526}
-  hasEveLantern: 1
+  hasEveLantern: 0
 --- !u!212 &212650765320488820
 SpriteRenderer:
   m_ObjectHideFlags: 1
