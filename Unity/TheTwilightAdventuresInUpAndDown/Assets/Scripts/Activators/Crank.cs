@@ -8,23 +8,30 @@ public class Crank : ActiveInteractableObject
 	private Activator activator;
 	public int timesPressed;
 	public int requiredPressed;
-    //public float timer;
-    //private float currentTime;
-    //public bool timerOn;
+    public float timer;
+    private float timerStartValue;
     private float timeSinceLastInteract;
     private float completionTime;
     public float limitTime;
-
-	// Use this for initialization
-	void Start ()
+    
+    void Start ()
 	{
 		activator = GetComponent<Activator>();
+        timerStartValue = timer;
 	}
 	
-	// Update is called once per frame
 	void Update ()
 	{
-        
+        if (activator.stateOfActivator)
+        {
+            timer -= Time.deltaTime;
+            if (timer < 0)
+            {
+                activator.stateOfActivator = false;
+                timesPressed = 0;
+                timer = timerStartValue;
+            }
+        }
 	}
 
     public override void Interact(bool interacting)

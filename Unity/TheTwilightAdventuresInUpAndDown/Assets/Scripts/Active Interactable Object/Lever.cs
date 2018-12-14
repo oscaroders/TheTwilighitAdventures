@@ -9,6 +9,7 @@ public class Lever : ActiveInteractableObject
     {
         activator = GetComponent<Activator>();
 	}
+
 	public override void Interact(bool interacting)
     {
         if(interacting)
