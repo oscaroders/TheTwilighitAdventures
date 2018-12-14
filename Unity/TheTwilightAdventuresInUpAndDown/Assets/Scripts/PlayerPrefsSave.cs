@@ -28,10 +28,11 @@ public class PlayerPrefsSave : MonoBehaviour {
         roomNumber = playerInput.currentRoomId;
         scene = SceneManager.GetActiveScene();
         sceneName = scene.name;
+        lanternFuel = lanternControll.amountOfLanternFuel;
 
         PlayerPrefs.SetInt("RoomNumber", roomNumber);
         PlayerPrefs.SetString("SceneName", sceneName);
-        //PlayerPrefs.SetFloat("LanternFuel", lanternFuel);
+        PlayerPrefs.SetFloat("LanternFuel", lanternFuel);
     }
 
     public void SaveSettings()
@@ -51,7 +52,7 @@ public class PlayerPrefsSave : MonoBehaviour {
 
         playerInput.currentRoomId = PlayerPrefs.GetInt("RoomNumber");
         sceneName = PlayerPrefs.GetString("SceneName");
-        //PlayerPrefs.GetFloat("LanternFuel");
+        lanternControll.amountOfLanternFuel = PlayerPrefs.GetFloat("LanternFuel");
 
         audioMixer.SetFloat("musicVolume",PlayerPrefs.GetFloat("MusicVolume"));
         audioMixer.SetFloat("dialogueVolume", PlayerPrefs.GetFloat("DialogueVolume"));
@@ -59,9 +60,4 @@ public class PlayerPrefsSave : MonoBehaviour {
         SceneManager.LoadScene(sceneName);
 
     }
-
-    void Update ()
-    {
-		
-	}
 }
