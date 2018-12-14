@@ -5,6 +5,7 @@ using UnityEngine;
 public class LanternControll : MonoBehaviour {
 
     public GameObject lanterLight;
+    public float amountOfLanternFuel;
      // [HideInInspector]
     public bool hasEveLantern;
 
