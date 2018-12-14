@@ -20,10 +20,11 @@ public class PlayerController : MonoBehaviour {
     [Header("Jump Settings")]
     [Space]
 
+    [Range(0, 20)] [SerializeField] internal float jumpHeight;
     [Range(0, 20)] [SerializeField] internal float jumpSpeed = 10f;
     [Range(0, 10)] [SerializeField] private float fallMultiplier = 5.5f;
     [Range(0, 10)] [SerializeField] private float lowJumpMultiplier = 5f;
-    const float groundedRadius = .15f;
+    const float groundedRadius = .2f;
     [Range(0, 10)] [SerializeField] private float groundGravityScale;
     [Range(0, 10)] [SerializeField] private float airGravityScale;
     [Space]
@@ -40,6 +41,8 @@ public class PlayerController : MonoBehaviour {
     private UnityEvent OnLandEvent;
 
     private float characterMult;
+    [HideInInspector] public bool timeToFallDown;
+    private float yGroundPosition;
 
     private void Awake() {
         rigidBody2D = GetComponent<Rigidbody2D>();
@@ -63,12 +66,22 @@ public class PlayerController : MonoBehaviour {
             if (colliders[i].gameObject != gameObject) {
                 grounded = true;
                 rigidBody2D.gravityScale = groundGravityScale * characterMult;
+                yGroundPosition = transform.position.y;
                 if (!wasGrounded)
+                {
+                    timeToFallDown = false;
                     OnLandEvent.Invoke();
+                }
             }
         }
         if (!grounded)
         {
+            if (Mathf.Abs(transform.position.y - yGroundPosition) >= jumpHeight)
+            {
+                timeToFallDown = true;
+                Debug.Log("Time to fall down: " + timeToFallDown);
+                rigidBody2D.velocity += Vector2.up * Mathf.Clamp(rigidBody2D.gravityScale, -1, 1) * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            }
             rigidBody2D.gravityScale = airGravityScale * characterMult;
             if ((rigidBody2D.gravityScale > 0 && rigidBody2D.velocity.y < 0) || (rigidBody2D.gravityScale < 0 && rigidBody2D.velocity.y > 0))
             {
