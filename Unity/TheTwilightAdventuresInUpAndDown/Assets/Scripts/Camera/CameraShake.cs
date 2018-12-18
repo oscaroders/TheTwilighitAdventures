@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class CameraShake : MonoBehaviour {
 
-    public Camera cam;
+    private CameraFollowTarget followTarget;
+    private Vector3 cameraPosition;
 
     float shakeAmount = 0;
 
-    private void Awake() {
+    private void Start() {
 
-        cam = GetComponent<Camera>();
-
+        followTarget = GetComponent<CameraFollowTarget>();
         
     }
 
-    public void Shake(float amt, float length) {
+    public void Shake(float amount, float length) {
         
-        shakeAmount = amt;
+        shakeAmount = amount;
+        cameraPosition = transform.position;
+        followTarget.enabled = false;
         InvokeRepeating("DoShake", 0, 0.01f);
         Invoke("StopShake", length);
     }
@@ -28,20 +30,22 @@ public class CameraShake : MonoBehaviour {
         if (shakeAmount > 0) {
            
 
-            Vector3 camPos = cam.transform.position;
+            Vector3 camPos = transform.position;
 
             float shakeAmtX = Random.value * shakeAmount * 2 - shakeAmount;
             float shakeAmtY = Random.value * shakeAmount * 2 - shakeAmount;
 
-            camPos.x += 5;
+            camPos.x += shakeAmtX;
             camPos.y += shakeAmtY;
             Debug.Log("x: " + shakeAmtX);
-            cam.transform.position = camPos;
+            transform.position = camPos;
         }
     }
 
     void StopShake() {
         CancelInvoke("DoShake");
-        cam.transform.localPosition = Vector3.zero;
+        transform.localPosition = cameraPosition;
+        
+        followTarget.enabled = true;
     }
 }
