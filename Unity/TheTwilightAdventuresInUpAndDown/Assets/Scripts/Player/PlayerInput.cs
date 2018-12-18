@@ -6,6 +6,7 @@ public class PlayerInput : MonoBehaviour {
 
    
     private CharacterSwitch characterSwitch;
+    CameraShake[] camShake;
     public Room[] rooms;
     public bool canFlip = true;
     public string characterInside = "";
@@ -15,6 +16,7 @@ public class PlayerInput : MonoBehaviour {
     private float direction = 0;
 
     private void Start() {
+        camShake = GetComponentsInChildren<CameraShake>();
         rooms = FindObjectsOfType<Room>();
         characterSwitch = GetComponent<CharacterSwitch>();
         
@@ -43,9 +45,14 @@ public class PlayerInput : MonoBehaviour {
             {
                 rooms[i].FlipThisRoomsFlippableObjects(currentRoomId,Input.GetButtonDown("FlipWorld"));
             }
+        } 
+
+        if(canFlip && Input.GetButtonDown("FlipWorld")) {
+            foreach (var cam in camShake) {
+                cam.Shake(0.5f, 0.7f);
+            }
+            
         }
-        
-        
-        
+  
     }
 }
