@@ -759,12 +759,12 @@ MonoBehaviour:
   accelerationGround: 40
   accelerationAir: 20
   sprintMultiplier: 1
-  jumpHeight: 0
-  jumpSpeed: 14
-  fallMultiplier: 4
-  lowJumpMultiplier: 3.5
+  jumpHeight: 1
+  jumpSpeed: 15
+  fallMultiplier: 4.7
+  lowJumpMultiplier: 3
   groundGravityScale: 1
-  airGravityScale: 3
+  airGravityScale: 1
   airControl: 0
   grounded: 1
   whatIsGround:
@@ -994,16 +994,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   v_Max: 15
   dragGround: 6
-  dragAir: 2.74
+  dragAir: 4
   accelerationGround: 40
   accelerationAir: 20
   sprintMultiplier: 2
-  jumpHeight: 0
-  jumpSpeed: 14
-  fallMultiplier: 4
-  lowJumpMultiplier: 3.5
+  jumpHeight: 1
+  jumpSpeed: 15
+  fallMultiplier: 4.7
+  lowJumpMultiplier: 3
   groundGravityScale: 1
-  airGravityScale: 3
+  airGravityScale: 1
   airControl: 0
   grounded: 1
   whatIsGround:
