@@ -22,6 +22,15 @@ public class LanternControll : MonoBehaviour {
         } else {
             lanterLight.SetActive(false);
         }
+
+        if (Random.Range(0, 100) < 5) {
+            float flicker = Random.Range(0.97f, 1.03f);
+
+            lanterLight.transform.localScale = new Vector3(lanterLight.transform.localScale.x * flicker, lanterLight.transform.localScale.y * flicker, lanterLight.transform.localScale.z);
+        }
+
+        lanterLight.transform.localScale = new Vector3(Mathf.Clamp(lanterLight.transform.localScale.x, 0.7f, 1.3f) , lanterLight.transform.localScale.y, lanterLight.transform.localScale.z);
+
     }
 
     void SetSizeOfLight(float percentage) {
