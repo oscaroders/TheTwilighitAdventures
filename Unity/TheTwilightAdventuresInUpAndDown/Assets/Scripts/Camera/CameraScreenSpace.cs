@@ -12,7 +12,8 @@ public class CameraScreenSpace : MonoBehaviour {
     public float focusProcentage = 0.7f;
 
     public float defaultValueOfOrthographicSize;
-
+    public bool otherCameraFollowX;
+    public bool otherCameraFollowY;
     private CharacterSwitch characterSwitch;
 
     internal float eveCameraProcentTotal;
@@ -87,6 +88,18 @@ public class CameraScreenSpace : MonoBehaviour {
         temp = dodoCamera.rect;
         temp.y = dodoCameraCurrent - 1;
         dodoCamera.rect = temp;
+
+        if (otherCameraFollowX)
+        {
+            if (characterSwitch.isEve)
+            {
+                dodoCamera.transform.position = new Vector3(eveCamera.transform.position.x, dodoCamera.transform.position.y, dodoCamera.transform.position.z);
+            }
+            else
+            {
+                eveCamera.transform.position = new Vector3(dodoCamera.transform.position.x, eveCamera.transform.position.y, eveCamera.transform.position.z);
+            }
+        }
     }
 
     void Focus(string name)
