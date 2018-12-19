@@ -6,9 +6,18 @@ public class OutOfBounds : ActionObject
 {
     public Animator animator;
 
-    public PlayerInput input;
-    public Transform eve, dodo;
+    private PlayerInput input;
+    private Transform eve, dodo;
     public Transform eveCheckpoint, dodoCheckpoint;
+
+    private void Start()
+    {
+        eve = GameObject.Find("Eve").transform;
+        dodo = GameObject.Find("Dodo").transform;
+        input = FindObjectOfType<PlayerInput>();
+    }
+
+
     public override void OnActivation(bool activated)
     {
         if (activated)
