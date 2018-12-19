@@ -6,13 +6,14 @@ public class FlipWorld : MonoBehaviour {
 
     FlipableObject[] childrenTransform;
     float timer;
-
+    PlayerInput pi;
     float slowdownFactor = 0.5f;
     float slowdownLength = 1f;
     float speedUpLength = 0.5f;
 
     void Start()
     {
+        pi = FindObjectOfType<PlayerInput>();
         childrenTransform = GetComponentsInChildren<FlipableObject>();
         StartCoroutine(UpdateFlipPosition());
     }
@@ -69,21 +70,29 @@ public class FlipWorld : MonoBehaviour {
             Time.fixedDeltaTime = Time.timeScale * .02f;
             yield return new WaitForEndOfFrame();
         }
-        for (int i = 0; i < childrenTransform.Length; i++)
+       if(pi.canFlip)
         {
-            if (childrenTransform[i].isFlippable)
+            for (int i = 0; i < childrenTransform.Length; i++)
             {
+                if (childrenTransform[i].isFlippable)
+                {
 
-                if (childrenTransform[i].transform.position == childrenTransform[i].startPosition)
-                {
-                    childrenTransform[i].GoToEnd();
-                }
-                else
-                {
-                    childrenTransform[i].GoToStart();
+                    if (childrenTransform[i].transform.position == childrenTransform[i].startPosition)
+                    {
+                        childrenTransform[i].GoToEnd();
+                    }
+                    else
+                    {
+                        childrenTransform[i].GoToStart();
+                    }
                 }
             }
         }
+        else
+        {
+            pi.CannotFlipShake();
+        }
+        
         while (Time.timeScale < slowdownFactor)
         {
             Time.timeScale += (1f / speedUpLength) * Time.unscaledDeltaTime;

@@ -49,11 +49,17 @@ public class PlayerInput : MonoBehaviour {
         } 
 
         if(!canFlip && Input.GetButtonDown("FlipWorld")) {
-            foreach (var cam in camShake) {
-                cam.Shake(0.05f, 0.1f);
-            }
-            
+            CannotFlipShake();
+
+
         }
   
+    }
+    public void CannotFlipShake()
+    {
+        foreach (var cam in camShake)
+        {
+            cam.Shake(0.05f, 0.1f);
+        }
     }
 }
