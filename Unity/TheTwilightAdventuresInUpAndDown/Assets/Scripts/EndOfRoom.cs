@@ -14,6 +14,11 @@ public class EndOfRoom : ActionObject
     private CameraFollowTarget upCameraFollow;
     private CameraFollowTarget downCameraFollow;
 
+    private PlayerMovement eve;
+    private PlayerMovement dodo;
+
+    public Transform newBlockerTarget;
+
 
     public Transform[] blockers;
 
@@ -22,11 +27,15 @@ public class EndOfRoom : ActionObject
     private bool rightBoundSet = false;
     float leftBoundPositionX;
 
+    bool wasActivated;
     private PlayerInput playerInput;
 
     [Range(0f,20f)]public float panningSpeed = 1f;
+
     private void Start()
     {
+        eve = GameObject.Find("Eve").GetComponent<PlayerMovement>();
+        dodo = GameObject.Find("Dodo").GetComponent<PlayerMovement>();
         CameraEdgeSnapping[] allEdgeSnapping = FindObjectsOfType<CameraEdgeSnapping>();
         foreach (CameraEdgeSnapping item in allEdgeSnapping)
         {
@@ -53,6 +62,10 @@ public class EndOfRoom : ActionObject
     public override void OnActivation(bool activated)
     {
         if (activated)
+        {
+            wasActivated = true;
+        }
+        if (wasActivated)
         {
             if(isLevelEnd)
             {
@@ -84,12 +97,12 @@ public class EndOfRoom : ActionObject
                 if (upCameraPosition.x >= upEdgeSnapping.CalculateMinX(leftBoundPositionX) && downCameraPosition.x >= downEdgeSnapping.CalculateMinX(leftBoundPositionX))
                 {
                     //Move the Blockers;
-                    foreach (Transform item in blockers)
-                    {
-                        Vector3 tempPos = item.position;
-                        tempPos.x -= 1f;
-                        item.position = tempPos;
-                    }
+                    //foreach (Transform item in blockers)
+                    //{
+                    //    Vector3 tempPos = item.position;
+                    //    tempPos.x -= 1f;
+                    //    item.position = tempPos;
+                    //}
 
                     // Set the new leftbounds for CameraEdgeSnapping
                     upEdgeSnapping.leftBound = nextRoom.leftPosition;
@@ -104,11 +117,24 @@ public class EndOfRoom : ActionObject
                 else
                 {
                     float distance = panningSpeed * Time.deltaTime;
-                    
+
+                    foreach (Transform item in blockers)
+                    {
+                        Vector3 tempPos = item.position;
+                        tempPos.x = newBlockerTarget.position.x;
+                        item.position = tempPos;
+                    }
+
                     // Move the cameras to the right
                     upCameraPosition.x += distance;
                     downCameraPosition.x += distance;
-                  
+                    //Moves player to spawnpoint
+                    if (eve.transform.position.x < nextRoom.eveSpawnPosition.position.x)
+                    {
+                        eve.Move(1, false);
+                        dodo.Move(1, false);
+
+                    }
                     // Update Cameras position
                     upEdgeSnapping.gameObject.transform.position = upCameraPosition;
                     downEdgeSnapping.gameObject.transform.position = downCameraPosition;

@@ -13,8 +13,8 @@ public class Room : MonoBehaviour {
     public Transform bottomPosition;
 
     [Header("Spawn Point")]
-    public Transform evePosition;
-    public Transform dodoPosition;
+    public Transform eveSpawnPosition;
+    public Transform dodoSpawnPosition;
 
     private FlipWorld flipWorld;
 	// Use this for initialization
