@@ -37,7 +37,6 @@ public class CameraShake : MonoBehaviour {
 
             camPos.x += shakeAmtX;
             camPos.y += shakeAmtY;
-            Debug.Log("x: " + shakeAmtX);
             transform.position = camPos;
         }
     }
