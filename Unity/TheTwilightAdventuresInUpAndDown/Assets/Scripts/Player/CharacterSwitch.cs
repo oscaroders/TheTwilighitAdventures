@@ -20,18 +20,8 @@ public class CharacterSwitch : MonoBehaviour
         {
             isEve = !isEve;
         }
-
-		//if (isEve)
-		//{
-		//	dodoAmbientSound.Stop();
-		//	eveAmbientSound.Play();
-		//}
-		//else
-		//{
-		//	eveAmbientSound.Stop();
-		//	dodoAmbientSound.Play();
-		//}
 	}
+
 	public void BackGroundMusic()
 	{
 		if (isEve && !eveAmbientSound.isPlaying)

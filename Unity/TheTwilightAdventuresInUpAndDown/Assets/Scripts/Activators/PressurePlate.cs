@@ -9,30 +9,33 @@ public class PressurePlate : MonoBehaviour
     private int counter;
     public bool timerOn;
     public float timer;
+	public AudioSource plateSound;
     private float currentTime;
     private bool off = true;
+
     private void Start()
     {
         activator = GetComponent<Activator>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
-    {
-        activator.stateOfActivator = true;
+	{
+		plateSound.Play();
+		activator.stateOfActivator = true;
         counter++;
         off = false;
     }
     private void OnTriggerExit2D(Collider2D collision)
-    {
-        currentTime = 0;
+	{
+		currentTime = 0;
         counter--;
         if(counter == 0)
-            off = true;
+			off = true;
     }
     private void Update()
     {
         if (off && (!timerOn || currentTime > timer))
             activator.stateOfActivator = false;
-        if(timerOn)
+		if (timerOn)
             currentTime += Time.deltaTime;
     }
 }
