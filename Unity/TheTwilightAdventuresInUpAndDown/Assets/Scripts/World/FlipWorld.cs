@@ -6,6 +6,11 @@ public class FlipWorld : MonoBehaviour {
 
     FlipableObject[] childrenTransform;
     float timer;
+
+    float slowdownFactor = 0.5f;
+    float slowdownLength = 1f;
+    float speedUpLength = 0.5f;
+
     void Start()
     {
         childrenTransform = GetComponentsInChildren<FlipableObject>();
@@ -13,24 +18,10 @@ public class FlipWorld : MonoBehaviour {
     }
     public void FlipTheWorld(bool state)
     {
-        if(state)
+        if (state)
         {
-            for (int i = 0; i < childrenTransform.Length; i++)
-            {
-                if (childrenTransform[i].isFlippable)
-                {
-
-                    if (childrenTransform[i].transform.position == childrenTransform[i].startPosition)
-                    {
-                        childrenTransform[i].GoToEnd();
-                    }
-                    else
-                    {
-                        childrenTransform[i].GoToStart();
-                    }
-                }
-            }
-        }       
+            StartCoroutine(SlowDownEffect());
+        }
 
     }
     public static Vector3 GetRelativePosition(Transform origin, Vector3 position)
@@ -47,25 +38,61 @@ public class FlipWorld : MonoBehaviour {
 
     IEnumerator UpdateFlipPosition()
     {
-        
-        while (gameObject){
+
+        while (gameObject) {
 
             childrenTransform = GetComponentsInChildren<FlipableObject>();
             for (int i = 0; i < childrenTransform.Length; i++)
             {
                 if (childrenTransform[i].isFlippable)
                 {
-                        // Save its position
-                        childrenTransform[i].SetStartPosition(childrenTransform[i].transform.position, childrenTransform[i].transform.rotation);
+                    // Save its position
+                    childrenTransform[i].SetStartPosition(childrenTransform[i].transform.position, childrenTransform[i].transform.rotation);
 
-                        // Calculate and save its flipt position
-                        childrenTransform[i].SetEndPosition(GetRelativePosition(transform, childrenTransform[i].startPosition), Quaternion.Inverse(childrenTransform[i].transform.rotation));
+                    // Calculate and save its flipt position
+                    childrenTransform[i].SetEndPosition(GetRelativePosition(transform, childrenTransform[i].startPosition), Quaternion.Inverse(childrenTransform[i].transform.rotation));
 
                 }
             }
-            
+
             yield return new WaitForEndOfFrame();
         }
-           
+
+        
     }
+
+    IEnumerator SlowDownEffect()
+    {
+       while(Time.timeScale > slowdownFactor)
+        {
+            Time.timeScale -= (1f / slowdownLength) * Time.unscaledDeltaTime;
+            Time.fixedDeltaTime = Time.timeScale * .02f;
+            yield return new WaitForEndOfFrame();
+        }
+        for (int i = 0; i < childrenTransform.Length; i++)
+        {
+            if (childrenTransform[i].isFlippable)
+            {
+
+                if (childrenTransform[i].transform.position == childrenTransform[i].startPosition)
+                {
+                    childrenTransform[i].GoToEnd();
+                }
+                else
+                {
+                    childrenTransform[i].GoToStart();
+                }
+            }
+        }
+        while (Time.timeScale < slowdownFactor)
+        {
+            Time.timeScale += (1f / speedUpLength) * Time.unscaledDeltaTime;
+            Time.fixedDeltaTime = Time.timeScale * .02f;
+            yield return new WaitForEndOfFrame();
+        }
+        Time.timeScale = 1;
+        Time.fixedDeltaTime = Time.timeScale * .02f;
+        yield return null;
+    }
+
 }

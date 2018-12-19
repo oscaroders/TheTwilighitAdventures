@@ -60,6 +60,7 @@ public class FlipableObject : MonoBehaviour {
         {
             collider = Instantiate(gameObject,endPosition,endRotation,transform.parent);
             collider.name = "Remnent of " + name;
+            collider.layer = 8;
         }
         if (isFlippable && wantParticles &&particle == null )
         {
