@@ -4749,6 +4749,11 @@ Prefab:
       propertyPath: bottomBound
       value: 
       objectReference: {fileID: 515591734}
+    - target: {fileID: 114543712639924090, guid: 6713b179a0f2b874492049deb6b744e6,
+        type: 2}
+      propertyPath: verticalOffset
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6713b179a0f2b874492049deb6b744e6, type: 2}
   m_IsPrefabAsset: 0
