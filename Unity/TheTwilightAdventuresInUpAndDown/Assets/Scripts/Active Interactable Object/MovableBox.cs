@@ -22,6 +22,8 @@ public class MovableBox : ActiveInteractableObject
         input = inputController.GetComponent<PlayerInput>();
         playerRigidbody2D = inputController.GetComponentsInChildren<Rigidbody2D>();
         characterSwitch = inputController.GetComponent<CharacterSwitch>();
+        SortPlayerRigidbody2DArray();
+        
     }
     public override void Interact(bool interacting)
     {
@@ -39,7 +41,7 @@ public class MovableBox : ActiveInteractableObject
         if (moving)
         {
             input.notInteracting = false;
-            box.connectedBody = playerRigidbody2D[characterSwitch.isEve.GetHashCode()];
+            box.connectedBody = playerRigidbody2D[GetIndex()];
             xPos = transform.position.x;
             gameObject.layer = 8;
             boxRB.mass = boxMassMoving;
@@ -52,5 +54,22 @@ public class MovableBox : ActiveInteractableObject
             boxRB.mass = boxMassStop;
         }
         box.enabled = moving;
+    }
+    int GetIndex()
+    {
+        if (characterSwitch.isEve)
+            return 0;
+        else
+            return 1;
+
+    }
+    void SortPlayerRigidbody2DArray()
+    {
+        if(playerRigidbody2D[0].gravityScale < 0)
+        {
+            Rigidbody2D temporary = playerRigidbody2D[0];
+            playerRigidbody2D[0] = playerRigidbody2D[1];
+            playerRigidbody2D[1] = temporary;
+        }
     }
 }
