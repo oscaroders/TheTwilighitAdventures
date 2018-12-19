@@ -9,7 +9,7 @@ public class PuzzleMovement : ActionObject {
     private Vector3 downStart;
     public Transform targetPos;
     public float platformMovingSpeed;
-    private bool movingToTarget;
+    private bool movingToTarget, once = true;
     public bool shallMove;
     private bool activated;
     private FlipableObject flipableObject;
@@ -71,6 +71,7 @@ public class PuzzleMovement : ActionObject {
         else if (transform.position == startPos)
         {
             movingToTarget = true;
+            once = true;
         }
         // Update is on End or Start;
         if (movingToTarget == false && (shallMove || !activated))
@@ -86,6 +87,12 @@ public class PuzzleMovement : ActionObject {
     public override void OnActivation(bool activated)
     {
         this.activated = activated;
-        movingToTarget = activated;
+        if(activated && once)
+        {
+            movingToTarget = true;
+            once = false;
+        }
+        else if(!activated)
+            movingToTarget = false;
     }
 }
