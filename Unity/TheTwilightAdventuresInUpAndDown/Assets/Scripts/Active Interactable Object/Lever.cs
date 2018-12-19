@@ -5,6 +5,7 @@ using UnityEngine;
 public class Lever : ActiveInteractableObject
 {
     private Activator activator;
+	public AudioSource leverSound;
 	void Start()
     {
         activator = GetComponent<Activator>();
@@ -13,6 +14,9 @@ public class Lever : ActiveInteractableObject
 	public override void Interact(bool interacting)
     {
         if(interacting)
-            activator.stateOfActivator = !activator.stateOfActivator; 
+		{
+			leverSound.Play();
+			activator.stateOfActivator = !activator.stateOfActivator;
+		}
 	}
 }
