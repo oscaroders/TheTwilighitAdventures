@@ -13,6 +13,7 @@ public class PuzzleMovement : ActionObject {
     public bool shallMove;
     private bool activated;
     private FlipableObject flipableObject;
+    private Transform playerParent;
 
 	void Start ()
     {
@@ -31,8 +32,26 @@ public class PuzzleMovement : ActionObject {
             downStart = flipableObject.startPosition;
         }
     }
-	
-	void Update ()
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            if (playerParent == null)
+                playerParent = collision.transform.parent;
+            collision.transform.parent = gameObject.transform;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            collision.transform.parent = playerParent;
+            playerParent = null;
+        }
+    }
+
+    void Update ()
     {
         float step = platformMovingSpeed * Time.deltaTime;
         if (flipableObject.isInDown)
