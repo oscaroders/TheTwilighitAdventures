@@ -35,9 +35,9 @@ public class PlayerInput : MonoBehaviour {
 
 		if (Input.GetAxisRaw("Horizontal") != 0)
             direction = Mathf.Sign(Input.GetAxisRaw("Horizontal"));
-        if (Input.GetButtonDown("Submit"))
+        if (Input.GetButtonDown("Interact"))
             characterSwitch.GetInteract().InteractObject(true, direction);
-        else if (Input.GetButtonUp("Submit"))
+        else if (Input.GetButtonUp("Interact"))
             characterSwitch.GetInteract().InteractObject(false, direction);
 
         if (canFlip)
