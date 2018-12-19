@@ -49,7 +49,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1010253672679426}
   serializedVersion: 5
   lengthInSec: 0.05
-  simulationSpeed: 0.5
+  simulationSpeed: 0.2
   stopAction: 0
   looping: 1
   prewarm: 0
@@ -120,7 +120,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.05
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -173,7 +173,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.2
+      scalar: 0.1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -668,7 +668,7 @@ ParticleSystem:
     angle: 35.42674
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 1
+    radiusThickness: 0.5
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
@@ -695,7 +695,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.2851256
+      value: 0.06251151
       mode: 0
       spread: 0
       speed:
@@ -924,7 +924,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 10
+        scalar: 30
         minScalar: 0
         maxCurve:
           serializedVersion: 2
@@ -987,8 +987,8 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0.018180847
-          value: 0.6707306
+          time: 0
+          value: 0.47154427
           inSlope: -0.63877434
           outSlope: -0.63877434
           tangentMode: 0
@@ -996,13 +996,13 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.097903006
         - serializedVersion: 3
-          time: 0.99318177
+          time: 0.41816956
           value: 0
-          inSlope: -0.7739215
-          outSlope: -0.7739215
+          inSlope: -0.28617898
+          outSlope: -0.28617898
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.12121195
+          inWeight: 0.11547334
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
