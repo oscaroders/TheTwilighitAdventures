@@ -14,6 +14,8 @@ public class MovableBox : ActiveInteractableObject
     private Rigidbody2D boxRB;
     private CharacterSwitch characterSwitch;
     [SerializeField] private float boxMassStop, boxMassMoving;
+	public AudioSource moveBoxSound;
+
     private void Start()
     {
         box = GetComponent<FixedJoint2D>();
@@ -28,23 +30,34 @@ public class MovableBox : ActiveInteractableObject
     public override void Interact(bool interacting)
     {
         if (interacting)
-        {
-            moving = true;
+		{
+			
+			moving = true;
         }
         else
-        {
-            moving = false;
+		{
+			moving = false;
         }
     }
     private void FixedUpdate()
     {
         if (moving)
-        {
-            input.notInteracting = false;
+		{
+			input.notInteracting = false;
             box.connectedBody = playerRigidbody2D[GetIndex()];
             xPos = transform.position.x;
             gameObject.layer = 8;
             boxRB.mass = boxMassMoving;
+
+			if (Input.GetAxis("Horizontal") != 0 && !moveBoxSound.isPlaying)
+			{
+				moveBoxSound.Play();
+				Debug.Log("Play Sound");
+			}
+			else if (Input.GetButtonUp("Submit"))
+			{
+				moveBoxSound.Stop();
+			}
         }
         else
         {
