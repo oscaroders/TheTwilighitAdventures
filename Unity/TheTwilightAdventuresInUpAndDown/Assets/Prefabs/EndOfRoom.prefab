@@ -76,6 +76,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1708900084175700
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4473440623051284}
+  - component: {fileID: 114812628947683478}
+  m_Layer: 0
+  m_Name: AndGate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1855409183957154
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,12 +133,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1155269624417584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.43, y: -0.03, z: 0}
+  m_LocalPosition: {x: 2.5885124, y: 5.592828, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4139748038230948}
   - {fileID: 4466865001634608}
   - {fileID: 4333616241015160}
+  - {fileID: 4473440623051284}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -179,6 +196,19 @@ Transform:
   - {fileID: 4477855471252364}
   m_Father: {fileID: 4012478836231754}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4473440623051284
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1708900084175700}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 33.065918, y: 3.5408065, z: 650.06537}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4012478836231754}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4477855471252364
 Transform:
@@ -304,9 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7f4942f4388fa147b378bdde5659a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activators:
-  - {fileID: 114353895587403962}
-  - {fileID: 114298586537595656}
+  activator: {fileID: 114812628947683478}
   isLevelEnd: 0
   sceneName: 
   newBlockerTarget: {fileID: 4333616241015160}
@@ -363,3 +391,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Player
+--- !u!114 &114812628947683478
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1708900084175700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a4e486e22527264d900c26f95a13b47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateOfActivator: 0
+  activators:
+  - {fileID: 114298586537595656}
+  - {fileID: 114353895587403962}

@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public abstract class ActionObject : MonoBehaviour
 {
-    public Activator[] activators;
-    private bool allActive = false;
+    public Activator activator;
     public virtual void OnActivation(bool activated)
     {
 
@@ -15,12 +14,6 @@ public abstract class ActionObject : MonoBehaviour
     }
     public virtual void OnFixedUpdate()
     {
-        allActive = true;
-        foreach (Activator activator in activators)
-        {
-            if (!activator.stateOfActivator)
-                allActive = false;
-        }
-        OnActivation(allActive);
+        OnActivation(activator.stateOfActivator);
     }
 }
