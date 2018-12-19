@@ -31,8 +31,9 @@ public class PlayerInput : MonoBehaviour {
             characterSwitch.GetPlayerJump().Jump(Input.GetButtonDown("Jump"));
             characterSwitch.ChangeCharacter(Input.GetButtonDown("CharacterSwitch"));
         }
+		characterSwitch.BackGroundMusic();
 
-        if (Input.GetAxisRaw("Horizontal") != 0)
+		if (Input.GetAxisRaw("Horizontal") != 0)
             direction = Mathf.Sign(Input.GetAxisRaw("Horizontal"));
         if (Input.GetButtonDown("Submit"))
             characterSwitch.GetInteract().InteractObject(true, direction);

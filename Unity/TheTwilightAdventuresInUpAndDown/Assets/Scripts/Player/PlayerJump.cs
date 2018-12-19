@@ -7,6 +7,7 @@ public class PlayerJump : MonoBehaviour {
 
     private Rigidbody2D rigidBody2D;
     private PlayerController playerController;
+	public AudioSource jumpSound;
     public float maxHeight;
 
     // Use this for initialization
@@ -17,6 +18,9 @@ public class PlayerJump : MonoBehaviour {
 
     internal void Jump(bool jump) {
         if (jump && playerController.grounded)
-            rigidBody2D.velocity = new Vector2(rigidBody2D.velocity.x, Mathf.Sign(rigidBody2D.gravityScale) * playerController.jumpSpeed);
-    }
+		{
+			jumpSound.Play();
+			rigidBody2D.velocity = new Vector2(rigidBody2D.velocity.x, Mathf.Sign(rigidBody2D.gravityScale) * playerController.jumpSpeed);
+		}
+	}
 }

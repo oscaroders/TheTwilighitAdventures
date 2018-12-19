@@ -7,9 +7,11 @@ public class CharacterSwitch : MonoBehaviour
     public PlayerMovement eveMovement;
     public PlayerJump eveJump;
     public Interact eveInteract;
-    public PlayerMovement dodoMovement;
+	public AudioSource eveAmbientSound;
+	public PlayerMovement dodoMovement;
     public PlayerJump dodoJump;
     public Interact dodoInteract;
+	public AudioSource dodoAmbientSound;
     public bool isEve = true;
 
     public void ChangeCharacter(bool state)
@@ -17,10 +19,32 @@ public class CharacterSwitch : MonoBehaviour
         if (state)
         {
             isEve = !isEve;
-
         }
-    }
 
+		//if (isEve)
+		//{
+		//	dodoAmbientSound.Stop();
+		//	eveAmbientSound.Play();
+		//}
+		//else
+		//{
+		//	eveAmbientSound.Stop();
+		//	dodoAmbientSound.Play();
+		//}
+	}
+	public void BackGroundMusic()
+	{
+		if (isEve && !eveAmbientSound.isPlaying)
+		{ 
+			dodoAmbientSound.Pause();
+			eveAmbientSound.Play();
+		}
+		else if(!isEve && !dodoAmbientSound.isPlaying)
+		{
+			eveAmbientSound.Pause();
+			dodoAmbientSound.Play();
+		}
+	}
 
     public PlayerMovement GetPlayerMovement()
     {
@@ -57,7 +81,4 @@ public class CharacterSwitch : MonoBehaviour
             return dodoInteract;
         }
     }
-
-   
-
 }
