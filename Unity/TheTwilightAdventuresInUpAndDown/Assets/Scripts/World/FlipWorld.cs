@@ -10,7 +10,7 @@ public class FlipWorld : MonoBehaviour {
     float slowdownFactor = 0.5f;
     float slowdownLength = 1f;
     float speedUpLength = 0.5f;
-    public int numberOfCorutines;
+    public static int numberOfCorutines;
 
     void Start()
     {
@@ -20,8 +20,10 @@ public class FlipWorld : MonoBehaviour {
     }
     public void FlipTheWorld(bool state)
     {
-        if (state)
+        Debug.Log(numberOfCorutines);
+        if (state && numberOfCorutines < 1)
         {
+            StopAllCoroutines();
             StartCoroutine(SlowDownEffect());
         }
 
