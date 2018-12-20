@@ -10,6 +10,7 @@ public class FlipWorld : MonoBehaviour {
     float slowdownFactor = 0.5f;
     float slowdownLength = 1f;
     float speedUpLength = 0.5f;
+    public static int numberOfCorutines;
 
     void Start()
     {
@@ -64,46 +65,54 @@ public class FlipWorld : MonoBehaviour {
 
     IEnumerator SlowDownEffect()
     {
-       while(Time.timeScale > slowdownFactor)
+        if(numberOfCorutines < 1)
         {
-            Time.timeScale -= (1f / slowdownLength) * Time.unscaledDeltaTime;
-            Time.fixedDeltaTime = Time.timeScale * .02f;
-            yield return new WaitForEndOfFrame();
-        }
-       if(pi.canFlip)
-        {
-            for (int i = 0; i < childrenTransform.Length; i++)
+            numberOfCorutines++;
+            while (Time.timeScale > slowdownFactor)
             {
-                if (childrenTransform[i].isFlippable)
+                Time.timeScale -= (1f / slowdownLength) * Time.unscaledDeltaTime;
+                Time.fixedDeltaTime = Time.timeScale * .02f;
+                yield return new WaitForEndOfFrame();
+            }
+            if (pi.canFlip)
+            {
+                for (int i = 0; i < childrenTransform.Length; i++)
                 {
+                    if (childrenTransform[i].isFlippable)
+                    {
 
-                    if (childrenTransform[i].transform.position == childrenTransform[i].startPosition)
-                    {
-                        childrenTransform[i].GoToEnd();
-                    }
-                    else
-                    {
-                        childrenTransform[i].GoToStart();
+                        if (childrenTransform[i].transform.position == childrenTransform[i].startPosition)
+                        {
+                            childrenTransform[i].GoToEnd();
+                        }
+                        else
+                        {
+                            childrenTransform[i].GoToStart();
+                        }
                     }
                 }
             }
-        }
-        else
-        {
-            //Maybe Play a sound when it does not work
-        }
-        pi.CannotFlipShake();
-        
-        
-        while (Time.timeScale < slowdownFactor)
-        {
-            Time.timeScale += (1f / speedUpLength) * Time.unscaledDeltaTime;
+            else
+            {
+                //Maybe Play a sound when it does not work
+            }
+            pi.CannotFlipShake();
+
+
+            while (Time.timeScale < slowdownFactor)
+            {
+                Time.timeScale += (1f / speedUpLength) * Time.unscaledDeltaTime;
+                Time.fixedDeltaTime = Time.timeScale * .02f;
+                yield return new WaitForEndOfFrame();
+            }
+            Time.timeScale = 1;
             Time.fixedDeltaTime = Time.timeScale * .02f;
-            yield return new WaitForEndOfFrame();
+
+            numberOfCorutines--;
+            
         }
-        Time.timeScale = 1;
-        Time.fixedDeltaTime = Time.timeScale * .02f;
         yield return null;
+
     }
 
 }
