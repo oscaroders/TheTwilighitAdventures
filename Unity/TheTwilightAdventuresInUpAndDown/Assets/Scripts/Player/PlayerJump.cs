@@ -21,6 +21,7 @@ public class PlayerJump : MonoBehaviour {
 		{
 			jumpSound.Play();
 			rigidBody2D.velocity = new Vector2(rigidBody2D.velocity.x, Mathf.Sign(rigidBody2D.gravityScale) * playerController.jumpSpeed);
+            playerController.canInteract = false;
 		}
 	}
 }

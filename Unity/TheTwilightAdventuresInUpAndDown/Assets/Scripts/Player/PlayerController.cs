@@ -44,6 +44,9 @@ public class PlayerController : MonoBehaviour {
     [HideInInspector] public bool timeToFallDown;
     private float yGroundPosition;
 
+
+    [HideInInspector] public bool canInteract;
+
     private void Awake() {
         rigidBody2D = GetComponent<Rigidbody2D>();
 
@@ -70,6 +73,7 @@ public class PlayerController : MonoBehaviour {
                 if (!wasGrounded)
                 {
                     timeToFallDown = false;
+                    canInteract = true;
                     OnLandEvent.Invoke();
                 }
             }
