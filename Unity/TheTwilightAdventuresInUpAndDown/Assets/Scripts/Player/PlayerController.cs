@@ -80,6 +80,8 @@ public class PlayerController : MonoBehaviour {
         }
         if (!grounded)
         {
+            canInteract = false;
+
             if (Mathf.Abs(transform.position.y - yGroundPosition) >= jumpHeight)
             {
                 timeToFallDown = true;
