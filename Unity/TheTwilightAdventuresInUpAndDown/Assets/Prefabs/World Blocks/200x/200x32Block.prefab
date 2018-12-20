@@ -80,17 +80,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useParticlePresets: 0
   isFlippable: 0
+  wantParticles: 1
+  particlePrefab: {fileID: 1905432783436940, guid: d6662a3293f4fbf4fb170819e5b4795b,
+    type: 2}
   particleColor: {r: 1, g: 0, b: 1, a: 1}
-  flipWorldTriggerDisable:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  flipWorldTriggerEnable:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+  isInDown: 0
 --- !u!212 &212744929749516398
 SpriteRenderer:
   m_ObjectHideFlags: 1
