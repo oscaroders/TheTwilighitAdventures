@@ -44,10 +44,15 @@ public class FlipableObject : MonoBehaviour {
             if (collider2D != null)
             {
                 collider2D.isTrigger = true;
-                //if(collider2D.GetType() == typeof(BoxCollider2D))
-                //{
-                //    (BoxCollider2D)collider2D.
-                //}
+                if(collider2D.GetType() == typeof(BoxCollider2D))
+                {
+                    Debug.Log("ChangeSizeOnCollider");
+                    BoxCollider2D d = (BoxCollider2D)collider2D;
+                    Vector2 tempSize = d.size;
+                    tempSize.y -= 0.1f * tempSize.y;
+                    tempSize.x -= 0.1f * tempSize.x;
+                    d.size = tempSize;
+                }
             }
         }
 
