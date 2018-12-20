@@ -13,10 +13,44 @@ public class CameraEdgeSnapping : MonoBehaviour {
 
 
     public bool isUp;
-	
-	// Update is called once per frame
-	// Update is called after all update functions are done.
-	void LateUpdate () {
+    private void Start()
+    {
+        if(leftBound == null || rightBound == null || topBound == null || bottomBound == null)
+        {
+            PlayerInput playerInput = GetComponentInParent<PlayerInput>();
+            Room[] rooms = FindObjectsOfType<Room>();
+            Room currentRoom = null;
+            for (int i = 0; i < rooms.Length; i++)
+            {
+                if (rooms[i].roomId == playerInput.currentRoomId)
+                {
+                    currentRoom = rooms[i];
+                    break;
+                }
+            }
+            if (currentRoom != null)
+            {
+                leftBound = currentRoom.leftPosition;
+                rightBound = currentRoom.rightPosition;
+                if (transform.parent.name == "Eve")
+                {
+                    topBound = currentRoom.topPosition;
+                    bottomBound = currentRoom.middlePosition;
+                }
+                else
+                {
+                    topBound = currentRoom.middlePosition;
+                    bottomBound = currentRoom.bottomPosition;
+                }
+            }
+        }
+        
+        
+
+    }
+    // Update is called once per frame
+    // Update is called after all update functions are done.
+    void LateUpdate () {
 		//Save our position in a tmp variable that we can modify like we want
 		Vector3 tmpPosition = transform.position;
 
