@@ -96,14 +96,7 @@ public class EndOfRoom : ActionObject
 
                 if (upCameraPosition.x >= upEdgeSnapping.CalculateMinX(leftBoundPositionX) && downCameraPosition.x >= downEdgeSnapping.CalculateMinX(leftBoundPositionX))
                 {
-                    //Move the Blockers;
-                    //foreach (Transform item in blockers)
-                    //{
-                    //    Vector3 tempPos = item.position;
-                    //    tempPos.x -= 1f;
-                    //    item.position = tempPos;
-                    //}
-
+                    playerInput.currentRoomId = nextRoom.roomId;
                     // Set the new leftbounds for CameraEdgeSnapping
                     upEdgeSnapping.leftBound = nextRoom.leftPosition;
                     downEdgeSnapping.leftBound = nextRoom.leftPosition;

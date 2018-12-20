@@ -15,6 +15,12 @@ public class OutOfBounds : ActionObject
         eve = GameObject.Find("Eve").transform;
         dodo = GameObject.Find("Dodo").transform;
         input = FindObjectOfType<PlayerInput>();
+        Animator tempAnimator = GameObject.Find("FadeCanvas").GetComponentInChildren<Animator>();
+        if(tempAnimator != null)
+        {
+            animator = tempAnimator;
+        }
+        
     }
 
 
