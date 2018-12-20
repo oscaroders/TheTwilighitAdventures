@@ -14,12 +14,14 @@ public class PlayerInput : MonoBehaviour {
     public int currentRoomId;
 
     private float direction = 0;
+    private PlayerController[] bothPlayerController;
 
     private void Start() {
         camShake = GetComponentsInChildren<CameraShake>();
         rooms = FindObjectsOfType<Room>();
         characterSwitch = GetComponent<CharacterSwitch>();
-        
+
+        bothPlayerController = GetComponentsInChildren<PlayerController>();
     }
 
     void Update() {
@@ -35,7 +37,7 @@ public class PlayerInput : MonoBehaviour {
 
 		if (Input.GetAxisRaw("Horizontal") != 0)
             direction = Mathf.Sign(Input.GetAxisRaw("Horizontal"));
-        if (Input.GetButtonDown("Interact"))
+        if (Input.GetButtonDown("Interact") && CanInteract())
             characterSwitch.GetInteract().InteractObject(true, direction);
         else if (Input.GetButtonUp("Interact"))
             characterSwitch.GetInteract().InteractObject(false, direction);
@@ -61,5 +63,14 @@ public class PlayerInput : MonoBehaviour {
         {
             cam.Shake(0.05f, 0.1f);
         }
+    }
+    private bool CanInteract()
+    {
+        foreach (PlayerController controller in bothPlayerController)
+        {
+            if (!controller.canInteract)
+                return false;
+        }
+        return true;
     }
 }
