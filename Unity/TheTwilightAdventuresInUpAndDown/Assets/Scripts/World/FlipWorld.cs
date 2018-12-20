@@ -10,7 +10,7 @@ public class FlipWorld : MonoBehaviour {
     float slowdownFactor = 0.5f;
     float slowdownLength = 1f;
     float speedUpLength = 0.5f;
-    public static int numberOfCorutines;
+    public int numberOfCorutines;
 
     void Start()
     {
