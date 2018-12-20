@@ -44,6 +44,10 @@ public class FlipableObject : MonoBehaviour {
             if (collider2D != null)
             {
                 collider2D.isTrigger = true;
+                //if(collider2D.GetType() == typeof(BoxCollider2D))
+                //{
+                //    (BoxCollider2D)collider2D.
+                //}
             }
         }
 
@@ -132,7 +136,7 @@ public class FlipableObject : MonoBehaviour {
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!original)
+        if (!original && collision.CompareTag("Player"))
         {
             if(input.characterInside == "")
             {
@@ -144,7 +148,7 @@ public class FlipableObject : MonoBehaviour {
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (!original)
+        if (!original && collision.CompareTag("Player"))
         {
             if(input.characterInside == collision.name)
             {
