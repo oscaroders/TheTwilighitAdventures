@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour {
     private float yGroundPosition;
 
 
-    [HideInInspector] public bool canInteract;
+    [HideInInspector] public bool canInteract = true;
 
     private void Awake() {
         rigidBody2D = GetComponent<Rigidbody2D>();
