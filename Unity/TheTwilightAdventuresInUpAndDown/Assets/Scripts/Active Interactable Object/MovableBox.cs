@@ -31,19 +31,19 @@ public class MovableBox : ActiveInteractableObject
     {
         if (interacting)
 		{
-			
 			moving = true;
+            input.notInteracting = false;
         }
         else
 		{
 			moving = false;
+            input.notInteracting = true;
         }
     }
     private void FixedUpdate()
     {
         if (moving)
 		{
-			input.notInteracting = false;
             box.connectedBody = playerRigidbody2D[GetIndex()];
             xPos = transform.position.x;
             gameObject.layer = 8;
@@ -61,7 +61,7 @@ public class MovableBox : ActiveInteractableObject
         }
         else
         {
-            input.notInteracting = true;
+            
             transform.position = new Vector3(xPos, transform.position.y, 0);
             gameObject.layer = 9;
             boxRB.mass = boxMassStop;
