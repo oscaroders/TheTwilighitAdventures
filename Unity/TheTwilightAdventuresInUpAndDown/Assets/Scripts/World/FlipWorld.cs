@@ -90,8 +90,10 @@ public class FlipWorld : MonoBehaviour {
         }
         else
         {
-            pi.CannotFlipShake();
+            //Maybe Play a sound when it does not work
         }
+        pi.CannotFlipShake();
+        
         
         while (Time.timeScale < slowdownFactor)
         {

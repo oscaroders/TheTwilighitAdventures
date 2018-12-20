@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public class FlipableObject : MonoBehaviour {
 
     public bool useParticlePresets;
@@ -28,16 +29,16 @@ public class FlipableObject : MonoBehaviour {
     private void Start()
     {
         axis = GetComponentInParent<FlipWorld>();
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-       
+        Renderer renderer = GetComponent<Renderer>();
+
         input = FindObjectOfType<PlayerInput>();  
 
         if (gameObject.name.Contains("Remnent"))
         {
             original = false;
-            if(spriteRenderer != null)
+            if(renderer != null)
             {
-                spriteRenderer.enabled = false;
+                renderer.enabled = false;
             }
             
             BoxCollider2D collider2D = GetComponent<BoxCollider2D>();
@@ -45,8 +46,6 @@ public class FlipableObject : MonoBehaviour {
             {
                 collider2D.isTrigger = true;
             }
-            
-            
         }
 
         SetStartPosition(transform.position, transform.rotation);
