@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: ecad3aae7ca42b249a3ff627dc46e075
+guid: 16d93b6f0c5e22a4da2abf9361b4554f
 ScriptedImporter:
   fileIDToRecycleName:
-    2800002: tex
+    2800000: tex
     21300000: sprite
   externalObjects: {}
   userData: 
@@ -10,11 +10,11 @@ ScriptedImporter:
   assetBundleVariant: 
   script: {fileID: 11500000, guid: a57477913897c46af95d590f580878bd, type: 3}
   svgType: 1
-  texturedSpriteMeshType: 1
+  texturedSpriteMeshType: 0
   svgPixelsPerUnit: 256
   gradientResolution: 128
-  alignment: 9
-  customPivot: {x: 0.49876267, y: 0.932896}
+  alignment: 0
+  customPivot: {x: 0, y: 0}
   generatePhysicsShape: 0
   preserveViewport: 0
   advancedMode: 0
@@ -37,16 +37,16 @@ ScriptedImporter:
   spriteData:
     TessellationDetail: 0
     SpriteRect:
-      name: Grass_ground
+      name: 
       originalName: 
-      pivot: {x: 0.49876267, y: 0.932896}
-      alignment: 9
-      border: {x: 17, y: 16, z: 17, w: 16}
+      pivot: {x: 0, y: 0}
+      alignment: 0
+      border: {x: 0, y: 0, z: 0, w: 0}
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 240
-      spriteID: 149fab887da2bb1438a1fb8ce4e753bf
+        width: 0
+        height: 0
+      spriteID: dc192d1854525c64993a1d2d677c6228
     PhysicsOutlines: []
