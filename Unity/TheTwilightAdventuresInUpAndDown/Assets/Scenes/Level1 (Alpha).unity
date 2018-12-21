@@ -5465,7 +5465,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1799785468062864, guid: d21784ea3e208d345a98340278fea394, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d21784ea3e208d345a98340278fea394, type: 2}
@@ -6467,7 +6467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activator: {fileID: 1667483914}
   isLevelEnd: 1
-  sceneName: MainMenu
+  sceneName: Level1 (Alpha)
   newBlockerTarget: {fileID: 742404311}
   blockers:
   - {fileID: 1628166982}
@@ -11402,6 +11402,11 @@ Prefab:
     - target: {fileID: 4849045991909158, guid: 6713b179a0f2b874492049deb6b744e6, type: 2}
       propertyPath: m_LocalPosition.y
       value: -2.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114920564735716536, guid: 6713b179a0f2b874492049deb6b744e6,
+        type: 2}
+      propertyPath: hasEveLantern
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6713b179a0f2b874492049deb6b744e6, type: 2}

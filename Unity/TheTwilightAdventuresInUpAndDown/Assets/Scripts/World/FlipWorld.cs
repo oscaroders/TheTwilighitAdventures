@@ -7,7 +7,7 @@ public class FlipWorld : MonoBehaviour {
     FlipableObject[] childrenTransform;
     float timer;
     PlayerInput pi;
-    float slowdownFactor = 0.5f;
+    float slowdownFactor = 0.01f;
     float slowdownLength = 1f;
     float speedUpLength = 0.5f;
     public static int numberOfCorutines;
@@ -20,7 +20,7 @@ public class FlipWorld : MonoBehaviour {
     }
     public void FlipTheWorld(bool state)
     {
-        Debug.Log(numberOfCorutines);
+        
         if (state && numberOfCorutines < 1)
         {
             StopAllCoroutines();
@@ -70,12 +70,8 @@ public class FlipWorld : MonoBehaviour {
         if(numberOfCorutines < 1)
         {
             numberOfCorutines++;
-            while (Time.timeScale > slowdownFactor)
-            {
-                Time.timeScale -= (1f / slowdownLength) * Time.unscaledDeltaTime;
-                Time.fixedDeltaTime = Time.timeScale * .02f;
-                yield return new WaitForEndOfFrame();
-            }
+            Time.timeScale = slowdownFactor;
+            yield return new WaitForSecondsRealtime(1f);
             if (pi.canFlip)
             {
                 for (int i = 0; i < childrenTransform.Length; i++)
