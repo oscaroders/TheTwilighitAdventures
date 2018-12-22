@@ -1177,18 +1177,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62543cab052be3c49aeb6daebd25c7b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  v_Max: 8
-  dragGround: 6
-  dragAir: 3.5
-  accelerationGround: 60
-  accelerationAir: 20
-  sprintMultiplier: 1
-  jumpHeight: 1
-  jumpSpeed: 15
-  fallMultiplier: 4.7
-  lowJumpMultiplier: 3
-  groundGravityScale: 1
-  airGravityScale: 1
   airControl: 0
   grounded: 1
   whatIsGround:
@@ -1443,18 +1431,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62543cab052be3c49aeb6daebd25c7b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  v_Max: 8
-  dragGround: 6
-  dragAir: 3.5
-  accelerationGround: 60
-  accelerationAir: 20
-  sprintMultiplier: 2
-  jumpHeight: 1
-  jumpSpeed: 15
-  fallMultiplier: 4.7
-  lowJumpMultiplier: 3
-  groundGravityScale: 1
-  airGravityScale: 1
   airControl: 0
   grounded: 1
   whatIsGround:
