@@ -101,6 +101,9 @@ public class EndOfRoom : ActionObject
                     upEdgeSnapping.leftBound = nextRoom.leftPosition;
                     downEdgeSnapping.leftBound = nextRoom.leftPosition;
 
+                    eve.inTransition = false;
+                    dodo.inTransition = false;
+
                     //Enable CameraFollowTarget script
                     upCameraFollow.enabled = true;
                     downCameraFollow.enabled = true;
@@ -125,8 +128,20 @@ public class EndOfRoom : ActionObject
                     if (eve.transform.position.x < nextRoom.eveSpawnPosition.position.x)
                     {
                         eve.Move(1, false);
+                        eve.inTransition = true;
+                    }
+                    else
+                    {
+                        eve.inTransition = false;
+                    }
+                    if(dodo.transform.position.x < nextRoom.dodoSpawnPosition.position.x)
+                    { 
                         dodo.Move(1, false);
-
+                        dodo.inTransition = true;
+                    }
+                    else
+                    {
+                        dodo.inTransition = false;
                     }
                     // Update Cameras position
                     upEdgeSnapping.gameObject.transform.position = upCameraPosition;

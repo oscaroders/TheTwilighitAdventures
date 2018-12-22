@@ -26,7 +26,7 @@ public class PlayerInput : MonoBehaviour {
 
     void Update() {
 
-        characterSwitch.GetPlayerMovement().Move(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Sprint") > 0);
+        characterSwitch.PlayerMovement(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Sprint") > 0);
 
         if (notInteracting)
         {

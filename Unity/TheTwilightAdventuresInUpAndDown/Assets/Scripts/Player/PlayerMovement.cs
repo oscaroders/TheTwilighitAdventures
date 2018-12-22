@@ -8,7 +8,9 @@ public class PlayerMovement : MonoBehaviour {
     private Rigidbody2D rigidBody2D;
     private PlayerController playerController;
     private CharacterSettings characterSettings;
-
+    private float direction;
+    internal bool inTransition;
+    
 
     void Start() {
         rigidBody2D = GetComponent<Rigidbody2D>();
@@ -18,18 +20,32 @@ public class PlayerMovement : MonoBehaviour {
 
     internal void Move(float direction, bool sprint) {
 
+        if(!inTransition)
+        {
+            this.direction = direction;
+        }
+        
+        
+    }
+    private void FixedUpdate()
+    {
         Vector2 velocity = rigidBody2D.velocity;
 
         float acceleration = 0;
         float drag = 0;
 
-        if (!playerController.grounded) {
+        if (!playerController.grounded)
+        {
             acceleration = characterSettings.accelerationAir;
             drag = characterSettings.dragAir;
-        } else if (sprint) {
-            acceleration = characterSettings.accelerationGround * characterSettings.sprintMultiplier;
-            drag = characterSettings.dragGround;
-        } else {
+        }
+        //else if (sprint)
+        //{
+        //    acceleration = characterSettings.accelerationGround * characterSettings.sprintMultiplier;
+        //    drag = characterSettings.dragGround;
+        //}
+        else
+        {
             acceleration = characterSettings.accelerationGround;
             drag = characterSettings.dragGround;
         }
