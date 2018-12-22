@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[DisallowMultipleComponent]
+[RequireComponent(typeof(SpriteRenderer))]
 public class FlipableObject : MonoBehaviour {
 
     public bool useParticlePresets;
@@ -20,7 +21,7 @@ public class FlipableObject : MonoBehaviour {
     public bool wantParticles = true;
     public GameObject particlePrefab;
     private GameObject particle;
-    public Color particleColor;
+    public Color particleColor = Color.white;
 
     private PlayerInput input;
     internal PuzzleMovement puzzleMovement;
