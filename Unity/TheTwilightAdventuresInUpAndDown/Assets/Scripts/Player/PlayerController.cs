@@ -5,10 +5,7 @@ using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour {
 
-    [SerializeField] private bool airControl = false;
     [HideInInspector] public bool grounded;
-    [Space]
-
     [SerializeField] private LayerMask whatIsGround;
     [SerializeField] private Transform groundCheck;
     const float groundedRadius = .2f;
@@ -17,9 +14,9 @@ public class PlayerController : MonoBehaviour {
 
     private UnityEvent OnLandEvent;
 
-    private float characterMult;
+    internal float characterMult;
     [HideInInspector] public bool timeToFallDown;
-    private float yGroundPosition;
+    internal float yGroundPosition;
 
 
     [HideInInspector] public bool canInteract = true;
@@ -59,25 +56,6 @@ public class PlayerController : MonoBehaviour {
                 }
             }
         }
-        if (!grounded)
-        {
-            canInteract = false;
-
-            if (Mathf.Abs(transform.position.y - yGroundPosition) >= characterSettings.jumpHeight)
-            {
-                timeToFallDown = true;
-                Debug.Log("Time to fall down: " + timeToFallDown);
-                rigidBody2D.velocity += Vector2.up * Mathf.Clamp(rigidBody2D.gravityScale, -1, 1) * Physics2D.gravity.y * (characterSettings.lowJumpMultiplier - 1) * Time.deltaTime;
-            }
-            rigidBody2D.gravityScale = characterSettings.airGravityScale * characterMult;
-            if ((rigidBody2D.gravityScale > 0 && rigidBody2D.velocity.y < 0) || (rigidBody2D.gravityScale < 0 && rigidBody2D.velocity.y > 0))
-            {
-                rigidBody2D.velocity += Vector2.up * Mathf.Clamp(rigidBody2D.gravityScale, -1, 1) * Physics2D.gravity.y * (characterSettings.fallMultiplier - 1) * Time.deltaTime;
-            }
-            else if (((rigidBody2D.gravityScale > 0 && rigidBody2D.velocity.y > 0) || (rigidBody2D.gravityScale < 0 && rigidBody2D.velocity.y < 0)) && !Input.GetButton("Jump"))
-            {
-                rigidBody2D.velocity += Vector2.up * Mathf.Clamp(rigidBody2D.gravityScale, -1, 1) * Physics2D.gravity.y * (characterSettings.lowJumpMultiplier - 1) * Time.deltaTime;
-            }
-        }
+        
     }
 }

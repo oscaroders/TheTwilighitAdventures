@@ -8,7 +8,6 @@ public class PlayerJump : MonoBehaviour {
     private Rigidbody2D rigidBody2D;
     private PlayerController playerController;
 	public AudioSource jumpSound;
-    public float maxHeight;
     private CharacterSettings characterSettings;
 
     // Use this for initialization
@@ -26,4 +25,31 @@ public class PlayerJump : MonoBehaviour {
             playerController.canInteract = false;
 		}
 	}
+
+    private void FixedUpdate()
+    {
+        if (!playerController.grounded)
+        {
+            playerController.canInteract = false;
+            bool falling = (rigidBody2D.gravityScale > 0 && rigidBody2D.velocity.y < 0) || (rigidBody2D.gravityScale < 0 && rigidBody2D.velocity.y > 0);
+            bool goiningUp = (rigidBody2D.gravityScale > 0 && rigidBody2D.velocity.y > 0) || (rigidBody2D.gravityScale < 0 && rigidBody2D.velocity.y < 0);
+            bool reachingHeight = Mathf.Abs(transform.position.y - playerController.yGroundPosition) >= characterSettings.jumpHeight;
+
+            rigidBody2D.gravityScale = characterSettings.airGravityScale * playerController.characterMult;
+
+            if (falling)
+            {
+                rigidBody2D.velocity += Vector2.up * playerController.characterMult * Physics2D.gravity.y * (characterSettings.fallMultiplier - 1) * Time.deltaTime;
+            }
+            else if (goiningUp && reachingHeight)
+            {
+                rigidBody2D.velocity += Vector2.up * playerController.characterMult * Physics2D.gravity.y * (characterSettings.lowJumpMultiplier - 1) * Time.deltaTime;
+            }
+            else if (goiningUp && !Input.GetButton("Jump"))
+            {
+                rigidBody2D.velocity += Vector2.up * playerController.characterMult * Physics2D.gravity.y * (characterSettings.lowJumpMultiplier - 1) * Time.deltaTime;
+            }
+            
+        }
+    }
 }
