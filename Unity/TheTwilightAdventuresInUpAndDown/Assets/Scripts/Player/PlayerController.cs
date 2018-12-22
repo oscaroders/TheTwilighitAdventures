@@ -5,36 +5,13 @@ using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour {
 
-    [Header("Movment settings")]
-    [Space]
-
-    [Range(0, 100)] [SerializeField] internal float v_Max;
-    [Space]
-    [Range(0, 10)] [SerializeField] internal float dragGround;
-    [Range(0, 10)] [SerializeField] internal float dragAir;
-    [Range(0, 200)] [SerializeField] internal float accelerationGround;
-    [Range(0, 200)] [SerializeField] internal float accelerationAir;
-    [Space]
-    [Range(0, 10)] [SerializeField] internal float sprintMultiplier;
-
-    [Header("Jump Settings")]
-    [Space]
-
-    [Range(0, 20)] [SerializeField] internal float jumpHeight;
-    [Range(0, 20)] [SerializeField] internal float jumpSpeed = 10f;
-    [Range(0, 10)] [SerializeField] private float fallMultiplier = 5.5f;
-    [Range(0, 10)] [SerializeField] private float lowJumpMultiplier = 5f;
-    const float groundedRadius = .2f;
-    [Range(0, 10)] [SerializeField] private float groundGravityScale;
-    [Range(0, 10)] [SerializeField] private float airGravityScale;
-    [Space]
-
     [SerializeField] private bool airControl = false;
     [HideInInspector] public bool grounded;
     [Space]
 
     [SerializeField] private LayerMask whatIsGround;
     [SerializeField] private Transform groundCheck;
+    const float groundedRadius = .2f;
 
     private Rigidbody2D rigidBody2D;
 
@@ -46,7 +23,11 @@ public class PlayerController : MonoBehaviour {
 
 
     [HideInInspector] public bool canInteract = true;
-
+    private CharacterSettings characterSettings;
+    private void Start()
+    {
+        characterSettings = FindObjectOfType<CharacterSettings>();
+    }
     private void Awake() {
         rigidBody2D = GetComponent<Rigidbody2D>();
 
@@ -68,7 +49,7 @@ public class PlayerController : MonoBehaviour {
         for (int i = 0; i < colliders.Length; i++) {
             if (colliders[i].gameObject != gameObject) {
                 grounded = true;
-                rigidBody2D.gravityScale = groundGravityScale * characterMult;
+                rigidBody2D.gravityScale = characterSettings.groundGravityScale * characterMult;
                 yGroundPosition = transform.position.y;
                 if (!wasGrounded)
                 {
@@ -82,20 +63,20 @@ public class PlayerController : MonoBehaviour {
         {
             canInteract = false;
 
-            if (Mathf.Abs(transform.position.y - yGroundPosition) >= jumpHeight)
+            if (Mathf.Abs(transform.position.y - yGroundPosition) >= characterSettings.jumpHeight)
             {
                 timeToFallDown = true;
                 Debug.Log("Time to fall down: " + timeToFallDown);
-                rigidBody2D.velocity += Vector2.up * Mathf.Clamp(rigidBody2D.gravityScale, -1, 1) * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+                rigidBody2D.velocity += Vector2.up * Mathf.Clamp(rigidBody2D.gravityScale, -1, 1) * Physics2D.gravity.y * (characterSettings.lowJumpMultiplier - 1) * Time.deltaTime;
             }
-            rigidBody2D.gravityScale = airGravityScale * characterMult;
+            rigidBody2D.gravityScale = characterSettings.airGravityScale * characterMult;
             if ((rigidBody2D.gravityScale > 0 && rigidBody2D.velocity.y < 0) || (rigidBody2D.gravityScale < 0 && rigidBody2D.velocity.y > 0))
             {
-                rigidBody2D.velocity += Vector2.up * Mathf.Clamp(rigidBody2D.gravityScale, -1, 1) * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+                rigidBody2D.velocity += Vector2.up * Mathf.Clamp(rigidBody2D.gravityScale, -1, 1) * Physics2D.gravity.y * (characterSettings.fallMultiplier - 1) * Time.deltaTime;
             }
             else if (((rigidBody2D.gravityScale > 0 && rigidBody2D.velocity.y > 0) || (rigidBody2D.gravityScale < 0 && rigidBody2D.velocity.y < 0)) && !Input.GetButton("Jump"))
             {
-                rigidBody2D.velocity += Vector2.up * Mathf.Clamp(rigidBody2D.gravityScale, -1, 1) * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+                rigidBody2D.velocity += Vector2.up * Mathf.Clamp(rigidBody2D.gravityScale, -1, 1) * Physics2D.gravity.y * (characterSettings.lowJumpMultiplier - 1) * Time.deltaTime;
             }
         }
     }
