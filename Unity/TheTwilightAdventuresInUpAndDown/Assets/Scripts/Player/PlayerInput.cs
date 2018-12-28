@@ -28,41 +28,41 @@ public class PlayerInput : MonoBehaviour {
 
     void Update() {
 
-        characterSwitch.PlayerMovement(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Sprint") > 0);
+        //characterSwitch.PlayerMovement(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Sprint") > 0);
 
         Vector2 directionalInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         player.SetDirectionalInput(directionalInput);
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetButton("Jump")) {
             player.OnJumpInputDown();
         }
-        if (Input.GetKeyUp(KeyCode.Space)) {
+        else {
             player.OnJumpInputUp();
         }
 
-        if (notInteracting)
-        {
-            characterSwitch.GetPlayerJump().Jump(Input.GetButtonDown("Jump"));
-            characterSwitch.ChangeCharacter(Input.GetButtonDown("CharacterSwitch"));
-        }
-		characterSwitch.BackGroundMusic();
+        //      if (notInteracting)
+        //      {
+        //          characterSwitch.GetPlayerJump().Jump(Input.GetButtonDown("Jump"));
+        //          characterSwitch.ChangeCharacter(Input.GetButtonDown("CharacterSwitch"));
+        //      }
+        //characterSwitch.BackGroundMusic();
 
-		if (Input.GetAxisRaw("Horizontal") != 0)
-            direction = Mathf.Sign(Input.GetAxisRaw("Horizontal"));
-        if (Input.GetButtonDown("Interact") && CanInteract())
-            characterSwitch.GetInteract().InteractObject(true, direction);
-        else if (Input.GetButtonUp("Interact"))
-            characterSwitch.GetInteract().InteractObject(false, direction);
+        //if (Input.GetAxisRaw("Horizontal") != 0)
+        //          direction = Mathf.Sign(Input.GetAxisRaw("Horizontal"));
+        //      if (Input.GetButtonDown("Interact") && CanInteract())
+        //          characterSwitch.GetInteract().InteractObject(true, direction);
+        //      else if (Input.GetButtonUp("Interact"))
+        //          characterSwitch.GetInteract().InteractObject(false, direction);
 
         if (canFlip)
         {
             for (int i = 0; i < rooms.Length; i++)
             {
-                rooms[i].FlipThisRoomsFlippableObjects(currentRoomId,Input.GetButtonDown("FlipWorld"));
+                rooms[i].FlipThisRoomsFlippableObjects(currentRoomId, Input.GetButtonDown("FlipWorld"));
             }
-        } 
+        }
 
-        if(!canFlip && Input.GetButtonDown("FlipWorld")) {
+        if (!canFlip && Input.GetButtonDown("FlipWorld")) {
             CannotFlipShake();
 
 

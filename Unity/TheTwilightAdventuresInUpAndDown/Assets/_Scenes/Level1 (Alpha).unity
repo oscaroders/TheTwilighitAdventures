@@ -11832,7 +11832,8 @@ Prefab:
       propertyPath: canFlip
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114915280272956428, guid: 6713b179a0f2b874492049deb6b744e6, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 6713b179a0f2b874492049deb6b744e6, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1963059440

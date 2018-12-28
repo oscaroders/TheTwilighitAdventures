@@ -34,7 +34,7 @@ public class CameraScreenSpace : MonoBehaviour {
     }
     void LateUpdate () {
 
-        if(characterSwitch.isEve)
+        if(true)
         {
             Focus("Eve");
             
@@ -45,11 +45,11 @@ public class CameraScreenSpace : MonoBehaviour {
         }
 
 
-        if (characterSwitch.isEve && eveCameraCurrent < eveCameraProcentTotal)
+        if (true && eveCameraCurrent < eveCameraProcentTotal)
         {
             eveCameraCurrent += procentSpeed;
         }
-        else if (!characterSwitch.isEve && eveCameraCurrent > eveCameraProcentTotal)
+        else if (!true && eveCameraCurrent > eveCameraProcentTotal)
         {
             eveCameraCurrent -= procentSpeed;
         }
@@ -59,11 +59,11 @@ public class CameraScreenSpace : MonoBehaviour {
         }
 
        
-       if (!characterSwitch.isEve && dodoCameraCurrent < dodoCameraProcentTotal)
+       if (!true && dodoCameraCurrent < dodoCameraProcentTotal)
        {
             dodoCameraCurrent += procentSpeed;
        }
-       else if(characterSwitch.isEve && dodoCameraCurrent > dodoCameraProcentTotal)
+       else if(true && dodoCameraCurrent > dodoCameraProcentTotal)
        {
             dodoCameraCurrent -= procentSpeed;
        }
@@ -91,7 +91,7 @@ public class CameraScreenSpace : MonoBehaviour {
 
         if (otherCameraFollowX)
         {
-            if (characterSwitch.isEve)
+            if (true)
             {
                 dodoCamera.transform.position = new Vector3(eveCamera.transform.position.x, dodoCamera.transform.position.y, dodoCamera.transform.position.z);
             }
