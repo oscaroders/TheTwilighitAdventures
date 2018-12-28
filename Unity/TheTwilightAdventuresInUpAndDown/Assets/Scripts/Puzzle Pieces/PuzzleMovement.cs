@@ -28,8 +28,8 @@ public class PuzzleMovement : ActionObject {
             GameObject g = GameObject.Find("Remnent of " + targetPos.name);
             Debug.Log(g);
             targetPos = g.transform;
-            upStart = flipableObject.endPosition;
-            downStart = flipableObject.startPosition;
+            upStart = transform.position;
+            downStart = flipableObject.endPosition;
         }
     }
 
