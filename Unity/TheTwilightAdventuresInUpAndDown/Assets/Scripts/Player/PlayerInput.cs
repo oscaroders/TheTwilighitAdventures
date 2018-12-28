@@ -15,6 +15,7 @@ public class PlayerInput : MonoBehaviour {
 
     private float direction = 0;
     private PlayerController[] bothPlayerController;
+    private Player player;
 
     private void Start() {
         camShake = GetComponentsInChildren<CameraShake>();
@@ -22,11 +23,22 @@ public class PlayerInput : MonoBehaviour {
         characterSwitch = GetComponent<CharacterSwitch>();
 
         bothPlayerController = GetComponentsInChildren<PlayerController>();
+        player = GetComponentInChildren<Player>();
     }
 
     void Update() {
 
         characterSwitch.PlayerMovement(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Sprint") > 0);
+
+        Vector2 directionalInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        player.SetDirectionalInput(directionalInput);
+
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            player.OnJumpInputDown();
+        }
+        if (Input.GetKeyUp(KeyCode.Space)) {
+            player.OnJumpInputUp();
+        }
 
         if (notInteracting)
         {
