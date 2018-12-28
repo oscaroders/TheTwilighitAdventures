@@ -19,8 +19,8 @@ public class PuzzleMovement : ActionObject {
     {
         startPos = transform.position;
         flipableObject = GetComponent<FlipableObject>();
-        upStart = flipableObject.startPosition;
-        downStart = flipableObject.endPosition;
+        upStart = transform.position;
+        downStart = transform.position;
 
         movingToTarget = true;
         if (gameObject.name.Contains("Remnent"))
@@ -29,7 +29,7 @@ public class PuzzleMovement : ActionObject {
             Debug.Log(g);
             targetPos = g.transform;
             upStart = transform.position;
-            downStart = flipableObject.endPosition;
+            downStart = transform.position;
         }
     }
 
