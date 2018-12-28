@@ -39,16 +39,16 @@ public class CharacterSwitch : MonoBehaviour
     public void PlayerMovement(float direction, bool sprint)
     {
 
-        if(isEve)
-        {
-            eveMovement.Move(direction,sprint);
-            dodoMovement.Move(0, false);
-        }
-        else
-        {
-            dodoMovement.Move(direction, sprint);
-            eveMovement.Move(0, false);
-        }
+        //if(isEve)
+        //{
+        //    eveMovement.Move(direction,sprint);
+        //    dodoMovement.Move(0, false);
+        //}
+        //else
+        //{
+        //    dodoMovement.Move(direction, sprint);
+        //    eveMovement.Move(0, false);
+        //}
         
     }
     public PlayerJump GetPlayerJump()

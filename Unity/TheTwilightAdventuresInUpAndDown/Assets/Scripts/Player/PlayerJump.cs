@@ -2,54 +2,57 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[RequireComponent(typeof(PlayerController))]
 public class PlayerJump : MonoBehaviour {
 
-    private Rigidbody2D rigidBody2D;
-    private PlayerController playerController;
-	public AudioSource jumpSound;
-    private CharacterSettings characterSettings;
-
-    // Use this for initialization
-    void Start() {
-        rigidBody2D = GetComponent<Rigidbody2D>();
-        playerController = GetComponent<PlayerController>();
-        characterSettings = FindObjectOfType<CharacterSettings>();
+    CharacterSettings settings;
+    PlayerController controller;
+    private void Start()
+    {
+        controller = GetComponent<PlayerController>();
     }
 
-    internal void Jump(bool jump) {
-        if (jump && playerController.grounded)
-		{
-			jumpSound.Play();
-			rigidBody2D.velocity = new Vector2(rigidBody2D.velocity.x, Mathf.Sign(rigidBody2D.gravityScale) * characterSettings.jumpSpeed);
-            playerController.canInteract = false;
-		}
-	}
-
-    private void FixedUpdate()
+    public void OnJumpInputDown()
     {
-        if (!playerController.grounded)
+        if (controller.wallSliding)
         {
-            playerController.canInteract = false;
-            bool falling = (rigidBody2D.gravityScale > 0 && rigidBody2D.velocity.y < 0) || (rigidBody2D.gravityScale < 0 && rigidBody2D.velocity.y > 0);
-            bool goiningUp = (rigidBody2D.gravityScale > 0 && rigidBody2D.velocity.y > 0) || (rigidBody2D.gravityScale < 0 && rigidBody2D.velocity.y < 0);
-            bool reachingHeight = Mathf.Abs(transform.position.y - playerController.yGroundPosition) >= characterSettings.jumpHeight;
-
-            rigidBody2D.gravityScale = characterSettings.airGravityScale * playerController.characterMult;
-
-            if (falling)
+            if (controller.wallDirX == controller.directionalInput.x)
             {
-                rigidBody2D.velocity += Vector2.up * playerController.characterMult * Physics2D.gravity.y * (characterSettings.fallMultiplier - 1) * Time.deltaTime;
+                controller.velocity.x = -controller.wallDirX * settings.wallJumpClimb.x;
+                controller.velocity.y = settings.wallJumpClimb.y;
             }
-            else if (goiningUp && reachingHeight)
+            else if (controller.directionalInput.x == 0)
             {
-                rigidBody2D.velocity += Vector2.up * playerController.characterMult * Physics2D.gravity.y * (characterSettings.lowJumpMultiplier - 1) * Time.deltaTime;
+                controller.velocity.x = -controller.wallDirX * settings.wallJumpOff.x;
+                controller.velocity.y = settings.wallJumpOff.y;
             }
-            else if (goiningUp && !Input.GetButton("Jump"))
+            else
             {
-                rigidBody2D.velocity += Vector2.up * playerController.characterMult * Physics2D.gravity.y * (characterSettings.lowJumpMultiplier - 1) * Time.deltaTime;
+                controller.velocity.x = -controller.wallDirX * settings.wallLeap.x;
+                controller.velocity.y = settings.wallLeap.y;
             }
-            
+        }
+        if (controller.collisions.below)
+        {
+            if (controller.collisions.slidingDownMaxSlope)
+            {
+                if (controller.directionalInput.x != -Mathf.Sign(controller.collisions.slopeNormal.x))
+                { // not jumping against max slope
+                    controller.velocity.y = controller.maxJumpVelocity * controller.collisions.slopeNormal.y;
+                    controller.velocity.x = controller.maxJumpVelocity * controller.collisions.slopeNormal.x;
+                }
+            }
+            else
+            {
+                controller.velocity.y = controller.maxJumpVelocity;
+            }
+        }
+    }
+    public void OnJumpInputUp()
+    {
+        if (controller.velocity.y > controller.minJumpVelocity)
+        {
+            controller.velocity.y = controller.minJumpVelocity;
         }
     }
 }

@@ -9,34 +9,24 @@ public class CharacterSettings : MonoBehaviour {
     [Header("Movment settings")]
     [Space]
 
-    [Range(0, 100)] [SerializeField] internal float v_Max = 8f;
+    [Range(0, 10)] [SerializeField] internal float maxJumpHeight = 2.5f;
+    [Range(0, 10)] [SerializeField] internal float minJumpHeight = 1f;
+    [Range(0, 5)] [SerializeField] internal float timeToJumpApex = 0.4f;
     [Space]
-    [Range(0, 10)] [SerializeField] internal float dragGround = 6f;
-    [Range(0, 10)] [SerializeField] internal float dragAir = 3.5f;
-    [Range(0, 200)] [SerializeField] internal float accelerationGround = 60f;
-    [Range(0, 200)] [SerializeField] internal float accelerationAir = 20f;
+    public Vector2 wallJumpClimb = new Vector2();
+    public Vector2 wallJumpOff = new Vector2();
+    public Vector2 wallLeap = new Vector2();
     [Space]
-    [Range(0, 10)] [SerializeField] internal float sprintMultiplier = 1f;
-
-    [Header("Jump Settings")]
-    [Space]
-
-    [Range(0, 20)] [SerializeField] internal float jumpHeight = 1f;
-    [Range(0, 20)] [SerializeField] internal float jumpSpeed = 15f;
-    [Range(0, 10)] [SerializeField] internal float fallMultiplier = 4.7f;
-    [Range(0, 10)] [SerializeField] internal float lowJumpMultiplier = 1f;
+    [Range(0, 10)] [SerializeField] internal float wallSlideSpeedMax = 3;
+    [Range(0, 10)] [SerializeField] internal float wallStickTime = .25f;
     
-    [Range(0, 10)] [SerializeField] internal float groundGravityScale=1f;
-    [Range(0, 10)] [SerializeField] internal float airGravityScale=1f;
-    [Space]
-
-    [SerializeField] private bool airControl = false;
     // Use this for initialization
     void Start () {
 		if(instance == null)
         {
             instance = this;
-        }else
+        }
+        else
         {
             Destroy(this);
         }

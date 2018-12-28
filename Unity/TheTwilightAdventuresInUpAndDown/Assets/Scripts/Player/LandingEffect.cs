@@ -23,14 +23,14 @@ public class LandingEffect : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (playerController.grounded && hasLanded == false)
-        {
-            particleSystem.Play();
-            hasLanded = true;
-        }
-        if (playerController.grounded == false)
-        {
-            hasLanded = false;
-        }
+        //if (playerController.grounded && hasLanded == false)
+        //{
+        //    particleSystem.Play();
+        //    hasLanded = true;
+        //}
+        //if (playerController.grounded == false)
+        //{
+        //    hasLanded = false;
+        //}
 	}
 }

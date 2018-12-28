@@ -4,55 +4,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-
-    private Rigidbody2D rigidBody2D;
-    private PlayerController playerController;
-    private CharacterSettings characterSettings;
-    private float direction;
-    internal bool inTransition;
-    
-
-    void Start() {
-        rigidBody2D = GetComponent<Rigidbody2D>();
-        playerController = GetComponent<PlayerController>();
-        characterSettings = FindObjectOfType<CharacterSettings>();
-    }
-
-    internal void Move(float direction, bool sprint) {
-
-        if(!inTransition)
-        {
-            this.direction = direction;
-        }
-        
-        
-    }
-    private void FixedUpdate()
+    PlayerController controller;
+    private void Start()
     {
-        Vector2 velocity = rigidBody2D.velocity;
+        controller = GetComponent<PlayerController>();
+    }
 
-        float acceleration = 0;
-        float drag = 0;
+    public void Move (float horizontal, float vertical = 0)
+    {
+        SetDirectionalInput(new Vector2(horizontal, vertical));
+    }
 
-        if (!playerController.grounded)
-        {
-            acceleration = characterSettings.accelerationAir;
-            drag = characterSettings.dragAir;
-        }
-        //else if (sprint)
-        //{
-        //    acceleration = characterSettings.accelerationGround * characterSettings.sprintMultiplier;
-        //    drag = characterSettings.dragGround;
-        //}
-        else
-        {
-            acceleration = characterSettings.accelerationGround;
-            drag = characterSettings.dragGround;
-        }
 
-        velocity.x += (acceleration * direction - drag * velocity.x) * Time.deltaTime;
-        velocity.x = Mathf.Clamp(velocity.x, -characterSettings.v_Max, characterSettings.v_Max);
-
-        rigidBody2D.velocity = new Vector2(velocity.x, velocity.y);
+    public void SetDirectionalInput(Vector2 input)
+    {
+        controller.directionalInput = input;
     }
 }

@@ -3,59 +3,86 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : Controller2D {
 
-    [HideInInspector] public bool grounded;
-    [SerializeField] private LayerMask whatIsGround;
-    [SerializeField] private Transform groundCheck;
-    const float groundedRadius = .2f;
+    CharacterSettings settings;
+    public PlayerJump playerJump;
+    public PlayerMovement playerMovement;
+    float accelerationTimeAirborne = .2f;
+    float accelerationTimeGrounded = .1f;
+    float moveSpeed = 6;
 
-    private Rigidbody2D rigidBody2D;
+    public float gravity;
+    internal Vector3 velocity;
+    float velocityXSmoothing;
+    internal float maxJumpVelocity;
+    internal float minJumpVelocity;
 
-    private UnityEvent OnLandEvent;
+    float timeToWallUnstick;
 
-    internal float characterMult;
-    [HideInInspector] public bool timeToFallDown;
-    internal float yGroundPosition;
+    internal Vector2 directionalInput;
+    internal int wallDirX;
+    internal bool wallSliding;
 
-
-    [HideInInspector] public bool canInteract = true;
-    private CharacterSettings characterSettings;
-    private void Start()
+    public override void Start()
     {
-        characterSettings = FindObjectOfType<CharacterSettings>();
-    }
-    private void Awake() {
-        rigidBody2D = GetComponent<Rigidbody2D>();
+        base.Start();
+        settings = FindObjectOfType<CharacterSettings>();
+        playerJump = GetComponent<PlayerJump>();
+        playerMovement = GetComponent<PlayerMovement>();
 
-        if (OnLandEvent == null)
-            OnLandEvent = new UnityEvent();
-        if (rigidBody2D.gravityScale < 0)
-            characterMult = -1;
-        else
-            characterMult = 1;
+        gravity = -(2 * settings.maxJumpHeight) / Mathf.Pow(settings.timeToJumpApex, 2);
+        maxJumpVelocity = Mathf.Abs(gravity) * settings.timeToJumpApex;
+        minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * settings.minJumpHeight);
     }
 
-    private void FixedUpdate() {
+    private void Update()
+    {
+        CalculateVelocity();
+        HandleWallSliding();
+        Move(velocity * Time.deltaTime, directionalInput);
+    }
+    
+    void HandleWallSliding()
+    {
+        wallDirX = (collisions.left) ? -1 : 1;
+        wallSliding = false;
+        if ((collisions.left || collisions.right) && !collisions.below && velocity.y < 0)
+        {
+            wallSliding = true;
 
-        bool wasGrounded = grounded;
-        grounded = false;
-        
-        // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, groundedRadius, whatIsGround);
-        for (int i = 0; i < colliders.Length; i++) {
-            if (colliders[i].gameObject != gameObject) {
-                grounded = true;
-                rigidBody2D.gravityScale = characterSettings.groundGravityScale * characterMult;
-                yGroundPosition = transform.position.y;
-                if (!wasGrounded)
+            if (velocity.y < -settings.wallSlideSpeedMax)
+            {
+                velocity.y = -settings.wallSlideSpeedMax;
+            }
+
+            if (timeToWallUnstick > 0)
+            {
+                velocityXSmoothing = 0;
+                velocity.x = 0;
+
+                if (directionalInput.x != wallDirX && directionalInput.x != 0)
                 {
-                    timeToFallDown = false;
-                    canInteract = true;
-                    OnLandEvent.Invoke();
+                    timeToWallUnstick -= Time.deltaTime;
+                }
+                else
+                {
+                    timeToWallUnstick = settings.wallStickTime;
                 }
             }
+            else
+            {
+                timeToWallUnstick = settings.wallStickTime;
+            }
+
         }
-        
+
+    }
+
+    void CalculateVelocity()
+    {
+        float targetVelocityX = directionalInput.x * moveSpeed;
+        velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
+        velocity.y += gravity * Time.deltaTime;
     }
 }

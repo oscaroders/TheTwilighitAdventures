@@ -24,13 +24,13 @@ public class WalkingEffect : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (playerController.grounded && rigidbody2D.velocity.magnitude > 1)
-        {
-            particleSystem.Play();
-        }
-        else
-        {
-            particleSystem.Stop();
-        }
+        //if (playerController.grounded && rigidbody2D.velocity.magnitude > 1)
+        //{
+        //    particleSystem.Play();
+        //}
+        //else
+        //{
+        //    particleSystem.Stop();
+        //}
 	}
 }
