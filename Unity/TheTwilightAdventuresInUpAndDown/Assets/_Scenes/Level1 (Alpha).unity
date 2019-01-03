@@ -8381,11 +8381,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4319585023887672, guid: 6713b179a0f2b874492049deb6b744e6, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 72.5
+      value: -6.4
       objectReference: {fileID: 0}
     - target: {fileID: 4319585023887672, guid: 6713b179a0f2b874492049deb6b744e6, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.21253538
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4319585023887672, guid: 6713b179a0f2b874492049deb6b744e6, type: 2}
       propertyPath: m_LocalPosition.z
@@ -8411,6 +8411,19 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4367794735031784, guid: 6713b179a0f2b874492049deb6b744e6, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367794735031784, guid: 6713b179a0f2b874492049deb6b744e6, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 4.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114063698092739390, guid: 6713b179a0f2b874492049deb6b744e6,
+        type: 2}
+      propertyPath: playerInteract
+      value: 
+      objectReference: {fileID: 1822199071}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6713b179a0f2b874492049deb6b744e6, type: 2}
   m_IsPrefabAsset: 0
@@ -10920,6 +10933,32 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 45, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1822199062 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1930489841917500, guid: 6713b179a0f2b874492049deb6b744e6,
+    type: 2}
+  m_PrefabInternal: {fileID: 1334714221}
+--- !u!4 &1822199068 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4367794735031784, guid: 6713b179a0f2b874492049deb6b744e6,
+    type: 2}
+  m_PrefabInternal: {fileID: 1334714221}
+--- !u!114 &1822199071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1822199062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47cdac9baaa64df4ab4ee2ec3e247295, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCenter: {fileID: 1822199068}
+  interactRadius: 0.5
+  whatIsInteractable:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &1827183098
 GameObject:
   m_ObjectHideFlags: 0

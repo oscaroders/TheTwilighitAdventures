@@ -1193,6 +1193,7 @@ MonoBehaviour:
   maxSlopeAngle: 80
   isThisDodo: 0
   playerInput: {x: 0, y: 0}
+  playerInteract: {fileID: 0}
   playerJump: {fileID: 114130359395137772}
   playerMovement: {fileID: 114680502598757472}
   gravity: 0
@@ -1270,6 +1271,7 @@ MonoBehaviour:
   maxSlopeAngle: 80
   isThisDodo: 1
   playerInput: {x: 0, y: 0}
+  playerInteract: {fileID: 0}
   playerJump: {fileID: 114254961947902730}
   playerMovement: {fileID: 114023919369296512}
   gravity: 0

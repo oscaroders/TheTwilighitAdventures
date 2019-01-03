@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour {
 
    
-    private CharacterSwitch characterSwitch;
+    
     CameraShake[] camShake;
     public Room[] rooms;
     public bool canFlip = true;
@@ -21,14 +21,14 @@ public class PlayerInput : MonoBehaviour {
     private void Start() {
         camShake = GetComponentsInChildren<CameraShake>();
         rooms = FindObjectsOfType<Room>();
-        characterSwitch = GetComponent<CharacterSwitch>();
+        
     }
 
     void Update() {
-
+        direction = Mathf.Sign(Input.GetAxisRaw("Horizontal"));
         //characterSwitch.PlayerMovement(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Sprint") > 0);
 
-        if(Input.GetButtonDown("CharacterSwitch"))
+        if (Input.GetButtonDown("CharacterSwitch"))
         {
             IsEveInFocus = !IsEveInFocus;
         }
@@ -39,13 +39,22 @@ public class PlayerInput : MonoBehaviour {
         {
             CharacterSwitchMovment(directionalInput,evePlayer, dodoPlayer);
             CharacterSwitchJump(Input.GetButton("Jump"), evePlayer, dodoPlayer);
-            
-
+            if (CanInteract())
+            {
+                CharacterSwitchInteract(Input.GetButtonDown("Interact"), direction, evePlayer, dodoPlayer);
+            }
         }
         else
         {
+
             CharacterSwitchMovment(directionalInput, dodoPlayer, evePlayer);
             CharacterSwitchJump(Input.GetButton("Jump"), dodoPlayer, evePlayer);
+            if(CanInteract())
+            {
+                CharacterSwitchInteract(Input.GetButtonDown("Interact"), direction, dodoPlayer, evePlayer);
+            }
+           
+
 
         }
         //      if (notInteracting)
@@ -54,14 +63,6 @@ public class PlayerInput : MonoBehaviour {
         //          characterSwitch.ChangeCharacter(Input.GetButtonDown("CharacterSwitch"));
         //      }
         //characterSwitch.BackGroundMusic();
-
-        //if (Input.GetAxisRaw("Horizontal") != 0)
-        //          direction = Mathf.Sign(Input.GetAxisRaw("Horizontal"));
-        //      if (Input.GetButtonDown("Interact") && CanInteract())
-        //          characterSwitch.GetInteract().InteractObject(true, direction);
-        //      else if (Input.GetButtonUp("Interact"))
-        //          characterSwitch.GetInteract().InteractObject(false, direction);
-
         if (canFlip)
         {
             for (int i = 0; i < rooms.Length; i++)
@@ -112,5 +113,10 @@ public class PlayerInput : MonoBehaviour {
             focusPlayer.OnJumpInputUp();
         }
         otherFocusPlayer.OnJumpInputUp();
+    }
+    private void CharacterSwitchInteract(bool input, float direction, PlayerController focusPlayer, PlayerController otherFocusPlayer)
+    {
+        focusPlayer.playerInteract.InteractObject(input, direction);
+        otherFocusPlayer.playerInteract.InteractObject(false, direction);
     }
 }

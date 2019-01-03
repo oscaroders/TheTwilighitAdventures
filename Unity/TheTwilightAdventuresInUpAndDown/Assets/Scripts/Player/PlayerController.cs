@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class PlayerController : Controller2D {
 
     internal CharacterSettings settings;
+    public Interact playerInteract;
     public PlayerJump playerJump;
     public PlayerMovement playerMovement;
     float accelerationTimeAirborne = .2f;
@@ -30,6 +31,7 @@ public class PlayerController : Controller2D {
         settings = FindObjectOfType<CharacterSettings>();
         playerJump = GetComponent<PlayerJump>();
         playerMovement = GetComponent<PlayerMovement>();
+        playerInteract = GetComponent<Interact>();
         gravity = -(2 * settings.maxJumpHeight) / Mathf.Pow(settings.timeToJumpApex, 2);
         maxJumpVelocity = Mathf.Abs(gravity) * settings.timeToJumpApex;
         minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * settings.minJumpHeight);
