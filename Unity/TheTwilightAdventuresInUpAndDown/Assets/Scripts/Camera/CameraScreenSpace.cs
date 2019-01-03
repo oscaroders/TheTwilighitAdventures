@@ -14,7 +14,7 @@ public class CameraScreenSpace : MonoBehaviour {
     public float defaultValueOfOrthographicSize;
     public bool otherCameraFollowX;
     public bool otherCameraFollowY;
-    private CharacterSwitch characterSwitch;
+    private PlayerInput inputController;
 
     internal float eveCameraProcentTotal;
     internal float dodoCameraProcentTotal;
@@ -27,14 +27,14 @@ public class CameraScreenSpace : MonoBehaviour {
     private void Start()
     {
         defaultValueOfOrthographicSize = mainCamera.orthographicSize;
-        characterSwitch = GetComponent<CharacterSwitch>();
+        inputController = GetComponent<PlayerInput>();
         Focus("Eve");
         eveCameraCurrent = eveCameraProcentTotal;
         dodoCameraCurrent = dodoCameraProcentTotal;
     }
     void LateUpdate () {
 
-        if(true)
+        if(inputController.IsEveInFocus)
         {
             Focus("Eve");
             
@@ -45,11 +45,11 @@ public class CameraScreenSpace : MonoBehaviour {
         }
 
 
-        if (true && eveCameraCurrent < eveCameraProcentTotal)
+        if (inputController.IsEveInFocus && eveCameraCurrent < eveCameraProcentTotal)
         {
             eveCameraCurrent += procentSpeed;
         }
-        else if (!true && eveCameraCurrent > eveCameraProcentTotal)
+        else if (!inputController.IsEveInFocus && eveCameraCurrent > eveCameraProcentTotal)
         {
             eveCameraCurrent -= procentSpeed;
         }
@@ -59,11 +59,11 @@ public class CameraScreenSpace : MonoBehaviour {
         }
 
        
-       if (!true && dodoCameraCurrent < dodoCameraProcentTotal)
+       if (!inputController.IsEveInFocus && dodoCameraCurrent < dodoCameraProcentTotal)
        {
             dodoCameraCurrent += procentSpeed;
        }
-       else if(true && dodoCameraCurrent > dodoCameraProcentTotal)
+       else if(inputController.IsEveInFocus && dodoCameraCurrent > dodoCameraProcentTotal)
        {
             dodoCameraCurrent -= procentSpeed;
        }
@@ -78,9 +78,6 @@ public class CameraScreenSpace : MonoBehaviour {
         eveCamera.orthographicSize = defaultValueOfOrthographicSize * eveCameraCurrent;
         dodoCamera.orthographicSize = defaultValueOfOrthographicSize * dodoCameraCurrent;
 
-       
-
-
         Rect temp = eveCamera.rect;
         temp.y = -eveCameraCurrent + 1;
         eveCamera.rect = temp;
@@ -91,7 +88,7 @@ public class CameraScreenSpace : MonoBehaviour {
 
         if (otherCameraFollowX)
         {
-            if (true)
+            if (inputController.IsEveInFocus)
             {
                 dodoCamera.transform.position = new Vector3(eveCamera.transform.position.x, dodoCamera.transform.position.y, dodoCamera.transform.position.z);
             }
