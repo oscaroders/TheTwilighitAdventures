@@ -9,7 +9,9 @@ public class PlayerJump : MonoBehaviour {
     PlayerController controller;
     private void Start()
     {
+
         controller = GetComponent<PlayerController>();
+        settings = controller.settings;
     }
 
     public void OnJumpInputDown()
@@ -18,6 +20,7 @@ public class PlayerJump : MonoBehaviour {
         {
             if (controller.wallDirX == controller.directionalInput.x)
             {
+                
                 controller.velocity.x = -controller.wallDirX * settings.wallJumpClimb.x;
                 controller.velocity.y = settings.wallJumpClimb.y;
             }
@@ -36,7 +39,7 @@ public class PlayerJump : MonoBehaviour {
         }
         if (controller.collisions.below)
         {
-            Debug.Log(name + " is on standing on ground: ");
+           
             if (controller.collisions.slidingDownMaxSlope)
             {
                 if (controller.directionalInput.x != -Mathf.Sign(controller.collisions.slopeNormal.x))

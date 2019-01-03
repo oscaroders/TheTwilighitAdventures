@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class PlayerController : Controller2D {
 
-    CharacterSettings settings;
+    internal CharacterSettings settings;
     public PlayerJump playerJump;
     public PlayerMovement playerMovement;
     float accelerationTimeAirborne = .2f;
