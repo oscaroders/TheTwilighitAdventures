@@ -16,58 +16,38 @@ public class PlayerInput : MonoBehaviour {
     private float direction = 0;
     public PlayerController evePlayer;
     public PlayerController dodoPlayer;
-    
+    public bool IsEveInFocus = true;
 
     private void Start() {
         camShake = GetComponentsInChildren<CameraShake>();
         rooms = FindObjectsOfType<Room>();
         characterSwitch = GetComponent<CharacterSwitch>();
-
-
-        //Player[] players = GetComponentsInChildren<Player>();
-
-        //for (int i = 0; i < players.Length; i++)
-        //{
-        //    if(players[i].name.Contains("Eve"))
-        //    {
-        //       player = players[i];
-        //    }else
-        //    {
-        //        otherPlayer = players[i];
-        //    }
-            
-        //}
-        //otherPlayer = GetComponentInChildren<Player>();
-        //player = GetComponentInChildren<Player>();
     }
 
     void Update() {
 
         //characterSwitch.PlayerMovement(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Sprint") > 0);
 
-        Vector2 directionalInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        evePlayer.SetDirectionalInput(directionalInput);
-
-        if (Input.GetButton("Jump")) {
-            evePlayer.OnJumpInputDown();
-        }
-        else {
-            evePlayer.OnJumpInputUp();
-        }
-
-        dodoPlayer.SetDirectionalInput(directionalInput);
-        if (Input.GetButton("Jump"))
+        if(Input.GetButtonDown("CharacterSwitch"))
         {
-            dodoPlayer.OnJumpInputDown();
+            IsEveInFocus = !IsEveInFocus;
+        }
+
+
+        Vector2 directionalInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        if(IsEveInFocus)
+        {
+            CharacterSwitchMovment(directionalInput,evePlayer, dodoPlayer);
+            CharacterSwitchJump(Input.GetButton("Jump"), evePlayer, dodoPlayer);
+            
+
         }
         else
         {
-            dodoPlayer.OnJumpInputUp();
+            CharacterSwitchMovment(directionalInput, dodoPlayer, evePlayer);
+            CharacterSwitchJump(Input.GetButton("Jump"), dodoPlayer, evePlayer);
+
         }
-
-
-
-
         //      if (notInteracting)
         //      {
         //          characterSwitch.GetPlayerJump().Jump(Input.GetButtonDown("Jump"));
@@ -112,5 +92,25 @@ public class PlayerInput : MonoBehaviour {
         //        return false;
         //}
         return true;
+    }
+
+    private void CharacterSwitchMovment(Vector2 directionalInput,PlayerController focusPlayer, PlayerController otherFocusPlayer)
+    {
+        focusPlayer.SetDirectionalInput(directionalInput);
+       
+        otherFocusPlayer.SetDirectionalInput(Vector2.zero);
+        
+    }
+    private void CharacterSwitchJump(bool playerWantToJump, PlayerController focusPlayer, PlayerController otherFocusPlayer)
+    {
+        if (playerWantToJump)
+        {
+            focusPlayer.OnJumpInputDown();
+        }
+        else
+        {
+            focusPlayer.OnJumpInputUp();
+        }
+        otherFocusPlayer.OnJumpInputUp();
     }
 }

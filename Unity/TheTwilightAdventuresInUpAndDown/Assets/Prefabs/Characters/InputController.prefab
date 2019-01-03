@@ -247,6 +247,7 @@ GameObject:
   - component: {fileID: 114023919369296512}
   - component: {fileID: 114254961947902730}
   - component: {fileID: 114335205796440118}
+  - component: {fileID: 50718370768448374}
   m_Layer: 10
   m_Name: Dodo
   m_TagString: Player
@@ -287,6 +288,7 @@ GameObject:
   - component: {fileID: 114680502598757472}
   - component: {fileID: 114130359395137772}
   - component: {fileID: 114063698092739390}
+  - component: {fileID: 50416375657572178}
   m_Layer: 10
   m_Name: Eve
   m_TagString: Player
@@ -684,6 +686,46 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!50 &50416375657572178
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1930489841917500}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!50 &50718370768448374
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1822796322692490}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &61677039355581946
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -1300,6 +1342,7 @@ MonoBehaviour:
   currentRoomId: 3
   evePlayer: {fileID: 114063698092739390}
   dodoPlayer: {fileID: 114335205796440118}
+  IsEveInFocus: 1
 --- !u!114 &114659955396616992
 MonoBehaviour:
   m_ObjectHideFlags: 1
