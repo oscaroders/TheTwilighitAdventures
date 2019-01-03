@@ -13,9 +13,9 @@ public class CharacterSettings : MonoBehaviour {
     [Range(0, 10)] [SerializeField] internal float minJumpHeight = 1f;
     [Range(0, 5)] [SerializeField] internal float timeToJumpApex = 0.4f;
     [Space]
-    public Vector2 wallJumpClimb = new Vector2();
-    public Vector2 wallJumpOff = new Vector2();
-    public Vector2 wallLeap = new Vector2();
+    public Vector2 wallJumpClimb;
+    public Vector2 wallJumpOff ;
+    public Vector2 wallLeap;
     [Space]
     [Range(0, 10)] [SerializeField] internal float wallSlideSpeedMax = 3;
     [Range(0, 10)] [SerializeField] internal float wallStickTime = .25f;

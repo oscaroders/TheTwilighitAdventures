@@ -14,8 +14,8 @@ public class PlayerInput : MonoBehaviour {
     public int currentRoomId;
 
     private float direction = 0;
-    private PlayerController otherPlayer;
-    private Player player;
+    public PlayerController evePlayer;
+    public PlayerController dodoPlayer;
     
 
     private void Start() {
@@ -23,8 +23,22 @@ public class PlayerInput : MonoBehaviour {
         rooms = FindObjectsOfType<Room>();
         characterSwitch = GetComponent<CharacterSwitch>();
 
-        otherPlayer = GetComponentInChildren<PlayerController>();
-        player = GetComponentInChildren<Player>();
+
+        //Player[] players = GetComponentsInChildren<Player>();
+
+        //for (int i = 0; i < players.Length; i++)
+        //{
+        //    if(players[i].name.Contains("Eve"))
+        //    {
+        //       player = players[i];
+        //    }else
+        //    {
+        //        otherPlayer = players[i];
+        //    }
+            
+        //}
+        //otherPlayer = GetComponentInChildren<Player>();
+        //player = GetComponentInChildren<Player>();
     }
 
     void Update() {
@@ -32,26 +46,23 @@ public class PlayerInput : MonoBehaviour {
         //characterSwitch.PlayerMovement(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Sprint") > 0);
 
         Vector2 directionalInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        player.SetDirectionalInput(directionalInput);
+        evePlayer.SetDirectionalInput(directionalInput);
 
         if (Input.GetButton("Jump")) {
-            player.OnJumpInputDown();
+            evePlayer.OnJumpInputDown();
         }
         else {
-            player.OnJumpInputUp();
+            evePlayer.OnJumpInputUp();
         }
 
-
-
-
-        otherPlayer.playerMovement.Move(Input.GetAxisRaw("Horizontal"));
+        dodoPlayer.SetDirectionalInput(directionalInput);
         if (Input.GetButton("Jump"))
         {
-            otherPlayer.playerJump.OnJumpInputDown();
+            dodoPlayer.OnJumpInputDown();
         }
         else
         {
-            otherPlayer.playerJump.OnJumpInputUp();
+            dodoPlayer.OnJumpInputUp();
         }
 
 

@@ -23,17 +23,20 @@ public class PlayerJump : MonoBehaviour {
             }
             else if (controller.directionalInput.x == 0)
             {
+                Debug.Log(settings.wallLeap.x);
                 controller.velocity.x = -controller.wallDirX * settings.wallJumpOff.x;
                 controller.velocity.y = settings.wallJumpOff.y;
             }
             else
             {
+                Debug.Log(settings.wallLeap.x);
                 controller.velocity.x = -controller.wallDirX * settings.wallLeap.x;
                 controller.velocity.y = settings.wallLeap.y;
             }
         }
         if (controller.collisions.below)
         {
+            Debug.Log(name + " is on standing on ground: ");
             if (controller.collisions.slidingDownMaxSlope)
             {
                 if (controller.directionalInput.x != -Mathf.Sign(controller.collisions.slopeNormal.x))

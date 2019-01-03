@@ -30,7 +30,6 @@ public class PlayerController : Controller2D {
         settings = FindObjectOfType<CharacterSettings>();
         playerJump = GetComponent<PlayerJump>();
         playerMovement = GetComponent<PlayerMovement>();
-
         gravity = -(2 * settings.maxJumpHeight) / Mathf.Pow(settings.timeToJumpApex, 2);
         maxJumpVelocity = Mathf.Abs(gravity) * settings.timeToJumpApex;
         minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * settings.minJumpHeight);
@@ -41,8 +40,34 @@ public class PlayerController : Controller2D {
         CalculateVelocity();
         HandleWallSliding();
         Move(velocity * Time.deltaTime, directionalInput);
+
+        if (collisions.above || collisions.below)
+        {
+            if (collisions.slidingDownMaxSlope)
+            {
+                velocity.y += collisions.slopeNormal.y * -gravity * Time.deltaTime;
+            }
+            else
+            {
+                velocity.y = 0;
+            }
+        }
+
     }
-    
+    public void SetDirectionalInput(Vector2 input)
+    {
+        directionalInput = input;
+    }
+    public void OnJumpInputDown()
+    {
+        playerJump.OnJumpInputDown();
+    }
+    public void OnJumpInputUp()
+    {
+        playerJump.OnJumpInputUp();
+    }
+
+
     void HandleWallSliding()
     {
         wallDirX = (collisions.left) ? -1 : 1;

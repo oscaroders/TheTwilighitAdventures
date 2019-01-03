@@ -241,12 +241,8 @@ GameObject:
   - component: {fileID: 4849045991909158}
   - component: {fileID: 212650765320488820}
   - component: {fileID: 61677039355581946}
-  - component: {fileID: 50311397212885958}
-  - component: {fileID: 114283482834683954}
-  - component: {fileID: 114463372213360800}
-  - component: {fileID: 70709883057607816}
-  - component: {fileID: 114661828096561502}
-  - component: {fileID: 114852008868921526}
+  - component: {fileID: 114042934577707686}
+  - component: {fileID: 114936300375604986}
   - component: {fileID: 114750600708221868}
   - component: {fileID: 114920564735716536}
   - component: {fileID: 82727375431755072}
@@ -686,26 +682,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!50 &50311397212885958
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1822796322692490}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: -3
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 4
 --- !u!61 &61677039355581946
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -756,21 +732,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5031872, y: 1.6699446}
   m_EdgeRadius: 0
---- !u!70 &70709883057607816
-CapsuleCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1822796322692490}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.24999672, y: 0.031047108}
-  m_Size: {x: 0.5070274, y: 0.06210422}
-  m_Direction: 1
 --- !u!82 &82185159913617688
 AudioSource:
   m_ObjectHideFlags: 1
@@ -1155,6 +1116,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114042934577707686
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1822796322692490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9a6b6ce721b0a3448e2d13cd11a4047, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 791
+  horizontalRayCount: 0
+  verticalRayCount: 0
+  horizontalRaySpacing: 0
+  verticalRaySpacing: 0
+  collider: {fileID: 0}
+  maxSlopeAngle: 80
+  isThisDodo: 0
+  playerInput: {x: 0, y: 0}
 --- !u!114 &114133633294689560
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1185,17 +1168,6 @@ MonoBehaviour:
   otherCameraFollowX: 1
   otherCameraFollowY: 0
   procentSpeed: 0.009
---- !u!114 &114283482834683954
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1822796322692490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 713730b32cb8c5b41b34b2207ab585fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114339053485516888
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1236,6 +1208,7 @@ MonoBehaviour:
   verticalRaySpacing: 0
   collider: {fileID: 0}
   maxSlopeAngle: 80
+  isThisDodo: 0
   playerInput: {x: 0, y: 0}
 --- !u!114 &114441908692829772
 MonoBehaviour:
@@ -1246,17 +1219,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c3ee1502f15d384ab3bc04e994744b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114463372213360800
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1822796322692490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f56e7b2d433bcaa4ba3632677443e128, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114468928183164936
@@ -1314,6 +1276,8 @@ MonoBehaviour:
   characterInside: 
   notInteracting: 1
   currentRoomId: 3
+  evePlayer: {fileID: 0}
+  dodoPlayer: {fileID: 0}
 --- !u!114 &114659955396616992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1333,18 +1297,6 @@ MonoBehaviour:
   wallLeap: {x: 0, y: 0}
   wallSlideSpeedMax: 3
   wallStickTime: 0.25
---- !u!114 &114661828096561502
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1822796322692490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96ef1496d69a2d54abebfd4c7d56843a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxVelocity: 50.4
 --- !u!114 &114692783300362558
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1395,27 +1347,6 @@ MonoBehaviour:
   topBound: {fileID: 0}
   bottomBound: {fileID: 0}
   isUp: 1
---- !u!114 &114852008868921526
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1822796322692490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62543cab052be3c49aeb6daebd25c7b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collisionMask:
-    serializedVersion: 2
-    m_Bits: 0
-  horizontalRayCount: 0
-  verticalRayCount: 0
-  horizontalRaySpacing: 0
-  verticalRaySpacing: 0
-  collider: {fileID: 0}
-  maxSlopeAngle: 80
-  playerInput: {x: 0, y: 0}
 --- !u!114 &114920564735716536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1430,6 +1361,25 @@ MonoBehaviour:
   lanterLight: {fileID: 1172901418571526}
   amountOfLanternFuel: 0
   hasEveLantern: 1
+--- !u!114 &114936300375604986
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1822796322692490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 846361d92f1d88c4f9754cc681d6f5ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxJumpHeight: 4
+  minJumpHeight: 1
+  timeToJumpApex: 0.4
+  wallJumpClimb: {x: 0, y: 0}
+  wallJumpOff: {x: 0, y: 0}
+  wallLeap: {x: 0, y: 0}
+  wallSlideSpeedMax: 3
+  wallStickTime: 0.25
 --- !u!212 &212650765320488820
 SpriteRenderer:
   m_ObjectHideFlags: 1

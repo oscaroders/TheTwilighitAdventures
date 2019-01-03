@@ -4,16 +4,21 @@ using System.Collections;
 public class Controller2D : RaycastController {
 
 	public float maxSlopeAngle = 80;
-
-	public CollisionInfo collisions;
+    public bool isThisDodo = false;
+    internal int worldChanger = 1;
+    public CollisionInfo collisions;
 	[HideInInspector]
 	public Vector2 playerInput;
 
 	public override void Start() {
 		base.Start ();
 		collisions.faceDir = 1;
+        if (isThisDodo)
+        {
+            worldChanger = -1;
+        }
 
-	}
+    }
 
 	public void Move(Vector2 moveAmount, bool standingOnPlatform) {
 		Move (moveAmount, Vector2.zero, standingOnPlatform);
@@ -22,7 +27,7 @@ public class Controller2D : RaycastController {
 	public void Move(Vector2 moveAmount, Vector2 input, bool standingOnPlatform = false) {
 		UpdateRaycastOrigins ();
 
-		collisions.Reset ();
+		collisions.Reset();
 		collisions.moveAmountOld = moveAmount;
 		playerInput = input;
 
@@ -103,10 +108,21 @@ public class Controller2D : RaycastController {
 		float rayLength = Mathf.Abs (moveAmount.y) + skinWidth;
 
 		for (int i = 0; i < verticalRayCount; i ++) {
+            Vector2 rayOrigin;
+            if (isThisDodo)
+            {
+                rayOrigin = (directionY == 1) ? raycastOrigins.bottomLeft : raycastOrigins.topLeft;
+               
+            }
+            else
+            {
+                rayOrigin = (directionY == -1) ? raycastOrigins.bottomLeft : raycastOrigins.topLeft;
+            }
 
-			Vector2 rayOrigin = (directionY == -1)?raycastOrigins.bottomLeft:raycastOrigins.topLeft;
+
+			 
 			rayOrigin += Vector2.right * (verticalRaySpacing * i + moveAmount.x);
-			RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLength, collisionMask);
+			RaycastHit2D hit = Physics2D.Raycast(rayOrigin, (worldChanger*Vector2.up) * directionY, rayLength, collisionMask);
 
 			Debug.DrawRay(rayOrigin, Vector2.up * directionY,Color.red);
 

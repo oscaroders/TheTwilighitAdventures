@@ -4,6 +4,8 @@ using System.Collections;
 [RequireComponent (typeof (Controller2D))]
 public class Player : MonoBehaviour {
 
+    
+    
 	public float maxJumpHeight = 4;
 	public float minJumpHeight = 1;
 	public float timeToJumpApex = .4f;
@@ -32,9 +34,10 @@ public class Player : MonoBehaviour {
     internal int wallDirX;
 
 	void Start() {
-		controller = GetComponent<Controller2D> ();
-
-		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
+		controller = GetComponent<Controller2D>();
+        LoadInCharacterSettings();
+        
+		gravity = controller.worldChanger * -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
 		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 		minJumpVelocity = Mathf.Sqrt (2 * Mathf.Abs (gravity) * minJumpHeight);
 	}
@@ -126,4 +129,18 @@ public class Player : MonoBehaviour {
 		velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
 		velocity.y += gravity * Time.deltaTime;
 	}
+
+    void LoadInCharacterSettings()
+    {
+        CharacterSettings characterSettings = FindObjectOfType<CharacterSettings>();
+
+        maxJumpHeight = characterSettings.maxJumpHeight;
+        minJumpHeight = characterSettings.minJumpHeight;
+        timeToJumpApex = characterSettings.timeToJumpApex;
+        wallJumpClimb = characterSettings.wallJumpClimb;
+        wallJumpOff = characterSettings.wallJumpOff;
+        wallLeap = characterSettings.wallLeap;
+        wallSlideSpeedMax = characterSettings.wallSlideSpeedMax;
+        wallStickTime = characterSettings.wallStickTime;
+    }
 }
