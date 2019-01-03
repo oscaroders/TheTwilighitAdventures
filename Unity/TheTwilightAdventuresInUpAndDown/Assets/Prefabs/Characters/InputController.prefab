@@ -1341,7 +1341,7 @@ MonoBehaviour:
   canFlip: 1
   characterInside: 
   notInteracting: 1
-  currentRoomId: 3
+  currentRoomId: 1
   evePlayer: {fileID: 114063698092739390}
   dodoPlayer: {fileID: 114335205796440118}
   IsEveInFocus: 1
