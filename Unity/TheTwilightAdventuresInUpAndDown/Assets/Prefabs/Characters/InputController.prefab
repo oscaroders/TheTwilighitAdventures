@@ -51,7 +51,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4830277133582794}
   - component: {fileID: 331704279739536838}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LightRing2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4019205578393970}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LanternLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4913129564573454}
   - component: {fileID: 331602155824765060}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LightCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4061295227322722}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4402512510008498}
   - component: {fileID: 331958266448311172}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LightRing3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4055239215107150}
   - component: {fileID: 331661986947192724}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LightRing1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4303507459757510}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CharacterCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4710055569163426}
   - component: {fileID: 82185159913617688}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DodoAmbiantSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,12 +241,13 @@ GameObject:
   - component: {fileID: 4849045991909158}
   - component: {fileID: 212650765320488820}
   - component: {fileID: 61677039355581946}
-  - component: {fileID: 114042934577707686}
-  - component: {fileID: 114936300375604986}
   - component: {fileID: 114750600708221868}
   - component: {fileID: 114920564735716536}
   - component: {fileID: 82727375431755072}
-  m_Layer: 0
+  - component: {fileID: 114023919369296512}
+  - component: {fileID: 114254961947902730}
+  - component: {fileID: 114335205796440118}
+  m_Layer: 10
   m_Name: Dodo
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -265,7 +266,7 @@ GameObject:
   - component: {fileID: 114339053485516888}
   - component: {fileID: 114692783300362558}
   - component: {fileID: 114441908692829772}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Down Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -282,9 +283,10 @@ GameObject:
   - component: {fileID: 4367794735031784}
   - component: {fileID: 212769318659818084}
   - component: {fileID: 61684031993905104}
-  - component: {fileID: 114401432118182852}
-  - component: {fileID: 114468928183164936}
   - component: {fileID: 82397791532916354}
+  - component: {fileID: 114680502598757472}
+  - component: {fileID: 114130359395137772}
+  - component: {fileID: 114063698092739390}
   m_Layer: 10
   m_Name: Eve
   m_TagString: Player
@@ -525,7 +527,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1822796322692490}
   m_LocalRotation: {x: 1, y: -0, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: -2.4, z: 0}
+  m_LocalPosition: {x: 0, y: -2.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4061295227322722}
@@ -694,7 +696,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.25, y: 0.5162777}
+  m_Offset: {x: 0.0000009536743, y: -0.015625894}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -705,7 +707,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.96744466}
+  m_Size: {x: 0.5031872, y: 1.6699446}
   m_EdgeRadius: 0
 --- !u!61 &61684031993905104
 BoxCollider2D:
@@ -1116,7 +1118,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &114042934577707686
+--- !u!114 &114023919369296512
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1124,12 +1126,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1822796322692490}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9a6b6ce721b0a3448e2d13cd11a4047, type: 3}
+  m_Script: {fileID: 11500000, guid: f56e7b2d433bcaa4ba3632677443e128, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114063698092739390
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1930489841917500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62543cab052be3c49aeb6daebd25c7b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   collisionMask:
     serializedVersion: 2
-    m_Bits: 791
+    m_Bits: 567
   horizontalRayCount: 0
   verticalRayCount: 0
   horizontalRaySpacing: 0
@@ -1138,6 +1151,20 @@ MonoBehaviour:
   maxSlopeAngle: 80
   isThisDodo: 0
   playerInput: {x: 0, y: 0}
+  playerJump: {fileID: 114130359395137772}
+  playerMovement: {fileID: 114680502598757472}
+  gravity: 0
+--- !u!114 &114130359395137772
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1930489841917500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 713730b32cb8c5b41b34b2207ab585fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114133633294689560
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1168,6 +1195,42 @@ MonoBehaviour:
   otherCameraFollowX: 1
   otherCameraFollowY: 0
   procentSpeed: 0.009
+--- !u!114 &114254961947902730
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1822796322692490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 713730b32cb8c5b41b34b2207ab585fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114335205796440118
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1822796322692490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62543cab052be3c49aeb6daebd25c7b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 567
+  horizontalRayCount: 0
+  verticalRayCount: 0
+  horizontalRaySpacing: 0
+  verticalRaySpacing: 0
+  collider: {fileID: 0}
+  maxSlopeAngle: 80
+  isThisDodo: 1
+  playerInput: {x: 0, y: 0}
+  playerJump: {fileID: 114254961947902730}
+  playerMovement: {fileID: 114023919369296512}
+  gravity: 0
 --- !u!114 &114339053485516888
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1188,28 +1251,6 @@ MonoBehaviour:
   lookSmoothTimeX: 0.5
   lookSmoothTimeY: 0.5
   cameraYPositioning: 0
---- !u!114 &114401432118182852
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1930489841917500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9a6b6ce721b0a3448e2d13cd11a4047, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collisionMask:
-    serializedVersion: 2
-    m_Bits: 567
-  horizontalRayCount: 0
-  verticalRayCount: 0
-  horizontalRaySpacing: 0
-  verticalRaySpacing: 0
-  collider: {fileID: 0}
-  maxSlopeAngle: 80
-  isThisDodo: 0
-  playerInput: {x: 0, y: 0}
 --- !u!114 &114441908692829772
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1221,25 +1262,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c3ee1502f15d384ab3bc04e994744b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114468928183164936
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1930489841917500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 846361d92f1d88c4f9754cc681d6f5ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxJumpHeight: 4
-  minJumpHeight: 1
-  timeToJumpApex: 0.4
-  wallJumpClimb: {x: 0, y: 0}
-  wallJumpOff: {x: 0, y: 0}
-  wallLeap: {x: 0, y: 0}
-  wallSlideSpeedMax: 3
-  wallStickTime: 0.25
 --- !u!114 &114543712639924090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1276,8 +1298,8 @@ MonoBehaviour:
   characterInside: 
   notInteracting: 1
   currentRoomId: 3
-  evePlayer: {fileID: 0}
-  dodoPlayer: {fileID: 0}
+  evePlayer: {fileID: 114063698092739390}
+  dodoPlayer: {fileID: 114335205796440118}
 --- !u!114 &114659955396616992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1292,11 +1314,22 @@ MonoBehaviour:
   maxJumpHeight: 2.5
   minJumpHeight: 1
   timeToJumpApex: 0.4
-  wallJumpClimb: {x: 0, y: 0}
-  wallJumpOff: {x: 0, y: 0}
-  wallLeap: {x: 0, y: 0}
+  wallJumpClimb: {x: 1, y: 1}
+  wallJumpOff: {x: 1, y: 1}
+  wallLeap: {x: 1, y: 1}
   wallSlideSpeedMax: 3
   wallStickTime: 0.25
+--- !u!114 &114680502598757472
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1930489841917500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f56e7b2d433bcaa4ba3632677443e128, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114692783300362558
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1361,25 +1394,6 @@ MonoBehaviour:
   lanterLight: {fileID: 1172901418571526}
   amountOfLanternFuel: 0
   hasEveLantern: 1
---- !u!114 &114936300375604986
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1822796322692490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 846361d92f1d88c4f9754cc681d6f5ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxJumpHeight: 4
-  minJumpHeight: 1
-  timeToJumpApex: 0.4
-  wallJumpClimb: {x: 0, y: 0}
-  wallJumpOff: {x: 0, y: 0}
-  wallLeap: {x: 0, y: 0}
-  wallSlideSpeedMax: 3
-  wallStickTime: 0.25
 --- !u!212 &212650765320488820
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -1415,15 +1429,15 @@ SpriteRenderer:
   m_SortingLayerID: 286711151
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a1e2419a4d9ec874d8c307445979c807, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a78166a0f8acf0b47adc03279d06f4ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 0.80838835, y: 1.8285943}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!212 &212769318659818084
