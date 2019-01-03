@@ -7,35 +7,32 @@ public class FlipObjectParticle : MonoBehaviour {
     private ParticleSystem flipParticles;
     private SpriteRenderer spriteRenderer;
     public Color particleColor = Color.magenta;
-    private GameObject player;
-    private Vector3 distance;
+    private GameObject[] players;
+    private Vector3 distanceEve;
+    private Vector3 distanceDodo;
     public float maxDistance;
+    private Room room;
+    private PlayerInput playerInput;
     // Use this for initialization
     void Start () {
         spriteRenderer = GetComponentInParent<SpriteRenderer>();
         flipParticles = GetComponent<ParticleSystem>();
-        player = GameObject.FindGameObjectWithTag("Player");
-        distance = player.transform.position - flipParticles.transform.position;
+        players = GameObject.FindGameObjectsWithTag("Player");
+        room = GetComponentInParent<Room>();
+        playerInput = FindObjectOfType<PlayerInput>();
+        distanceEve = players[0].transform.position - flipParticles.transform.position;
+        distanceDodo = players[1].transform.position - flipParticles.transform.position;
         ParticlePreset();
 	}
 
     public void Update()
     {
-        distance = player.transform.position - transform.position;
-
-        if (distance.magnitude < maxDistance)
+        if (playerInput.currentRoomId == room.roomId)
         {
-            Debug.Log(distance.magnitude);
-            if (!flipParticles.isPlaying)
-            {
-                flipParticles.Play();
-            }
-            //em.enabled = true;
-        }
-        else if (distance.magnitude > maxDistance)
-        {
-            flipParticles.Stop();
-        }       
+            distanceEve = players[0].transform.position - transform.position;
+            distanceDodo = players[1].transform.position - transform.position;
+            PlayerParticleProximityCheck();
+        }  
     }
 
     public void ChangeColor(Color c)
@@ -63,8 +60,36 @@ public class FlipObjectParticle : MonoBehaviour {
         noise.frequency = 0.21f;
     }
 
-    /*public void EmitParticles(int room)
+    public void PlayerParticleProximityCheck()
     {
-        
-    }*/
+        if (distanceEve.magnitude < distanceDodo.magnitude)
+        {
+            if (distanceEve.magnitude < maxDistance)
+            {
+                if (!flipParticles.isPlaying)
+                {
+                    flipParticles.Play();
+                }
+            }
+            else if (distanceEve.magnitude > maxDistance)
+            {
+                flipParticles.Stop();
+            }
+        }
+
+        if (distanceDodo.magnitude < distanceEve.magnitude)
+        {
+            if (distanceDodo.magnitude < maxDistance)
+            {
+                if (!flipParticles.isPlaying)
+                {
+                    flipParticles.Play();
+                }
+            }
+            else if (distanceDodo.magnitude > maxDistance)
+            {
+                flipParticles.Stop();
+            }
+        }
+    }
 }
