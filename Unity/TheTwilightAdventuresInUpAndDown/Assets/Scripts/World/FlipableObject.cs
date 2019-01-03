@@ -70,7 +70,7 @@ public class FlipableObject : MonoBehaviour {
             collider.name = "Remnent of " + name;
             collider.layer = 8;
         }
-        if (isFlippable && wantParticles &&particle == null )
+        if (isFlippable && wantParticles && particle == null )
         {
             particle = Instantiate(particlePrefab, transform);
             FlipObjectParticle temp = particle.GetComponent<FlipObjectParticle>();
@@ -105,8 +105,8 @@ public class FlipableObject : MonoBehaviour {
 
             if (particle != null)
             {
-                particle.transform.position = endPosition;
-                particle.transform.rotation = endRotation;
+                particle.transform.position = transform.position;
+                particle.transform.rotation = transform.rotation;
             }
         } else
         {
