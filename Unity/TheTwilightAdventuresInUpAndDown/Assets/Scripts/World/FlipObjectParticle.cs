@@ -11,14 +11,18 @@ public class FlipObjectParticle : MonoBehaviour {
     private Vector3 distanceEve;
     private Vector3 distanceDodo;
     public float maxDistance;
-    private Room room;
+    //private Room room;
+    public int roomId;
+    public float TdistanceEve;
+    public float TdistanceDodo;
+
     private PlayerInput playerInput;
     // Use this for initialization
     void Start () {
         spriteRenderer = GetComponentInParent<SpriteRenderer>();
         flipParticles = GetComponent<ParticleSystem>();
         players = GameObject.FindGameObjectsWithTag("Player");
-        room = GetComponentInParent<Room>();
+        roomId = GetComponentInParent<Room>().roomId;
         playerInput = FindObjectOfType<PlayerInput>();
         distanceEve = players[0].transform.position - flipParticles.transform.position;
         distanceDodo = players[1].transform.position - flipParticles.transform.position;
@@ -27,7 +31,7 @@ public class FlipObjectParticle : MonoBehaviour {
 
     public void Update()
     {
-        if (playerInput.currentRoomId == room.roomId)
+        if (playerInput.currentRoomId == roomId)
         {
             distanceEve = players[0].transform.position - transform.position;
             distanceDodo = players[1].transform.position - transform.position;
@@ -62,6 +66,10 @@ public class FlipObjectParticle : MonoBehaviour {
 
     public void PlayerParticleProximityCheck()
     {
+        TdistanceEve = distanceEve.magnitude;
+        TdistanceDodo = distanceDodo.magnitude;
+
+
         if (distanceEve.magnitude < distanceDodo.magnitude)
         {
             if (distanceEve.magnitude < maxDistance)
