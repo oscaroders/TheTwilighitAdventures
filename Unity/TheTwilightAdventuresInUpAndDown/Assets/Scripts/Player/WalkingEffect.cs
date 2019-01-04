@@ -4,33 +4,33 @@ using UnityEngine;
 
 public class WalkingEffect : MonoBehaviour {
 
-    private Rigidbody2D rigidbody2D;
+    public GameObject particleEffectPrefab;
+
+    private BoxCollider2D boxCollider;
     private ParticleSystem particleSystem;
     private PlayerController playerController;
 
     // Use this for initialization
     void Start () {
-        ParticleSystem[] particleSystems = GetComponentsInChildren<ParticleSystem>();
-        foreach (ParticleSystem particle in particleSystems)
-        {
-            if (particle.tag == "Moving")
-            {
-                particleSystem = particle;
-            }
-        }
+
+        boxCollider = GetComponent<BoxCollider2D>();
         playerController = GetComponent<PlayerController>();
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        particleSystem = Instantiate(particleEffectPrefab, transform).GetComponent<ParticleSystem>();
+
+        particleSystem.transform.position += new Vector3(0, -boxCollider.size.y/2);
+       
+        
     }
 	
 	// Update is called once per frame
 	void Update () {
-        //if (playerController.grounded && rigidbody2D.velocity.magnitude > 1)
-        //{
-        //    particleSystem.Play();
-        //}
-        //else
-        //{
-        //    particleSystem.Stop();
-        //}
-	}
+        if (playerController.velocity.y == 0 && playerController.velocity.magnitude > 1)
+        {
+            particleSystem.Play();
+        }
+        else
+        {
+            particleSystem.Stop();
+        }
+    }
 }

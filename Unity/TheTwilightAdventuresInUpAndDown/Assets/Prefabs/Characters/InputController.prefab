@@ -933,7 +933,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionMask:
     serializedVersion: 2
-    m_Bits: 567
+    m_Bits: 2615
   horizontalRayCount: 0
   verticalRayCount: 0
   horizontalRaySpacing: 0
@@ -1156,7 +1156,7 @@ MonoBehaviour:
   interactRadius: 0.5
   whatIsInteractable:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 2816
 --- !u!114 &114754968528198064
 MonoBehaviour:
   m_ObjectHideFlags: 1
