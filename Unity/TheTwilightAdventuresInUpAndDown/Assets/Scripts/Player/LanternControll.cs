@@ -29,7 +29,7 @@ public class LanternControll : MonoBehaviour {
             lanterLight.transform.localScale = new Vector3(lanterLight.transform.localScale.x * flicker, lanterLight.transform.localScale.y * flicker, lanterLight.transform.localScale.z);
         }
 
-        lanterLight.transform.localScale = new Vector3(Mathf.Clamp(lanterLight.transform.localScale.x, 0.7f, 1.3f) , lanterLight.transform.localScale.y, lanterLight.transform.localScale.z);
+        lanterLight.transform.localScale = new Vector3(Mathf.Clamp(lanterLight.transform.localScale.x, 0.7f, 1.3f) , Mathf.Clamp(lanterLight.transform.localScale.y, 0.7f, 1.3f), lanterLight.transform.localScale.z);
 
     }
 
