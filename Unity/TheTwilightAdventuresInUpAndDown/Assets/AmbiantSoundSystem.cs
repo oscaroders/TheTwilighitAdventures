@@ -27,12 +27,12 @@ public class AmbiantSoundSystem : MonoBehaviour {
 	}
     public void BackGroundMusic()
     {
-        if (pi.IsEveInFocus && !eveAmbientSound.isPlaying)
+        if (!eveAmbientSound.isPlaying)
         {
             //dodoAmbientSound.Pause();
             eveAmbientSound.Play();
         }
-        else if (!pi.IsEveInFocus && !dodoAmbientSound.isPlaying)
+        if (!dodoAmbientSound.isPlaying)
         {
             //eveAmbientSound.Pause();
             dodoAmbientSound.Play();
