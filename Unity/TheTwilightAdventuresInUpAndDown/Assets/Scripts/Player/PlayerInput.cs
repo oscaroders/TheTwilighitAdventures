@@ -42,7 +42,7 @@ public class PlayerInput : MonoBehaviour {
         {
             CharacterSwitchMovment(directionalInput,evePlayer, dodoPlayer);
 
-            if (Input.GetButtonDown("Jump")) { //evePlayer.collisions.below
+            if (Input.GetButtonDown("Jump")) { 
                 CharacterSwitchJump(true, evePlayer, dodoPlayer);
                 
             } else if (Input.GetButtonUp("Jump")) {
@@ -63,7 +63,14 @@ public class PlayerInput : MonoBehaviour {
         {
 
             CharacterSwitchMovment(directionalInput, dodoPlayer, evePlayer);
-            CharacterSwitchJump(Input.GetButton("Jump"), dodoPlayer, evePlayer);
+
+            if (Input.GetButtonDown("Jump")) {
+                CharacterSwitchJump(true, dodoPlayer, evePlayer);
+
+            } else if (Input.GetButtonUp("Jump")) {
+                CharacterSwitchJump(false, dodoPlayer, evePlayer);
+            }
+
             if(CanInteract() && Input.GetButtonDown("Interact"))
             {
                 CharacterSwitchInteract(true, direction, dodoPlayer, evePlayer);
