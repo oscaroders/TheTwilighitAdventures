@@ -20,11 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4097308640685478}
   - component: {fileID: 212796868222269852}
-  - component: {fileID: 50863757556610494}
-  - component: {fileID: 255139038428521014}
-  - component: {fileID: 114423255157207036}
   - component: {fileID: 61398918843216496}
   - component: {fileID: 82944105448435694}
+  - component: {fileID: 114529328675588164}
   m_Layer: 9
   m_Name: Box
   m_TagString: Untagged
@@ -39,32 +37,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1375951762056198}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 46.25, y: 1.545, z: -0.171875}
+  m_LocalPosition: {x: 20.98, y: 2.352367, z: -0.171875}
   m_LocalScale: {x: 1.6659199, y: 1.6659199, z: 1.6659199}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50863757556610494
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1375951762056198}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 15
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 4
 --- !u!61 &61398918843216496
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -186,7 +164,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &114423255157207036
+--- !u!114 &114529328675588164
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -194,13 +172,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1375951762056198}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 896473a9b596fab4fa9dcbef9ae35071, type: 3}
+  m_Script: {fileID: 11500000, guid: 495520d223b54a94dad10a7cc384ff47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inputController: {fileID: 0}
-  boxMassStop: 15
-  boxMassMoving: 3
-  moveBoxSound: {fileID: 82944105448435694}
 --- !u!212 &212796868222269852
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -247,20 +222,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!255 &255139038428521014
-FixedJoint2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1375951762056198}
-  m_Enabled: 0
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.8535309, y: 0.8451816}
-  m_DampingRatio: 0
-  m_Frequency: 0

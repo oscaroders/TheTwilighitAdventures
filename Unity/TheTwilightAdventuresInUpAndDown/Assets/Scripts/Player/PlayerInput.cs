@@ -39,9 +39,14 @@ public class PlayerInput : MonoBehaviour {
         {
             CharacterSwitchMovment(directionalInput,evePlayer, dodoPlayer);
             CharacterSwitchJump(Input.GetButton("Jump"), evePlayer, dodoPlayer);
-            if (CanInteract())
+            if (CanInteract() && Input.GetButtonDown("Interact"))
             {
-                CharacterSwitchInteract(Input.GetButtonDown("Interact"), direction, evePlayer, dodoPlayer);
+                Debug.Log("Dorection");
+                CharacterSwitchInteract(true, direction, evePlayer, dodoPlayer);
+            }
+            else if (Input.GetButtonUp("Interact"))
+            {
+                CharacterSwitchInteract(false, direction, evePlayer, dodoPlayer);
             }
         }
         else
@@ -49,9 +54,13 @@ public class PlayerInput : MonoBehaviour {
 
             CharacterSwitchMovment(directionalInput, dodoPlayer, evePlayer);
             CharacterSwitchJump(Input.GetButton("Jump"), dodoPlayer, evePlayer);
-            if(CanInteract())
+            if(CanInteract() && Input.GetButtonDown("Interact"))
             {
-                CharacterSwitchInteract(Input.GetButtonDown("Interact"), direction, dodoPlayer, evePlayer);
+                CharacterSwitchInteract(true, direction, dodoPlayer, evePlayer);
+            }
+            else if (Input.GetButtonUp("Interact"))
+            {
+                CharacterSwitchInteract(false, direction, dodoPlayer, evePlayer);
             }
            
 
