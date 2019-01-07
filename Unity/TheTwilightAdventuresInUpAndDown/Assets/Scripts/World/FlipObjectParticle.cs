@@ -7,7 +7,7 @@ public class FlipObjectParticle : MonoBehaviour {
     private ParticleSystem flipParticles;
     private SpriteRenderer spriteRenderer;
     public Color particleColor = Color.magenta;
-    private GameObject[] players;
+    private Transform[] players;
     private Vector3 distanceEve;
     private Vector3 distanceDodo;
     public float maxDistance;
@@ -21,9 +21,15 @@ public class FlipObjectParticle : MonoBehaviour {
     void Start () {
         spriteRenderer = GetComponentInParent<SpriteRenderer>();
         flipParticles = GetComponent<ParticleSystem>();
-        players = GameObject.FindGameObjectsWithTag("Player");
         roomId = GetComponentInParent<Room>().roomId;
         playerInput = FindObjectOfType<PlayerInput>();
+
+
+        players = new Transform[2];
+
+        players[0] = playerInput.evePlayer.transform;
+        players[1] = playerInput.dodoPlayer.transform;
+
         distanceEve = players[0].transform.position - flipParticles.transform.position;
         distanceDodo = players[1].transform.position - flipParticles.transform.position;
         ParticlePreset();
