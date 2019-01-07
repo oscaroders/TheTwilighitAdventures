@@ -14,10 +14,15 @@ public class PlayerInput : MonoBehaviour {
     public int currentRoomId;
 
     private float direction = 0;
+
+    [Header("Characters")]
     public PlayerController evePlayer;
     public PlayerController dodoPlayer;
     public bool IsEveInFocus = true;
 
+    [Header("Lantern")]
+    public bool eveHasLantern;
+    public GameObject lanterLight;
     private void Start() {
         camShake = GetComponentsInChildren<CameraShake>();
         rooms = FindObjectsOfType<Room>();
@@ -28,10 +33,9 @@ public class PlayerInput : MonoBehaviour {
         
         if (Input.GetAxisRaw("Horizontal") != 0)
             direction = Mathf.Sign(Input.GetAxisRaw("Horizontal"));
-
         //characterSwitch.PlayerMovement(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Sprint") > 0);
 
-        if (Input.GetButtonDown("CharacterSwitch"))
+        if (Input.GetButtonDown("CharacterSwitch") && eveHasLantern)
         {
             IsEveInFocus = !IsEveInFocus;
         }
@@ -83,25 +87,24 @@ public class PlayerInput : MonoBehaviour {
 
 
         }
-        //      if (notInteracting)
-        //      {
-        //          characterSwitch.GetPlayerJump().Jump(Input.GetButtonDown("Jump"));
-        //          characterSwitch.ChangeCharacter(Input.GetButtonDown("CharacterSwitch"));
-        //      }
-        //characterSwitch.BackGroundMusic();
-        if (canFlip)
+        
+        if (eveHasLantern)
         {
-            for (int i = 0; i < rooms.Length; i++)
+            if (canFlip)
             {
-                rooms[i].FlipThisRoomsFlippableObjects(currentRoomId, Input.GetButtonDown("FlipWorld"));
+                for (int i = 0; i < rooms.Length; i++)
+                {
+                    rooms[i].FlipThisRoomsFlippableObjects(currentRoomId, Input.GetButtonDown("FlipWorld"));
+                }
+            }
+
+            if (!canFlip && Input.GetButtonDown("FlipWorld")) {
+                CannotFlipShake();
+
+
             }
         }
 
-        if (!canFlip && Input.GetButtonDown("FlipWorld")) {
-            CannotFlipShake();
-
-
-        }
   
     }
     public void CannotFlipShake()

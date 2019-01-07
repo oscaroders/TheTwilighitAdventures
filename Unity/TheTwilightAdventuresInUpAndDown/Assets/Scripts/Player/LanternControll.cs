@@ -5,26 +5,22 @@ using UnityEngine;
 public class LanternControll : MonoBehaviour {
 
     public GameObject lanterLight;
-    public float amountOfLanternFuel;
-     // [HideInInspector]
-    public bool hasEveLantern;
+    public float amountOfLanternFuel;    
+    private PlayerInput playerInput;
     public SpriteRenderer lantern;
 
 	// Use this for initialization
 	void Start () {
+        playerInput = FindObjectOfType<PlayerInput>();
         lantern.enabled = false;
+        
 	}
 	
 	// Make into a function when we know from where to call it.
 	void Update () {
-        
 
-        if (hasEveLantern) {
-            lanterLight.SetActive(true);
-        } else {
-            lanterLight.SetActive(false);
-        }
-
+        lanterLight.SetActive(playerInput.eveHasLantern);
+        lantern.enabled = playerInput.eveHasLantern;
         if (Random.Range(0, 100) < 5) {
             float flicker = Random.Range(0.97f, 1.03f);
 
@@ -40,11 +36,5 @@ public class LanternControll : MonoBehaviour {
         tmp = Mathf.Clamp(tmp, .2f, 1f); 
 
         lanterLight.transform.localScale = new Vector3(lanterLight.transform.localScale.x * tmp, lanterLight.transform.localScale.y * tmp, lanterLight.transform.localScale.z);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision) {
-        hasEveLantern = true;
-        GetComponent<SpriteRenderer>().enabled = false;
-        lantern.enabled = true;
     }
 }
