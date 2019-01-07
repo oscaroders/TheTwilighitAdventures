@@ -6,7 +6,7 @@ public class BetterMovableBox : ActiveInteractableObject
 {
     private bool moving;
     [SerializeField] private GameObject inputController;
-    private PlayerInput playerInput;
+    internal PlayerInput playerInput;
     private Transform[] players = new Transform[2];
     private Transform startParent;
 	void Start ()
@@ -30,6 +30,11 @@ public class BetterMovableBox : ActiveInteractableObject
             }
         }
         else
+        {
+            transform.parent = startParent;
+        }
+
+        if(playerInput.evePlayer.velocity.y != 0 || playerInput.dodoPlayer.velocity.y != 0)
         {
             transform.parent = startParent;
         }

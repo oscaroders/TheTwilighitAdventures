@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 61398918843216496}
   - component: {fileID: 82944105448435694}
   - component: {fileID: 114529328675588164}
+  - component: {fileID: 114320391530201080}
   m_Layer: 9
   m_Name: Box
   m_TagString: Untagged
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1375951762056198}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20.98, y: 2.352367, z: -0.171875}
+  m_LocalPosition: {x: 52.7, y: 2.37, z: -0.171875}
   m_LocalScale: {x: 1.6659199, y: 1.6659199, z: 1.6659199}
   m_Children: []
   m_Father: {fileID: 0}
@@ -164,6 +165,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114320391530201080
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1375951762056198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c53e524b036dc145b436b2a88980e13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 3125
+  horizontalRayCount: 0
+  verticalRayCount: 0
+  horizontalRaySpacing: 0
+  verticalRaySpacing: 0
+  collider: {fileID: 0}
+  maxSlopeAngle: 80
+  isThisDodo: 0
+  playerInput: {x: 0, y: 0}
+  gravity: -9.68
 --- !u!114 &114529328675588164
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -51,7 +51,7 @@ public class Controller2D : RaycastController {
 		}
 	}
 
-	void HorizontalCollisions(ref Vector2 moveAmount) {
+	internal void HorizontalCollisions(ref Vector2 moveAmount) {
 		float directionX = collisions.faceDir;
 		float rayLength = Mathf.Abs (moveAmount.x) + skinWidth;
 

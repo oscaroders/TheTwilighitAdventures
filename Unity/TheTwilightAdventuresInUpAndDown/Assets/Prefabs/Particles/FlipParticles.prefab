@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleColor: {r: 1, g: 0, b: 1, a: 1}
-  maxDistance: 6
+  maxDistance: 8
   roomId: 0
   TdistanceEve: 0
   TdistanceDodo: 0
