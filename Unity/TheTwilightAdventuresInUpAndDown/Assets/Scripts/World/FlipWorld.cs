@@ -13,6 +13,7 @@ public class FlipWorld : MonoBehaviour {
     float speedUpLength = 0.5f;
     public static int numberOfCorutines;
 
+    private bool fading;
     void Start()
     {
         pi = FindObjectOfType<PlayerInput>();
@@ -117,6 +118,7 @@ public class FlipWorld : MonoBehaviour {
 
     IEnumerator FlipObjectFadeOut()
     {
+        fading = true;
         SpriteShapeRenderer childAlphaCheck = new SpriteShapeRenderer();
         foreach (FlipableObject childFlipObject in childrenTransform)
         {
@@ -138,10 +140,12 @@ public class FlipWorld : MonoBehaviour {
             }
             yield return new WaitForSecondsRealtime(0.01f);
         }
+        fading = false;
         yield return null;
     }
     IEnumerator FlipObjectFadeIn()
     {
+        StopCoroutine(FlipObjectFadeOut());
         SpriteShapeRenderer childAlphaCheck = new SpriteShapeRenderer();
         foreach (FlipableObject childFlipObject in childrenTransform)
         {
@@ -150,6 +154,10 @@ public class FlipWorld : MonoBehaviour {
                 childAlphaCheck = childFlipObject.GetComponent<SpriteShapeRenderer>();
                 break;
             }
+        }
+        while(fading)
+        {
+            yield return new WaitForEndOfFrame();
         }
         while (childAlphaCheck.material.color.a < 1)
         {
