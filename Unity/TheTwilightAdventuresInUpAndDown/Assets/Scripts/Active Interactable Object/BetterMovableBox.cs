@@ -9,6 +9,7 @@ public class BetterMovableBox : ActiveInteractableObject
     internal PlayerInput playerInput;
     private Transform[] players = new Transform[2];
     private Transform startParent;
+
 	void Start ()
     {
         startParent = transform.parent;
@@ -32,6 +33,7 @@ public class BetterMovableBox : ActiveInteractableObject
         else
         {
             transform.parent = startParent;
+           
         }
 
         if(playerInput.evePlayer.velocity.y != 0 || playerInput.dodoPlayer.velocity.y != 0)
@@ -44,11 +46,13 @@ public class BetterMovableBox : ActiveInteractableObject
         if(interacting)
         {
             moving = true;
+            gameObject.layer = 8;
             playerInput.notInteracting = false;
         }
         else
         {
             moving = false;
+            gameObject.layer = 9;
             playerInput.notInteracting = true;
         }
     }
