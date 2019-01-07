@@ -396,7 +396,7 @@ GameObject:
   - component: {fileID: 30668578}
   m_Layer: 0
   m_Name: Temple_Platform_2
-  m_TagString: Untagged
+  m_TagString: Through
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -749,7 +749,7 @@ GameObject:
   - component: {fileID: 45320369}
   m_Layer: 0
   m_Name: Temple_Platform_1 (3)
-  m_TagString: Untagged
+  m_TagString: Through
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2212,7 +2212,7 @@ GameObject:
   - component: {fileID: 277034125}
   m_Layer: 0
   m_Name: Temple_Platform_1 (1)
-  m_TagString: Untagged
+  m_TagString: Through
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4203,7 +4203,7 @@ GameObject:
   - component: {fileID: 523335785}
   m_Layer: 0
   m_Name: Termple_Platform_3
-  m_TagString: Untagged
+  m_TagString: Through
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4446,7 +4446,7 @@ GameObject:
   - component: {fileID: 555398392}
   m_Layer: 0
   m_Name: Temple_Platform_1
-  m_TagString: Untagged
+  m_TagString: Through
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4893,7 +4893,7 @@ GameObject:
   - component: {fileID: 589075790}
   m_Layer: 0
   m_Name: Temple_Platform_1 (2)
-  m_TagString: Untagged
+  m_TagString: Through
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5511,7 +5511,7 @@ GameObject:
   - component: {fileID: 671455282}
   m_Layer: 0
   m_Name: New SpriteShapeController (4)
-  m_TagString: Untagged
+  m_TagString: Through
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5691,7 +5691,7 @@ GameObject:
   - component: {fileID: 725535257}
   m_Layer: 0
   m_Name: Termple_Platform_1
-  m_TagString: Untagged
+  m_TagString: Through
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5833,7 +5833,7 @@ GameObject:
   - component: {fileID: 726891513}
   m_Layer: 0
   m_Name: New SpriteShapeController (6)
-  m_TagString: Untagged
+  m_TagString: Through
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7244,7 +7244,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1799785468062864, guid: d21784ea3e208d345a98340278fea394, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 212176083107369614, guid: d21784ea3e208d345a98340278fea394,
         type: 2}
@@ -7526,7 +7526,7 @@ GameObject:
   - component: {fileID: 885667316}
   m_Layer: 0
   m_Name: Temple_Platform_1 (3)
-  m_TagString: Untagged
+  m_TagString: Through
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8185,7 +8185,7 @@ GameObject:
   - component: {fileID: 975214419}
   m_Layer: 0
   m_Name: New SpriteShapeController (5)
-  m_TagString: Untagged
+  m_TagString: Through
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10749,7 +10749,7 @@ GameObject:
   - component: {fileID: 1367749368}
   m_Layer: 0
   m_Name: New SpriteShapeController (2)
-  m_TagString: Untagged
+  m_TagString: Through
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12760,7 +12760,7 @@ GameObject:
   - component: {fileID: 1639582084}
   m_Layer: 0
   m_Name: New SpriteShapeController (3)
-  m_TagString: Untagged
+  m_TagString: Through
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13343,7 +13343,7 @@ GameObject:
   - component: {fileID: 1669743707}
   m_Layer: 0
   m_Name: Dungeon_Platform_1
-  m_TagString: Untagged
+  m_TagString: Through
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14539,7 +14539,7 @@ GameObject:
   - component: {fileID: 1827183100}
   m_Layer: 0
   m_Name: Termple_Platform_4
-  m_TagString: Untagged
+  m_TagString: Through
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15159,7 +15159,7 @@ GameObject:
   - component: {fileID: 1860497985}
   m_Layer: 0
   m_Name: New SpriteShapeController (7)
-  m_TagString: Untagged
+  m_TagString: Through
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15247,7 +15247,7 @@ MonoBehaviour:
   m_SpriteShape: {fileID: 11400000, guid: 71fbf6ef40993344dae8db1fed31ee5e, type: 2}
   m_SplineDetail: 16
   m_AdaptiveUV: 1
-  m_UpdateCollider: 1
+  m_UpdateCollider: 0
   m_ColliderDetail: 4
   m_ColliderOffset: 0
   m_ColliderCornerType: 0
@@ -15331,7 +15331,7 @@ GameObject:
   - component: {fileID: 1864545683}
   m_Layer: 0
   m_Name: New SpriteShapeController (1)
-  m_TagString: Untagged
+  m_TagString: Through
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17491,7 +17491,7 @@ GameObject:
   - component: {fileID: 2121399876}
   m_Layer: 0
   m_Name: Temple_Platform_1 (4)
-  m_TagString: Untagged
+  m_TagString: Through
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -7,6 +7,7 @@ TagManager:
   - pushable
   - Landing
   - Moving
+  - Through
   layers:
   - Default
   - TransparentFX
