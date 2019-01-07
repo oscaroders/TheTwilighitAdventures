@@ -86,7 +86,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones:
-    - name: Root/Hip
+    - name: RootHip
       position: {x: 779.7416, y: 222.48065, z: 5}
       rotation: {x: 0, y: 0, z: 0.69522846, w: 0.71878886}
       length: 99.2799
