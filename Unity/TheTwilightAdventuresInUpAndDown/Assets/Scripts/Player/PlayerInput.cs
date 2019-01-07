@@ -25,6 +25,7 @@ public class PlayerInput : MonoBehaviour {
     }
 
     void Update() {
+        
         if (Input.GetAxisRaw("Horizontal") != 0)
             direction = Mathf.Sign(Input.GetAxisRaw("Horizontal"));
 
@@ -40,7 +41,14 @@ public class PlayerInput : MonoBehaviour {
         if(IsEveInFocus)
         {
             CharacterSwitchMovment(directionalInput,evePlayer, dodoPlayer);
-            CharacterSwitchJump(Input.GetButton("Jump"), evePlayer, dodoPlayer);
+
+            if (Input.GetButtonDown("Jump")) { 
+                CharacterSwitchJump(true, evePlayer, dodoPlayer);
+                
+            } else if (Input.GetButtonUp("Jump")) {
+                CharacterSwitchJump(false, evePlayer, dodoPlayer);
+            }
+
             if (CanInteract() && Input.GetButtonDown("Interact"))
             {
                 Debug.Log("Dorection");
@@ -55,7 +63,14 @@ public class PlayerInput : MonoBehaviour {
         {
 
             CharacterSwitchMovment(directionalInput, dodoPlayer, evePlayer);
-            CharacterSwitchJump(Input.GetButton("Jump"), dodoPlayer, evePlayer);
+
+            if (Input.GetButtonDown("Jump")) {
+                CharacterSwitchJump(true, dodoPlayer, evePlayer);
+
+            } else if (Input.GetButtonUp("Jump")) {
+                CharacterSwitchJump(false, dodoPlayer, evePlayer);
+            }
+
             if(CanInteract() && Input.GetButtonDown("Interact"))
             {
                 CharacterSwitchInteract(true, direction, dodoPlayer, evePlayer);
