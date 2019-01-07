@@ -2117,7 +2117,7 @@ MonoBehaviour:
   interactRadius: 0.5
   whatIsInteractable:
     serializedVersion: 2
-    m_Bits: 2816
+    m_Bits: 768
 --- !u!114 &114754968528198064
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2174,7 +2174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCenter: {fileID: 4367794735031784}
-  interactRadius: 1
+  interactRadius: 0.5
   whatIsInteractable:
     serializedVersion: 2
     m_Bits: 768

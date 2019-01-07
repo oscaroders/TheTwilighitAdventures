@@ -25,7 +25,9 @@ public class PlayerInput : MonoBehaviour {
     }
 
     void Update() {
-        direction = Mathf.Sign(Input.GetAxisRaw("Horizontal"));
+        if (Input.GetAxisRaw("Horizontal") != 0)
+            direction = Mathf.Sign(Input.GetAxisRaw("Horizontal"));
+
         //characterSwitch.PlayerMovement(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Sprint") > 0);
 
         if (Input.GetButtonDown("CharacterSwitch"))
