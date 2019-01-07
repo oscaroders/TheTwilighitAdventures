@@ -610,6 +610,7 @@ GameObject:
   - component: {fileID: 114335205796440118}
   - component: {fileID: 50718370768448374}
   - component: {fileID: 95464046323628060}
+  - component: {fileID: 114509095157470944}
   m_Layer: 10
   m_Name: Dodo
   m_TagString: Player
@@ -1603,7 +1604,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 243781950254564542, guid: 09a69ecbd98138541ac94524a56946c7,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 0010b7ae266629f4088fe4ab1e6c7ec9, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2004,6 +2005,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c3ee1502f15d384ab3bc04e994744b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114509095157470944
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1822796322692490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d15a29c77812054fa547e5bef842eef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114543712639924090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2162,10 +2174,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCenter: {fileID: 4367794735031784}
-  interactRadius: 0.5
+  interactRadius: 1
   whatIsInteractable:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 768
 --- !u!114 &114920564735716536
 MonoBehaviour:
   m_ObjectHideFlags: 1
