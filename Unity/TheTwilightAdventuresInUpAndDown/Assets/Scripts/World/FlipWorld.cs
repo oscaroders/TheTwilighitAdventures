@@ -13,12 +13,27 @@ public class FlipWorld : MonoBehaviour {
     float speedUpLength = 0.5f;
     public static int numberOfCorutines;
 
+    private List<SpriteShapeRenderer> childRenderers = new List<SpriteShapeRenderer>();
+
     private bool fading;
     void Start()
     {
         pi = FindObjectOfType<PlayerInput>();
         childrenTransform = GetComponentsInChildren<FlipableObject>();
         StartCoroutine(UpdateFlipPosition());
+        SpriteShapeRenderer knase23;
+        foreach (FlipableObject childFlipObject in childrenTransform)
+        {
+            if(childFlipObject.isFlippable)
+            {
+                knase23 = childFlipObject.GetComponent<SpriteShapeRenderer>();
+                if (knase23 != null)
+                {
+                    childRenderers.Add(knase23);
+                    knase23 = null;
+                }
+            }
+        }
     }
     public void FlipTheWorld(bool state)
     {
@@ -119,24 +134,11 @@ public class FlipWorld : MonoBehaviour {
     IEnumerator FlipObjectFadeOut()
     {
         fading = true;
-        SpriteShapeRenderer childAlphaCheck = new SpriteShapeRenderer();
-        foreach (FlipableObject childFlipObject in childrenTransform)
+        while (childRenderers[0].material.color.a > 0)
         {
-            if (childFlipObject.isFlippable)
+            foreach (SpriteShapeRenderer childSprite in childRenderers)
             {
-                childAlphaCheck = childFlipObject.GetComponent<SpriteShapeRenderer>();
-                break;
-            }
-        }
-        while (childAlphaCheck.material.color.a > 0)
-        {
-            foreach (FlipableObject childFlipObject in childrenTransform)
-            {
-                if (childFlipObject.isFlippable)
-                {
-                    SpriteShapeRenderer childSprite = childFlipObject.GetComponent<SpriteShapeRenderer>();
-                    childSprite.material.color = new Color(childSprite.material.color.r, childSprite.material.color.g, childSprite.material.color.b, childSprite.material.color.a - (1f / speedUpLength) * Time.unscaledDeltaTime);
-                }
+                childSprite.material.color = new Color(childSprite.material.color.r, childSprite.material.color.g, childSprite.material.color.b, childSprite.material.color.a - (1f / speedUpLength) * Time.unscaledDeltaTime);
             }
             yield return new WaitForSecondsRealtime(0.01f);
         }
@@ -146,28 +148,15 @@ public class FlipWorld : MonoBehaviour {
     IEnumerator FlipObjectFadeIn()
     {
         StopCoroutine(FlipObjectFadeOut());
-        SpriteShapeRenderer childAlphaCheck = new SpriteShapeRenderer();
-        foreach (FlipableObject childFlipObject in childrenTransform)
-        {
-            if (childFlipObject.isFlippable)
-            {
-                childAlphaCheck = childFlipObject.GetComponent<SpriteShapeRenderer>();
-                break;
-            }
-        }
         while(fading)
         {
             yield return new WaitForEndOfFrame();
         }
-        while (childAlphaCheck.material.color.a < 1)
+        while (childRenderers[0].material.color.a < 1)
         {
-            foreach (FlipableObject childFlipObject in childrenTransform)
+            foreach (SpriteShapeRenderer childSprite in childRenderers)
             {
-                if (childFlipObject.isFlippable)
-                {
-                    SpriteShapeRenderer childSprite = childFlipObject.GetComponent<SpriteShapeRenderer>();
-                    childSprite.material.color = new Color(childSprite.material.color.r, childSprite.material.color.g, childSprite.material.color.b, childSprite.material.color.a + (1f / speedUpLength) * Time.unscaledDeltaTime * 4);
-                }
+                childSprite.material.color = new Color(childSprite.material.color.r, childSprite.material.color.g, childSprite.material.color.b, childSprite.material.color.a + (1f / speedUpLength) * Time.unscaledDeltaTime * 4);
             }
             yield return new WaitForSecondsRealtime(0.01f);
         }
