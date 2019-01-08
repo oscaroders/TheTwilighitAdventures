@@ -5,11 +5,12 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerController))]
 public class PlayerJump : MonoBehaviour {
 
+    AudioSource playerSounds;
     CharacterSettings settings;
     PlayerController controller;
     private void Start()
     {
-
+        playerSounds = GetComponent<AudioSource>();
         controller = GetComponent<PlayerController>();
         settings = controller.settings;
     }
@@ -26,20 +27,18 @@ public class PlayerJump : MonoBehaviour {
             }
             else if (controller.directionalInput.x == 0)
             {
-                Debug.Log(settings.wallLeap.x);
                 controller.velocity.x = -controller.wallDirX * settings.wallJumpOff.x;
                 controller.velocity.y = settings.wallJumpOff.y;
             }
             else
             {
-                Debug.Log(settings.wallLeap.x);
                 controller.velocity.x = -controller.wallDirX * settings.wallLeap.x;
                 controller.velocity.y = settings.wallLeap.y;
             }
         }
         if (controller.collisions.below)
         {
-           
+            playerSounds.Play();
             if (controller.collisions.slidingDownMaxSlope)
             {
                 if (controller.directionalInput.x != -Mathf.Sign(controller.collisions.slopeNormal.x))

@@ -118,7 +118,7 @@ public class PlayerController : Controller2D {
 
     void Flip(float direction) {
         
-        if (direction < -0.01 || direction > 0.01) {
+        if (!playerInteract.isInteracting && (direction < -0.01 || direction > 0.01)) {
             // Switch the way the player is labelled as facing
             if(oldDirection > direction && direction < -0.01) {
                 Vector3 theScale = transform.localScale;

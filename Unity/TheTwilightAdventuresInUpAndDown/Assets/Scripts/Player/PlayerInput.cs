@@ -55,7 +55,6 @@ public class PlayerInput : MonoBehaviour {
 
             if (CanInteract() && Input.GetButtonDown("Interact"))
             {
-                Debug.Log("Dorection");
                 CharacterSwitchInteract(true, direction, evePlayer, dodoPlayer);
             }
             else if (Input.GetButtonUp("Interact"))

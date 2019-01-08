@@ -52,7 +52,6 @@ public class MovableBox : ActiveInteractableObject
 			if (Input.GetAxis("Horizontal") != 0 && !moveBoxSound.isPlaying)
 			{
 				moveBoxSound.Play();
-				Debug.Log("Play Sound");
 			}
 			else if (Input.GetButtonUp("Submit"))
 			{

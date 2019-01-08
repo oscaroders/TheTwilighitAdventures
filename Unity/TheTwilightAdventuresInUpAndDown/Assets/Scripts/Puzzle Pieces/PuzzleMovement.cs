@@ -26,7 +26,6 @@ public class PuzzleMovement : ActionObject {
         if (gameObject.name.Contains("Remnent"))
         {
             GameObject g = GameObject.Find("Remnent of " + targetPos.name);
-            Debug.Log(g);
             targetPos = g.transform;
             upStart = transform.position;
             downStart = transform.position;

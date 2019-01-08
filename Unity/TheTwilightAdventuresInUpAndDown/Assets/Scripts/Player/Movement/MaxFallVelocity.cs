@@ -18,7 +18,6 @@ public class MaxFallVelocity : MonoBehaviour {
 	void Update () {
 		velocity = rigidBody2D.velocity;
 		velocity.y = Mathf.Clamp(velocity.y, -maxVelocity, maxVelocity);
-		//Debug.Log(rigidBody2D.velocity);
 
 		rigidBody2D.velocity = new Vector2(velocity.x, velocity.y);
 	}

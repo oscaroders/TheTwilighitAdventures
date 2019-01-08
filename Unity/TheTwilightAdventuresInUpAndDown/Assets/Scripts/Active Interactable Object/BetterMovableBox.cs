@@ -9,9 +9,11 @@ public class BetterMovableBox : ActiveInteractableObject
     internal PlayerInput playerInput;
     private Transform[] players = new Transform[2];
     private Transform startParent;
+    private MovableBoxPhysics physics;
 
 	void Start ()
     {
+        physics = GetComponent<MovableBoxPhysics>();
         startParent = transform.parent;
         playerInput = inputController.GetComponent<PlayerInput>();
         Interact[] temporary;
@@ -19,9 +21,9 @@ public class BetterMovableBox : ActiveInteractableObject
         players[0] = temporary[0].gameObject.transform;
         players[1] = temporary[1].gameObject.transform;
 	}
-	void Update ()
+    void Update()
     {
-		if(moving)
+        if (moving)
         {
             if (playerInput.IsEveInFocus)
                 transform.parent = players[0];
@@ -33,10 +35,10 @@ public class BetterMovableBox : ActiveInteractableObject
         else
         {
             transform.parent = startParent;
-           
+
         }
 
-        if(playerInput.evePlayer.velocity.y != 0 || playerInput.dodoPlayer.velocity.y != 0)
+        if (playerInput.evePlayer.velocity.y != 0 || playerInput.dodoPlayer.velocity.y != 0 || physics.velocity.y != 0 )
         {
             transform.parent = startParent;
         }
