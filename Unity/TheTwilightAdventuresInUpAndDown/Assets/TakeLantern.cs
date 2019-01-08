@@ -10,13 +10,12 @@ public class TakeLantern : MonoBehaviour {
         playerInput = FindObjectOfType<PlayerInput>();
     }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         playerInput.eveHasLantern = true;
         GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
+        playerInput.IsEveInFocus = false;
     }
 }
