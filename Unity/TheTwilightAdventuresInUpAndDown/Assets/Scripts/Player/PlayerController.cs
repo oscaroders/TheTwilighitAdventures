@@ -6,12 +6,14 @@ using UnityEngine.Events;
 public class PlayerController : Controller2D {
 
     internal CharacterSettings settings;
+    public SpriteRenderer sprite;
     public Interact playerInteract;
     public PlayerJump playerJump;
     public PlayerMovement playerMovement;
     float accelerationTimeAirborne = .2f;
     float accelerationTimeGrounded = .1f;
     float moveSpeed = 6;
+    float oldDirection = 1;
 
     public float gravity;
     internal Vector3 velocity;
@@ -41,6 +43,7 @@ public class PlayerController : Controller2D {
     {
         CalculateVelocity();
         HandleWallSliding();
+        Flip(directionalInput.x);
         Move(velocity * Time.deltaTime, directionalInput);
 
         if (collisions.above || collisions.below)
@@ -111,5 +114,23 @@ public class PlayerController : Controller2D {
         float targetVelocityX = directionalInput.x * moveSpeed;
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
         velocity.y += gravity * Time.deltaTime;
+    }
+
+    void Flip(float direction) {
+        
+        if (direction < -0.01 || direction > 0.01) {
+            // Switch the way the player is labelled as facing
+            if(oldDirection > direction && direction < -0.01) {
+                Vector3 theScale = transform.localScale;
+                theScale.x *= -1;
+                transform.localScale = theScale;
+            } else if(oldDirection < direction && direction > 0.01) {
+                Vector3 theScale = transform.localScale;
+                theScale.x *= -1;
+                transform.localScale = theScale;
+            }
+
+            oldDirection = direction;
+        }
     }
 }
