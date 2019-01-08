@@ -12,12 +12,14 @@ public class FlipWorld : MonoBehaviour {
     float slowdownLength = 1f;
     float speedUpLength = 0.5f;
     public static int numberOfCorutines;
+    private AudioSource boom;
 
     private List<SpriteShapeRenderer> childRenderers = new List<SpriteShapeRenderer>();
 
     private bool fading;
     void Start()
     {
+        boom = GameObject.Find("FlipWorldSound").GetComponent<AudioSource>();
         pi = FindObjectOfType<PlayerInput>();
         childrenTransform = GetComponentsInChildren<FlipableObject>();
         StartCoroutine(UpdateFlipPosition());
@@ -86,12 +88,14 @@ public class FlipWorld : MonoBehaviour {
     {
         if(numberOfCorutines < 1)
         {
+            boom.Play();
             numberOfCorutines++;
             Time.timeScale = slowdownFactor;
             StartCoroutine(FlipObjectFadeOut());
             yield return new WaitForSecondsRealtime(1f);
             if (pi.canFlip)
             {
+                
                 for (int i = 0; i < childrenTransform.Length; i++)
                 {
                     if (childrenTransform[i].isFlippable)
