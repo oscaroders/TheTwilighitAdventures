@@ -7027,7 +7027,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1799785468062864, guid: d21784ea3e208d345a98340278fea394, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 212176083107369614, guid: d21784ea3e208d345a98340278fea394,
         type: 2}
@@ -7451,9 +7451,9 @@ GameObject:
   - component: {fileID: 885667318}
   - component: {fileID: 885667317}
   - component: {fileID: 885667316}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Temple_Platform_1 (3)
-  m_TagString: Through
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10608,6 +10608,31 @@ Transform:
   m_Father: {fileID: 109108353}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1332332900 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1375951762056198, guid: 93c6661f766b2f945a117c19f76f47e2,
+    type: 2}
+  m_PrefabInternal: {fileID: 768212552}
+--- !u!50 &1332332906
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1332332900}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1360435167
 GameObject:
   m_ObjectHideFlags: 0
@@ -14829,6 +14854,29 @@ Prefab:
         type: 2}
       propertyPath: collisionMask.m_Bits
       value: 2615
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367794735031784, guid: 6713b179a0f2b874492049deb6b744e6, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 79.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4849045991909158, guid: 6713b179a0f2b874492049deb6b744e6, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 79.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114588406078898404, guid: 6713b179a0f2b874492049deb6b744e6,
+        type: 2}
+      propertyPath: currentRoomId
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114588406078898404, guid: 6713b179a0f2b874492049deb6b744e6,
+        type: 2}
+      propertyPath: notInteracting
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114588406078898404, guid: 6713b179a0f2b874492049deb6b744e6,
+        type: 2}
+      propertyPath: eveHasLantern
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6713b179a0f2b874492049deb6b744e6, type: 2}
