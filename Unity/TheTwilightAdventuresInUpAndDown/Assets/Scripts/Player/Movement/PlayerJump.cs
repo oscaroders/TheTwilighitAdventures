@@ -26,13 +26,11 @@ public class PlayerJump : MonoBehaviour {
             }
             else if (controller.directionalInput.x == 0)
             {
-                Debug.Log(settings.wallLeap.x);
                 controller.velocity.x = -controller.wallDirX * settings.wallJumpOff.x;
                 controller.velocity.y = settings.wallJumpOff.y;
             }
             else
             {
-                Debug.Log(settings.wallLeap.x);
                 controller.velocity.x = -controller.wallDirX * settings.wallLeap.x;
                 controller.velocity.y = settings.wallLeap.y;
             }

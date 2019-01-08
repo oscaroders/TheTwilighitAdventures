@@ -47,7 +47,6 @@ public class FlipableObject : MonoBehaviour {
                 collider2D.isTrigger = true;
                 if(collider2D.GetType() == typeof(BoxCollider2D))
                 {
-                    Debug.Log("ChangeSizeOnCollider");
                     BoxCollider2D d = (BoxCollider2D)collider2D;
                     Vector2 tempSize = d.size;
                     tempSize.y -= 0.1f * tempSize.y;
@@ -167,12 +166,10 @@ public class FlipableObject : MonoBehaviour {
     public void DisableFlipingForPlayer()
     {
         input.canFlip = false;
-        Debug.Log("Disable Flip for player");
     }
     public void EnableFlipingForPlayer()
     {
         input.canFlip = true;
-        Debug.Log("Enable Flip for player");
     }
 
 }

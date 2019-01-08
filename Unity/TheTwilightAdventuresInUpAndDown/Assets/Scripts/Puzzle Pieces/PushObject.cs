@@ -27,7 +27,6 @@ public class PushObject : MonoBehaviour
 
 		if (hit.collider != null && hit.collider.gameObject.tag == "pushable" && Input.GetKeyDown(KeyCode.E))
 		{
-			Debug.Log("hej");
 			box = hit.collider.gameObject;
 
 			box.GetComponent<FixedJoint2D>().enabled = true;
