@@ -38,13 +38,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1989820714430146}
-  m_LocalRotation: {x: -0, y: -0, z: -0.70710707, w: 0.7071066}
-  m_LocalPosition: {x: 3.064664, y: -0.49183893, z: 0.07421875}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.0030353265, w: 0.9999954}
+  m_LocalPosition: {x: 28.303, y: 2.291, z: 2}
+  m_LocalScale: {x: 0.76757, y: 0.76757, z: 0.76757}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.00001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.34800002}
 --- !u!61 &61129816427682670
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -57,18 +57,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0063110217, y: -0.011570454}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 1.86, y: 0, z: 2.1399999, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 0.64}
+    oldSize: {x: 5.12, y: 5.12}
     newSize: {x: 2, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 0.64}
+  m_Size: {x: 0.42208678, y: 4.8751135}
   m_EdgeRadius: 0
 --- !u!95 &95491827027062558
 Animator:
@@ -101,17 +101,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useParticlePresets: 0
   isFlippable: 0
+  wantParticles: 1
+  particlePrefab: {fileID: 0}
   particleColor: {r: 1, g: 0, b: 1, a: 1}
-  flipWorldTriggerDisable:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  flipWorldTriggerEnable:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+  isInDown: 0
 --- !u!114 &114619478443018982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -123,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b3a3d5659110b740b87ec01312cb382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activators: []
+  activator: {fileID: 0}
   activate: 0
 --- !u!114 &114704430540663960
 MonoBehaviour:
@@ -138,17 +131,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useParticlePresets: 0
   isFlippable: 0
+  wantParticles: 1
+  particlePrefab: {fileID: 0}
   particleColor: {r: 1, g: 0, b: 1, a: 1}
-  flipWorldTriggerDisable:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  flipWorldTriggerEnable:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+  isInDown: 0
 --- !u!212 &212927435138123406
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -184,7 +170,7 @@ SpriteRenderer:
   m_SortingLayerID: 525778683
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c92953dde39b4ee469269c4648fc0385, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3cf70ce5cf8857c429bb0e9786e4a488, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
