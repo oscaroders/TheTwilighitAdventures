@@ -5,12 +5,12 @@ using UnityEngine;
 public class Open : ActionObject
 {
     private Collider2D colliderBox;
-    private Animator animata;
+    private Animator animator;
     public bool activate;
     private void Start()
     {
         colliderBox = GetComponent<Collider2D>();
-        animata = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
     public override void OnActivation(bool activated)
     {
@@ -18,12 +18,12 @@ public class Open : ActionObject
         if (activated)
         {
             colliderBox.enabled = false;
-            animata.Play("DoorOpen");
+            animator.SetBool("IsOn", activated);
         }
         else
         {
             colliderBox.enabled = true;
-            animata.Play("DoorClose");
+            animator.SetBool("IsOn", activated);
         }
     }
 }

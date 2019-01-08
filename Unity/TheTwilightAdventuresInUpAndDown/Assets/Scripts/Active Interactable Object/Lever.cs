@@ -6,9 +6,11 @@ public class Lever : ActiveInteractableObject
 {
     private Activator activator;
 	public AudioSource leverSound;
+    public Animator animator;
 	void Start()
     {
         activator = GetComponent<Activator>();
+        animator = GetComponent<Animator>();
 	}
 
 	public override void Interact(bool interacting)
@@ -17,6 +19,8 @@ public class Lever : ActiveInteractableObject
 		{
 			leverSound.Play();
 			activator.stateOfActivator = !activator.stateOfActivator;
+            animator.SetBool("isOn", activator.stateOfActivator);
+
 		}
 	}
 }

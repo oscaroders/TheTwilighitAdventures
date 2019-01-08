@@ -42,6 +42,7 @@ public class BetterMovableBox : ActiveInteractableObject
         {
             transform.parent = startParent;
         }
+
 	}
     public override void Interact(bool interacting)
     {
