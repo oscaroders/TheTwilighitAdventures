@@ -12,10 +12,12 @@ public class PressurePlate : MonoBehaviour
 	public AudioSource plateSound;
     private float currentTime;
     private bool off = true;
+    private Animator animator;
 
     private void Start()
     {
         activator = GetComponent<Activator>();
+        animator = GetComponent<Animator>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
 	{
@@ -37,5 +39,7 @@ public class PressurePlate : MonoBehaviour
             activator.stateOfActivator = false;
 		if (timerOn)
             currentTime += Time.deltaTime;
+
+        animator.SetBool("IsOn", activator.stateOfActivator);
     }
 }
