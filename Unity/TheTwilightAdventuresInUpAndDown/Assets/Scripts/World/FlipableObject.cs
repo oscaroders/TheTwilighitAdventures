@@ -142,7 +142,7 @@ public class FlipableObject : MonoBehaviour {
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!original && collision.CompareTag("Player"))
+        if ((!original && collision.CompareTag("Player")) && tag.CompareTo("Thourgh") != 1)
         {
             if(input.characterInside == "")
             {
