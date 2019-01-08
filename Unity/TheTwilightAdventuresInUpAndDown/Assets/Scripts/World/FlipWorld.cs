@@ -88,7 +88,10 @@ public class FlipWorld : MonoBehaviour {
     {
         if(numberOfCorutines < 1)
         {
-            boom.Play();
+            if(pi.canFlip)
+            {
+                boom.Play();
+            }
             numberOfCorutines++;
             Time.timeScale = slowdownFactor;
             StartCoroutine(FlipObjectFadeOut());
