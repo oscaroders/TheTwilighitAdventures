@@ -134,11 +134,11 @@ public class Controller2D : RaycastController {
 					if (collisions.fallingThroughPlatform) {
 						continue;
 					}
-					if (playerInput.y == -1) {
-						collisions.fallingThroughPlatform = true;
-						Invoke("ResetFallingThroughPlatform",.5f);
-						continue;
-					}
+					//if (playerInput.y == -1) {
+					//	collisions.fallingThroughPlatform = true;
+					//	Invoke("ResetFallingThroughPlatform",.5f);
+					//	continue;
+					//}
 				}
 
 				moveAmount.y = (hit.distance - skinWidth) * directionY;
