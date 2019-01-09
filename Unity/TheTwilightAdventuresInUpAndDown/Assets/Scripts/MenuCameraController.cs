@@ -54,7 +54,7 @@ public class MenuCameraController : MonoBehaviour {
                 eventSystem.SetSelectedGameObject(audioButton);
             }
             if (animator.GetBool("mainMenu")) {
-                animatorStates.Quit();
+                //animatorStates.Quit();
             }
         }
 	}

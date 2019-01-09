@@ -81,7 +81,7 @@ public class AnimatorStates : MonoBehaviour {
         }
     }
 
-    public void Quit() {
+    public void OnQuit() {
         Application.Quit();
     }
 	
