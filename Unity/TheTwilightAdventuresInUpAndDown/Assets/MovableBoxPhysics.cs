@@ -51,4 +51,15 @@ public class MovableBoxPhysics : Controller2D {
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
         velocity.y += gravity * Time.deltaTime;
     }
+    public void InteractPhysics(Vector3 playerOneVelocity, Vector3 playerTwoVelocity)
+    {
+        if(playerOneVelocity.x < -0.5f || playerOneVelocity.x > 0.5f)
+        {
+            Move(playerOneVelocity * Time.deltaTime, new Vector2(Mathf.Sign(playerOneVelocity.x), 0));
+        }
+        else if(playerTwoVelocity.x < -0.5f || playerTwoVelocity.x > 0.5f)
+        {
+            Move(playerTwoVelocity * Time.deltaTime, new Vector2(Mathf.Sign(playerTwoVelocity.x), 0));
+        }
+    }
 }

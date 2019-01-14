@@ -25,23 +25,12 @@ public class BetterMovableBox : ActiveInteractableObject
     {
         if (moving)
         {
-            if (playerInput.IsEveInFocus)
-                transform.parent = players[0];
-            else
-            {
-                transform.parent = players[1];
-            }
-        }
-        else
-        {
-            transform.parent = startParent;
-
+            boxPhysics.InteractPhysics(playerInput.evePlayer.velocity, playerInput.dodoPlayer.velocity);
         }
 
         if (playerInput.evePlayer.velocity.y != 0 || playerInput.dodoPlayer.velocity.y != 0 || boxPhysics.velocity.y != 0 )
         {
             transform.parent = startParent;
-            Interact(false);
             players[0].GetComponent<Interact>().InteractObject(false, 0);
             players[1].GetComponent<Interact>().InteractObject(false, 0);
         }
@@ -52,13 +41,11 @@ public class BetterMovableBox : ActiveInteractableObject
         if(interacting)
         {
             moving = true;
-            gameObject.layer = 8;
             playerInput.notInteracting = false;
         }
         else
         {
             moving = false;
-            gameObject.layer = 9;
             playerInput.notInteracting = true;
         }
     }
