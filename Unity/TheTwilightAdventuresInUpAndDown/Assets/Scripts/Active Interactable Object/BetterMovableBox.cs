@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BetterMovableBox : ActiveInteractableObject
 {
-    private bool moving;
+    internal bool moving;
     [SerializeField] private GameObject inputController;
     internal PlayerInput playerInput;
     private Transform[] players = new Transform[2];
@@ -25,7 +25,7 @@ public class BetterMovableBox : ActiveInteractableObject
     {
         if (moving)
         {
-            boxPhysics.InteractPhysics(playerInput.evePlayer.velocity, playerInput.dodoPlayer.velocity);
+            boxPhysics.InteractPhysics(playerInput.evePlayer.velocity, playerInput.dodoPlayer.velocity, playerInput.IsEveInFocus);
         }
 
         if (playerInput.evePlayer.velocity.y != 0 || playerInput.dodoPlayer.velocity.y != 0 || boxPhysics.velocity.y != 0 )

@@ -103,7 +103,7 @@ public class Controller2D : RaycastController {
 		}
 	}
 
-	void VerticalCollisions(ref Vector2 moveAmount) {
+	internal void VerticalCollisions(ref Vector2 moveAmount) {
 		float directionY = Mathf.Sign (moveAmount.y);
 		float rayLength = Mathf.Abs (moveAmount.y) + skinWidth;
 
@@ -184,7 +184,7 @@ public class Controller2D : RaycastController {
 		}
 	}
 
-	void DescendSlope(ref Vector2 moveAmount) {
+	internal void DescendSlope(ref Vector2 moveAmount) {
 
 		RaycastHit2D maxSlopeHitLeft = Physics2D.Raycast (raycastOrigins.bottomLeft, Vector2.down, Mathf.Abs (moveAmount.y) + skinWidth, collisionMask);
 		RaycastHit2D maxSlopeHitRight = Physics2D.Raycast (raycastOrigins.bottomRight, Vector2.down, Mathf.Abs (moveAmount.y) + skinWidth, collisionMask);

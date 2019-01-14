@@ -51,15 +51,46 @@ public class MovableBoxPhysics : Controller2D {
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
         velocity.y += gravity * Time.deltaTime;
     }
-    public void InteractPhysics(Vector3 playerOneVelocity, Vector3 playerTwoVelocity)
+    public void InteractPhysics(Vector3 playerOneVelocity, Vector3 playerTwoVelocity, bool isEve)
     {
-        if(playerOneVelocity.x < -0.5f || playerOneVelocity.x > 0.5f)
+        if(isEve)
         {
             Move(playerOneVelocity * Time.deltaTime, new Vector2(Mathf.Sign(playerOneVelocity.x), 0));
         }
-        else if(playerTwoVelocity.x < -0.5f || playerTwoVelocity.x > 0.5f)
+        else if(!isEve)
         {
             Move(playerTwoVelocity * Time.deltaTime, new Vector2(Mathf.Sign(playerTwoVelocity.x), 0));
+        }
+    }
+    private new void Move(Vector2 moveAmount, Vector2 input, bool standingOnPlatform = false)
+    {
+        UpdateRaycastOrigins();
+
+        collisions.Reset();
+        collisions.moveAmountOld = moveAmount;
+        playerInput = input;
+
+        if (moveAmount.y < 0)
+        {
+            DescendSlope(ref moveAmount);
+        }
+
+        if (moveAmount.x != 0)
+        {
+            collisions.faceDir = (int)Mathf.Sign(moveAmount.x);
+        }
+        if(betterMovableBox.moving)
+            HorizontalCollisions(ref moveAmount);
+        if (moveAmount.y != 0)
+        {
+            VerticalCollisions(ref moveAmount);
+        }
+
+        transform.Translate(moveAmount);
+
+        if (standingOnPlatform)
+        {
+            collisions.below = true;
         }
     }
 }
