@@ -6030,7 +6030,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 664223159}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.7, y: 2.74, z: 0}
+  m_LocalPosition: {x: 39.89, y: 2.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 539163292}
@@ -9981,7 +9981,7 @@ MonoBehaviour:
   canFlip: 1
   characterInside: 
   notInteracting: 1
-  currentRoomId: 1
+  currentRoomId: 2
   evePlayer: {fileID: 664223167}
   dodoPlayer: {fileID: 1859488645}
   IsEveInFocus: 1
@@ -10398,7 +10398,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1078050404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.12, y: -1.59, z: 0}
+  m_LocalPosition: {x: -8.05, y: 1.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 862203760}
@@ -18830,6 +18830,7 @@ GameObject:
   - component: {fileID: 1898648032}
   - component: {fileID: 1898648031}
   - component: {fileID: 1898648033}
+  - component: {fileID: 1898648034}
   m_Layer: 0
   m_Name: Temple_1
   m_TagString: Untagged
@@ -18957,6 +18958,23 @@ EdgeCollider2D:
   m_Points:
   - {x: 39, y: 3.78776}
   - {x: 39, y: 10.26384}
+--- !u!68 &1898648034
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1898648029}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 39.00014, y: 10.263806}
+  - {x: 42.304165, y: 10.264757}
 --- !u!1 &1909311822
 GameObject:
   m_ObjectHideFlags: 0

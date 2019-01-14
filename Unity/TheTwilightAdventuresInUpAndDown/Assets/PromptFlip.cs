@@ -24,10 +24,10 @@ public class PromptFlip : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        if (playerInput.currentRoomId == 2 && playerInput.IsEveInFocus) {
+        if ((playerInput.currentRoomId == 2 && playerInput.IsEveInFocus) && playerInput.eveHasLantern) {
             float distance = Vector3.Distance(trans.position, player.transform.position);
 
-            if (distance < 2.5 && firstTimeHere) {
+            if (distance < 3.5 && firstTimeHere) {
                 text.enabled = true;
                 if (Input.GetButton("FlipWorld")) {
                     firstTimeHere = false;
